@@ -1,0 +1,79 @@
+.sign{
+    width: 100%;
+    height: 100vh;
+    background-color: var(--gray-400);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+}
+
+.sign .logo{
+    color: var(--green-500);
+    margin-top: 3%;
+    font-size: 3em;
+    font-weight: 500;
+}
+
+.sign .form-container{
+    width: 450px;
+    background-color: #fff;
+    padding: 60px 50px;
+    border-radius: 10px;
+    border: 1px solid var(--gray-700);
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.sign .form-title{
+    color: var(--green-800);
+    font-size: 2.25em;
+    font-weight: 500;
+}
+
+.sign .form-sign{
+    width: 100%;
+    display:flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.sign .form-sign > input{
+    height: 40px;
+    padding: 0px 20px;
+    font-size: 1em;
+    font-weight: 400;
+    border-radius: 5px;
+    border: 1px solid var(--gray-700);
+}
+
+.sign .form-sign > input::placeholder{
+    color: var(--gray-700);;
+}
+
+
+.sign .btn-login, .btn-create-account{
+    height: 35px;
+    background-color: var(--green-500);
+    color: #fff;
+    font-size: 1.25em;
+    font-weight: 700;
+    border-radius: 5px;
+    border: 0px;
+
+    transition:  0.2s background-color ease-in-out ;
+}
+
+.sign .btn-login:hover, .btn-create-account:hover{
+    background-color: var(--green-600);
+}
+
+.sign label{
+    color: var(--gray-700);
+    text-align: center;
+}
+
+.sign label > a{
+    text-decoration: none;
+}
