@@ -1,8 +1,13 @@
 import React, { useState } from 'react';
+import { Main, 
+    Logo, 
+    ContainerForm, 
+    TitleForm, 
+    Form, 
+    ButtonForm,
+    ParagraphForm } from '../styles/sign';
 
 import { api } from '../lib/axios';
-
-import '../styles/Sign.css';
 
 export const SignUp = () =>{
     const [user, setUser] = useState({
@@ -49,25 +54,27 @@ export const SignUp = () =>{
     }
 
     return(
-        <main className='sign'>
-            <h2 className='logo' >UniBook</h2>
+        <Main>
 
-            <div className='form-container'>
-                <h3 className='form-title' > Create an Account</h3>
+            <Logo>UniBook</Logo>
 
-                <form className='form-sign'>
+            <ContainerForm>
+
+                <TitleForm>Create an Account</TitleForm>
+
+                <Form>
                     <input type='text' name='email' placeholder='Email' onChange={handleInput}></input>
                     <input type='password' name='password' placeholder='Password' onChange={handleInput}></input>
                     <input type='password' name='passwordConfirmation' placeholder='Password Confirmation' onChange={handleInput}></input>
-                </form>
+                </Form>
 
-                <button className='btn-create-account' onClick={submit}>Create</button>
+                <ButtonForm onClick={submit}>Create</ButtonForm>
                 
-                <label>
-                    Already have an account? 
-                    <a href="/signin"> Sign in. </a>
-                </label>
-            </div>
-        </main>
+                <ParagraphForm>
+                    Already have an account?    
+                    <a href="/signin"> Sign in. </a> 
+                </ParagraphForm>
+            </ContainerForm>
+        </Main>
     )
 }
