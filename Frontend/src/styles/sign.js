@@ -53,7 +53,7 @@ export const TitleForm = styled.h3`
     font-weight: 500;
 
     @media screen and (max-width: 450px){
-        min-width: 310px;
+        min-width: 200px;
         font-size: 2em;
     }
 `;
