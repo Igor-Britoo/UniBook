@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.base_user import AbstractBaseUser
+from django.contrib.auth.models import PermissionsMixin
 
 class Address(models.Model):
 
@@ -40,7 +41,7 @@ class Address(models.Model):
     def __str__(self):
 	    return self.street_name + ", " + str(self.house_number) + ", " + self.city
 
-class Customer(AbstractBaseUser):
+class Customer(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(max_length=254, primary_key=True, default="")
     name = models.CharField(max_length=254)
     address = models.ForeignKey(Address, on_delete=models.CASCADE, null=True)
