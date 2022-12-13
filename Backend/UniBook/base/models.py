@@ -35,8 +35,8 @@ class Address(models.Model):
         SE = 'SE', ('Sergipe')
         TO = 'TO', ('Tocantins')
 
-    house_number = models.IntegerField()
     street_name = models.CharField(max_length=255)
+    house_number = models.IntegerField()
     city = models.CharField(max_length=255)
     state = models.CharField(max_length=2, choices=State.choices)
 
@@ -75,11 +75,11 @@ class Genre(models.Model):
 class Book(models.Model):
     ISBN = models.CharField(max_length=13, primary_key=True)
     name = models.CharField(max_length=255)
+    author = models.CharField(max_length=255)
+    publication_year = models.IntegerField()
     publisher = models.CharField(max_length=255)
     genres = models.ManyToManyField(Genre) 
-    author = models.CharField(max_length=255)
     number_of_pages = models.IntegerField()
-    publication_year = models.IntegerField()
     price = models.DecimalField(max_digits=10, decimal_places=2)
 
     def __str__(self):
