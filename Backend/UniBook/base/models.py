@@ -2,6 +2,8 @@ from django.db import models
 from django.contrib.auth.base_user import AbstractBaseUser
 from django.contrib.auth.models import PermissionsMixin
 
+from .managers import UserManager, CustomerManager
+
 class Address(models.Model):
 
     class State(models.TextChoices):
@@ -34,26 +36,37 @@ class Address(models.Model):
         TO = 'TO', ('Tocantins')
 
     house_number = models.IntegerField()
-    street_name = models.CharField(max_length=254)
-    city = models.CharField(max_length=254)
+    street_name = models.CharField(max_length=255)
+    city = models.CharField(max_length=255)
     state = models.CharField(max_length=2, choices=State.choices)
 
     def __str__(self):
 	    return self.street_name + ", " + str(self.house_number) + ", " + self.city
 
-class Customer(AbstractBaseUser, PermissionsMixin):
-    email = models.EmailField(max_length=254, primary_key=True, default="")
-    name = models.CharField(max_length=254)
-    address = models.ForeignKey(Address, on_delete=models.CASCADE, null=True)
+class User(AbstractBaseUser, PermissionsMixin):
+    email = models.EmailField(max_length=255, primary_key=True, default="")
+    name = models.CharField(max_length=255)
+    is_staff = models.BooleanField(default=False)
+    is_active = models.BooleanField(default=False)
 
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = []
+    REQUIRED_FIELDS = ['name']
+
+    objects = UserManager()
+
+    def __str__(self):
+	    return self.email
+
+class Customer(User):
+    address = models.ForeignKey(Address, on_delete=models.CASCADE, null=True, blank=True)
+    
+    objects = CustomerManager()
 
     def __str__(self):
 	    return self.email
 
 class Genre(models.Model):
-    name = models.CharField(max_length=254, primary_key=True, default="")
+    name = models.CharField(max_length=255, primary_key=True, default="")
     description = models.TextField()
 
     def __str__(self):
@@ -61,13 +74,14 @@ class Genre(models.Model):
     
 class Book(models.Model):
     ISBN = models.CharField(max_length=13, primary_key=True)
-    name = models.CharField(max_length=254)
-    publisher = models.CharField(max_length=254)
+    name = models.CharField(max_length=255)
+    publisher = models.CharField(max_length=255)
     genres = models.ManyToManyField(Genre) 
-    author = models.CharField(max_length=254)
+    author = models.CharField(max_length=255)
     number_of_pages = models.IntegerField()
     publication_year = models.IntegerField()
     price = models.DecimalField(max_digits=10, decimal_places=2)
 
     def __str__(self):
 	    return self.name + ", " + self.author + ", " + str(self.publication_year)
+

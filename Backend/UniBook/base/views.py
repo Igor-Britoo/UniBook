@@ -13,15 +13,13 @@ def create_customer(request):
         name = request.data['name']
         password = request.data['password']
 
-        customer_exists = Customer.objects.filter(email=email).exists()
+        user_exists = User.objects.filter(email=email).exists()
 
-        if customer_exists: 
+        if user_exists: 
             return Response(status=409)
 
         else:
-            customer = Customer.objects.create(email=email,name=name, password=password)
-            customer.set_password(password)
-            customer.save()
+            Customer.objects.create_user(email=email,name=name, password=password, address = None)
             return Response(status=201)
 
     return Response(status=400)
