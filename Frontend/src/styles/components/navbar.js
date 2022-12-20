@@ -15,11 +15,6 @@ export const UpNav = styled.div`
   justify-content: space-around;
   height: 101px;
   background-color: #619885;
-  
-  /* @media screen and (max-width: 1440px) {
-    display: flex;
-    justify-content: initial;
-  } */
 
   .buttons {
     display: flex;
@@ -55,20 +50,31 @@ export const Logo = styled.h2`
   @media screen and (max-width: 1000px) {
     font-size: 38px;
   }
+
+  // Centralizing logo in mobile navbar
+  @media screen and (max-width: 850px) {
+    margin-left: 25px;
+  }
 `;
 
 export const Form = styled.form`
   display: flex;
+  align-items: center;
+  padding: 0px 20px;
 
+  @media screen and (max-width: 850px) {
+    min-width: 100px;
+  }
   
 `;
 
 export const Input = styled.input`
-  width: 524px;
+  width: 468px;
   height: 38px;
-  border-radius: 20px;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
   border: 1px solid #9D9F9E;
-  position: absolute;
+  border-right: none;
 
   ::placeholder {
     font-size: 16px;
@@ -80,14 +86,24 @@ export const Input = styled.input`
   :focus {
     padding-left: 26px;
   }
+
+  
 `;
 
 export const Search = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border: none;
   background: transparent;
-  position: relative;
-  margin-left: 480px;
-  margin-top: 9px;
+  height: 38px;
+  width: 56px;
+  background-color: white;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  border: 1px solid #9D9F9E;
+  border-left: none;
+
 
   :hover {
     cursor: pointer;
@@ -126,9 +142,35 @@ export const MobileNavBar = styled.div`
 
   @media screen and (max-width: 850px){
     display: flex;
+    flex-direction: column;
     width: 100%;
-    height: 101px;
-    background-color: black;
-
+    height: 110px;
+    background-color: #619885;
   }
 `;
+
+export const MobileUpNav = styled.div`
+  display: flex;
+  width: 100%;
+  height: 60px;
+  justify-content: space-around;
+  align-items: center;
+
+  .buttons {
+    display: flex;
+    gap: 5px;
+  }
+`;
+
+export const MobileDownNav = styled.div`
+  display: flex;
+  justify-content: center;
+`;
+
+export const MobileScreamExtended = styled.div`
+  width: 85%;
+  height: 100%;
+  background-color: white;
+  position: absolute;
+  display: none;
+`
