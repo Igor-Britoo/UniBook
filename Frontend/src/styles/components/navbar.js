@@ -32,6 +32,8 @@ export const DownNav = styled.div`
   justify-content: center;
   gap: 120px;
   height: 54px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.25);
+
 
   @media screen and (max-width: 1200px) {
     gap: 100px;
@@ -168,9 +170,55 @@ export const MobileDownNav = styled.div`
 `;
 
 export const MobileScreamExtended = styled.div`
-  width: 85%;
+  width: 100%;
   height: 100%;
   background-color: white;
   position: absolute;
-  display: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `
+
+export const ShowButton = styled.button`
+  background: transparent;
+  border: none;
+`;
+
+export const HideButton = styled.button`
+  background: transparent;
+  border: none;
+  margin-right: 20px;
+`;
+
+export const AccountButtonContainer = styled.div`
+  display: flex;
+  width: 100%;
+  height: 60px;
+  background-color: #619885;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 11px;
+
+  h3 {
+    display: flex;
+    margin-left: 20px;
+    font-size: 24px;
+    font-weight: 400;
+    color: #1C3333;
+  }
+`;
+
+export const SideOption = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px;
+  width: 50%;
+  border-bottom: 1px solid black;
+  
+  p {
+
+    font-size: 20px;
+    font-weight: 400;
+    color: #767D7B;
+  }
+`;
