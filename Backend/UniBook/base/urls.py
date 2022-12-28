@@ -10,4 +10,5 @@ urlpatterns = [
    path('signup/', views.create_customer, name='create_customer'),
    path('token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
    path('token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
+   path('customer-logged/', views.customer_logged, name='customer_logged'),
 ]
