@@ -27,6 +27,11 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",
+    "http://127.0.0.1:3000",
+]
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -41,6 +46,7 @@ INSTALLED_APPS = [
 
     'rest_framework',
     'rest_framework_simplejwt.token_blacklist',
+    "corsheaders",
 ]
 
 REST_FRAMEWORK = {
@@ -51,7 +57,7 @@ REST_FRAMEWORK = {
 }
 
 SIMPLE_JWT = {
-    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=5),
+    'ACCESS_TOKEN_LIFETIME': timedelta(hours=1),
     'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
     'ROTATE_REFRESH_TOKENS': True,
     'BLACKLIST_AFTER_ROTATION': True,
@@ -78,7 +84,7 @@ SIMPLE_JWT = {
     'JTI_CLAIM': 'jti',
 
     'SLIDING_TOKEN_REFRESH_EXP_CLAIM': 'refresh_exp',
-    'SLIDING_TOKEN_LIFETIME': timedelta(minutes=5),
+    'SLIDING_TOKEN_LIFETIME': timedelta(hours=1),
     'SLIDING_TOKEN_REFRESH_LIFETIME': timedelta(days=1),
 }
 
@@ -90,6 +96,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
+    "corsheaders.middleware.CorsMiddleware",
 ]
 
 ROOT_URLCONF = 'UniBook.urls'
