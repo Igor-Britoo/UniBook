@@ -1,5 +1,5 @@
 import React from 'react'
-import { Routes, Route, } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import './styles/App.css';
 
@@ -8,10 +8,14 @@ import { SignUp } from './pages/SignUp';
 
 function App() {
   return (
-    <Routes>
-      <Route path="/signin" element= {<SignIn/>} />
-      <Route path="/signup" element= {<SignUp/>} />
-    </Routes>
+    <BrowserRouter>
+      <Routes>
+
+        <Route path="/signin/" element= {<SignIn/>} />
+        <Route path="/signup/" element= {<SignUp/>} />
+      
+      </Routes>
+    </BrowserRouter>
   );
 }
 
