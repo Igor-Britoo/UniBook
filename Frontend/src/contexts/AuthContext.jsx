@@ -11,42 +11,49 @@ export const AuthProvider = ({children}) => {
     const updateToken = async() => {
         let refreshToken = localStorage.getItem('refresh')
 
-        return await api.post('token/refresh/',  {refresh: refreshToken} )
-        .then( response => {
-            console.log(response)
-            
-            const accessToken = response.data.access
-            const refreshToken = response.data.refresh  
-            localStorage.setItem('access', accessToken)     
-            localStorage.setItem('refresh', refreshToken)
-            
-            return response
-        })
-        .catch( error => {
-            console.log(error)
-            return error.response
-        })
+        if (refreshToken) {
+            return await api.post('token/refresh/',  {refresh: refreshToken} )
+            .then( response => {
+                console.log(response)
+                
+                const accessToken = response.data.access
+                const refreshToken = response.data.refresh  
+                localStorage.setItem('access', accessToken)     
+                localStorage.setItem('refresh', refreshToken)
+                
+                return response
+            })
+            .catch( error => {
+                console.log(error)
+                return error.response
+            })
+        }
+        return {response : { status: 400 }}
     }
 
     const getCustomerInfo = async() => {
         let accessToken = localStorage.getItem('access')
-        api.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`
 
-        return await api.get('customer-logged/')
-        .then( response => {
-            console.log(response)
-
-            setUser({
-                name: response.data['name'],
-                email: response.data['email'],
-                address: response.data['address'],
+        if (accessToken) {
+            api.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`
+            
+            return await api.get('customer-logged/')
+            .then( response => {
+                console.log(response)
+    
+                setUser({
+                    name: response.data['name'],
+                    email: response.data['email'],
+                    address: response.data['address'],
+                })
+                return response
             })
-            return response
-        })
-        .catch(error =>{
-            console.log(error)
-            return error.response
-        })
+            .catch(error =>{
+                console.log(error)
+                return error.response
+            })
+        }
+        return { response : { status: 400 } }
     }
 
     useEffect(() => {
@@ -58,7 +65,6 @@ export const AuthProvider = ({children}) => {
                 if(updateTokenResponse.status === 200){
                     getCustomerInfo()
                 }
-
             }
         })
     }, [])
