@@ -64,6 +64,9 @@ export const AuthProvider = ({children}) => {
 
                 if(updateTokenResponse.status === 200){
                     getCustomerInfo()
+                }else{
+                    localStorage.removeItem('access')
+                    localStorage.removeItem('refresh')
                 }
             }
         })
