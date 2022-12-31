@@ -5,13 +5,14 @@ import { Main,
     TitleForm, 
     Form, 
     ButtonForm,
-    ParagraphForm } from '../styles/sign';
+    ParagraphForm } from '../components/SignComponents';
 
 import { api } from '../lib/axios';
 
 export const SignUp = () =>{
     const [user, setUser] = useState({
         email: '',
+        name: '',
         password: '',
         passwordConfirmation: '',
     })
@@ -30,26 +31,23 @@ export const SignUp = () =>{
     const confirmPassword = (password, passwordConfirmation) => password === passwordConfirmation && password !== ''
 
     const submit = () =>{
-        console.log(JSON.stringify(user))
-
         let canSubmit = true;
 
-        if(! isValidEmail(user.email)) canSubmit = false
+        if (! isValidEmail(user.email)) canSubmit = false
+        if ( user.name === "") canSubmit = false
         if (! confirmPassword(user.password, user.passwordConfirmation)) canSubmit = false
 
-        if(canSubmit) {
-            console.log('submitted')
-             /*
-            api.post('/api/', user).
-            then(response => (
+        if(canSubmit) {                        
+            api.post('/signup/', user)
+            .then(response => {
                 console.log(response)
-            ))
+            })
             .catch(error => {
                 console.log(error)
             })
-            */
+            
         }else{
-            console.log('error')
+            console.log('cannot submit')
         }
     }
 
@@ -64,6 +62,7 @@ export const SignUp = () =>{
 
                 <Form>
                     <input type='text' name='email' placeholder='Email' onChange={handleInput}></input>
+                    <input type='text' name='name' placeholder='Name' onChange={handleInput}></input>
                     <input type='password' name='password' placeholder='Password' onChange={handleInput}></input>
                     <input type='password' name='passwordConfirmation' placeholder='Password Confirmation' onChange={handleInput}></input>
                 </Form>

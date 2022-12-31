@@ -5,8 +5,8 @@ import { Main,
     TitleForm, 
     Form, 
     ButtonForm,
-    ParagraphForm } from '../styles/sign';
-
+    ParagraphForm } from '../components/SignComponents';
+    
 import { api } from '../lib/axios';
 
 export const SignIn = () =>{
@@ -17,7 +17,6 @@ export const SignIn = () =>{
 
     const handleInput = (event) =>{
         const data = event.target
-
         setUser({
             ...user,
             [data.name] : data.value,
@@ -25,22 +24,34 @@ export const SignIn = () =>{
     }
 
     const isValidEmail = email => (/\S+@\S+\.\S+/.test(email))
-    
-    const submit = () =>{
-        console.log(JSON.stringify(user))
-        
-        if(! isValidEmail(user.email)) console.log('invalid email')
-        if(user.password === '')  console.log('invalid password')
 
-        /*
-        api.post('/api/', user).
-        then(response => (
+    const getTokens = user => {
+        api.post('/token/', user)
+        .then(response => {
             console.log(response)
-        ))
+    
+            const accessToken = response.data.access
+            const refreshToken = response.data.refresh
+            localStorage.setItem('access', accessToken)     
+            localStorage.setItem('refresh', refreshToken) 
+        })
         .catch(error => {
             console.log(error)
         })
-        */
+    }
+    
+    const submit = async () =>{     
+        let canSubmit = true;
+        
+        if(! isValidEmail(user.email)) canSubmit = false
+        if(user.password === '')  canSubmit = false
+
+        if(canSubmit) {    
+            getTokens(user)
+        }else{
+            console.log('cannot submit')
+        }
+        
     }
 
     return(
