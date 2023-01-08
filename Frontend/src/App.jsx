@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { HashRouter, Route, Routes } from "react-router-dom";
 
 import './styles/App.css';
 
@@ -10,14 +10,14 @@ import { SignUp } from './pages/SignUp';
 function App() {
   return (
     <AuthProvider>
-      <BrowserRouter>
+      <HashRouter>
         <Routes>
 
           <Route path="/signin/" element= {<SignIn/>} />
           <Route path="/signup/" element= {<SignUp/>} />
           
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
     </AuthProvider>
   );
 }

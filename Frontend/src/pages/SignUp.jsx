@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom'
 import { Main, 
     Logo, 
     ContainerForm, 
@@ -71,7 +72,7 @@ export const SignUp = () =>{
                 
                 <ParagraphForm>
                     Already have an account?    
-                    <a href="/signin"> Sign in. </a> 
+                    <Link to="/signin/"> Sign in. </Link>
                 </ParagraphForm>
             </ContainerForm>
         </Main>
