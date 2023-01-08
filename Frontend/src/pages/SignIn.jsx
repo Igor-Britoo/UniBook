@@ -6,15 +6,23 @@ import { Main,
     TitleForm, 
     Form, 
     ButtonForm,
-    ParagraphForm } from '../components/SignComponents';
+    ParagraphForm, 
+    ErrorMessage } from '../components/SignComponents';
     
 import { api } from '../lib/axios';
 
 export const SignIn = () =>{
-    const [user, setUser] = useState({
+    const defaultUser = {
         email: '',
         password: ''
-    })
+    }
+    const defaultErrors = {
+        email: false,
+        password: false,
+    }
+
+    const [user, setUser] = useState(defaultUser)
+    const [errors, setErrors] = useState(defaultErrors)
 
     const handleInput = (event) =>{
         const data = event.target
@@ -35,17 +43,37 @@ export const SignIn = () =>{
             const refreshToken = response.data.refresh
             localStorage.setItem('access', accessToken)     
             localStorage.setItem('refresh', refreshToken) 
+            
+            alert('Login successful!')
+            setUser(defaultUser)
         })
         .catch(error => {
             console.log(error)
+            if(error.response.status === 401){
+                alert('The email address or password is incorrect. Please retry.')
+            }
         })
     }
     
     const submit = async () =>{     
         let canSubmit = true;
+        setErrors(defaultErrors)
         
-        if(! isValidEmail(user.email)) canSubmit = false
-        if(user.password === '')  canSubmit = false
+        if ( user.email === "" || !isValidEmail(user.email)){
+            setErrors(prevState =>({
+                ...prevState,
+                email : true
+            }))
+            canSubmit = false
+        }
+
+        if ( user.password === "" ) {
+            setErrors(prevState =>({
+                ...prevState,
+                password : true,
+            }))
+            canSubmit = false
+        }
 
         if(canSubmit) {    
             getTokens(user)
@@ -63,8 +91,11 @@ export const SignIn = () =>{
                 <TitleForm>Sign in</TitleForm>
 
                 <Form>
-                    <input type='email' name='email' placeholder='Email' onChange={handleInput}></input>
-                    <input type='password' name='password' placeholder='Password' onChange={handleInput}></input>
+                    { errors.email ? <ErrorMessage>Invalid email address</ErrorMessage> : null }
+                    <input type='email' name='email' placeholder='Email' value={user.email} onChange={handleInput}></input>
+
+                    { errors.password ? <ErrorMessage>The password is required</ErrorMessage> : null }
+                    <input type='password' name='password' placeholder='Password' value={user.password} onChange={handleInput}></input>
                 </Form>
 
                 <ButtonForm onClick={submit} >Login</ButtonForm>

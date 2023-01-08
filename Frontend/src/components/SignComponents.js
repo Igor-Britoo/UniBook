@@ -3,12 +3,16 @@ import styled from "styled-components";
 export const Main = styled.main`
     width: 100%;
     height: 100vh;
-    min-height: 750px;
+    min-height: 950px;
     background-color: var(--gray-400);
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 40px;
+
+    @media screen and (max-width: 450px){
+        min-height: 850px;
+    }
 `;
 
 export const Logo = styled.h2`
@@ -113,3 +117,8 @@ export const ParagraphForm = styled.label`
         text-decoration: none;
     }
 `;
+
+export const ErrorMessage = styled.span`
+    color: red;
+    font-size: 0.9em;
+`
