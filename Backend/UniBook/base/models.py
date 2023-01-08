@@ -81,6 +81,16 @@ class Book(models.Model):
     genres = models.ManyToManyField(Genre) 
     number_of_pages = models.IntegerField()
     price = models.DecimalField(max_digits=10, decimal_places=2)
+    cover = models.ImageField(null=True, blank=True)
+
+    @property
+    def cover_url(self):
+        try:
+            url = self.cover.url
+        except:
+            url = '/images/default_book_cover.jpg'
+
+        return url
 
     def __str__(self):
 	    return self.name + ", " + self.author + ", " + str(self.publication_year)
