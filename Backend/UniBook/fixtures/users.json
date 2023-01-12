@@ -1,0 +1,146 @@
+[
+    {
+        "model": "base.user",
+        "pk": "admin@gmail.com",
+        "fields": {
+            "password": "pbkdf2_sha256$390000$aE6p3VhLUFK5o6Zbk1ZC4E$+BwLXi60e0qBDL30O6aE0e6uX+JNSyesub7IuHMjYL4=",
+            "last_login": "2023-01-12T00:33:45.763Z",
+            "is_superuser": true,
+            "name": "admin",
+            "is_staff": true,
+            "is_active": true,
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "base.user",
+        "pk": "customer0@gmail.com",
+        "fields": {
+            "password": "pbkdf2_sha256$390000$UPe3lMAusCUDuWbQ8tQU1k$jP1OLsSfWL0lsDtWKXAhTcRroXTxpY+SbCxsM0WUbSU=",
+            "last_login": null,
+            "is_superuser": false,
+            "name": "customer0",
+            "is_staff": false,
+            "is_active": true,
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "base.user",
+        "pk": "customer1@gmail.com",
+        "fields": {
+            "password": "pbkdf2_sha256$390000$dSc5RUzhV0ga3TBDKcbiQo$8WCJ2SXKllBIxFg8JC3jeAHUHNYl6ZJCaNwr+DXAMUU=",
+            "last_login": null,
+            "is_superuser": false,
+            "name": "customer1",
+            "is_staff": false,
+            "is_active": true,
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "base.user",
+        "pk": "customer2@gmail.com",
+        "fields": {
+            "password": "pbkdf2_sha256$390000$OagVPZjaPdNKEnNZdevmSG$z5ZIkcqCS2YJca/HXmmNrpC42LR4yz24oDW8FBPsNWc=",
+            "last_login": null,
+            "is_superuser": false,
+            "name": "customer2",
+            "is_staff": false,
+            "is_active": true,
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "base.user",
+        "pk": "customer3@gmail.com",
+        "fields": {
+            "password": "pbkdf2_sha256$390000$QZ6ro3Vao61xbZi0siuxtr$ja4w9sd6ndINrBDzyJNHOgHePLJiVL35uqX5pdlpzAI=",
+            "last_login": null,
+            "is_superuser": false,
+            "name": "customer3",
+            "is_staff": false,
+            "is_active": true,
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "base.user",
+        "pk": "customer4@gmail.com",
+        "fields": {
+            "password": "pbkdf2_sha256$390000$I2NmVFBsDAzmNQfHml3pTs$bvPb2XE/gx8eDTsBPCdGTEzUkeKmnSRtzL6AcvUrw/s=",
+            "last_login": null,
+            "is_superuser": false,
+            "name": "customer4",
+            "is_staff": false,
+            "is_active": true,
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "base.customer",
+        "pk": "customer0@gmail.com",
+        "fields": {
+            "address": 1
+        }
+    },
+    {
+        "model": "base.customer",
+        "pk": "customer1@gmail.com",
+        "fields": {
+            "address": 2
+        }
+    },
+    {
+        "model": "base.customer",
+        "pk": "customer2@gmail.com",
+        "fields": {
+            "address": 3
+        }
+    },
+    {
+        "model": "base.customer",
+        "pk": "customer3@gmail.com",
+        "fields": {
+            "address": 4
+        }
+    },
+    {
+        "model": "base.customer",
+        "pk": "customer4@gmail.com",
+        "fields": {
+            "address": 5
+        }
+    },
+    {
+        "model": "base.cart",
+        "pk": "customer0@gmail.com",
+        "fields": {}
+    },
+    {
+        "model": "base.cart",
+        "pk": "customer1@gmail.com",
+        "fields": {}
+    },
+    {
+        "model": "base.cart",
+        "pk": "customer2@gmail.com",
+        "fields": {}
+    },
+    {
+        "model": "base.cart",
+        "pk": "customer3@gmail.com",
+        "fields": {}
+    },
+    {
+        "model": "base.cart",
+        "pk": "customer4@gmail.com",
+        "fields": {}
+    }
+]

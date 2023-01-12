@@ -1,0 +1,702 @@
+[
+    {
+        "model": "base.bookinventory",
+        "pk": "1567197439746",
+        "fields": {
+            "quantity": 100
+        }
+    },
+    {
+        "model": "base.bookinventory",
+        "pk": "1661193256266",
+        "fields": {
+            "quantity": 100
+        }
+    },
+    {
+        "model": "base.bookinventory",
+        "pk": "1697942356156",
+        "fields": {
+            "quantity": 100
+        }
+    },
+    {
+        "model": "base.bookinventory",
+        "pk": "1771826311642",
+        "fields": {
+            "quantity": 100
+        }
+    },
+    {
+        "model": "base.bookinventory",
+        "pk": "1777436517479",
+        "fields": {
+            "quantity": 100
+        }
+    },
+    {
+        "model": "base.bookinventory",
+        "pk": "2145820837329",
+        "fields": {
+            "quantity": 100
+        }
+    },
+    {
+        "model": "base.bookinventory",
+        "pk": "2400221501609",
+        "fields": {
+            "quantity": 100
+        }
+    },
+    {
+        "model": "base.bookinventory",
+        "pk": "2408357792166",
+        "fields": {
+            "quantity": 100
+        }
+    },
+    {
+        "model": "base.bookinventory",
+        "pk": "2442414055395",
+        "fields": {
+            "quantity": 100
+        }
+    },
+    {
+        "model": "base.bookinventory",
+        "pk": "2477124261544",
+        "fields": {
+            "quantity": 100
+        }
+    },
+    {
+        "model": "base.bookinventory",
+        "pk": "2514797601542",
+        "fields": {
+            "quantity": 100
+        }
+    },
+    {
+        "model": "base.bookinventory",
+        "pk": "2644348197452",
+        "fields": {
+            "quantity": 100
+        }
+    },
+    {
+        "model": "base.bookinventory",
+        "pk": "2673821099794",
+        "fields": {
+            "quantity": 100
+        }
+    },
+    {
+        "model": "base.bookinventory",
+        "pk": "2675411100127",
+        "fields": {
+            "quantity": 100
+        }
+    },
+    {
+        "model": "base.bookinventory",
+        "pk": "2716274565994",
+        "fields": {
+            "quantity": 100
+        }
+    },
+    {
+        "model": "base.bookinventory",
+        "pk": "2869848956823",
+        "fields": {
+            "quantity": 100
+        }
+    },
+    {
+        "model": "base.bookinventory",
+        "pk": "2895700661253",
+        "fields": {
+            "quantity": 100
+        }
+    },
+    {
+        "model": "base.bookinventory",
+        "pk": "2951971967902",
+        "fields": {
+            "quantity": 100
+        }
+    },
+    {
+        "model": "base.bookinventory",
+        "pk": "2960421593270",
+        "fields": {
+            "quantity": 100
+        }
+    },
+    {
+        "model": "base.bookinventory",
+        "pk": "2970985214781",
+        "fields": {
+            "quantity": 100
+        }
+    },
+    {
+        "model": "base.bookinventory",
+        "pk": "3035625877406",
+        "fields": {
+            "quantity": 100
+        }
+    },
+    {
+        "model": "base.bookinventory",
+        "pk": "3220896223479",
+        "fields": {
+            "quantity": 100
+        }
+    },
+    {
+        "model": "base.bookinventory",
+        "pk": "3223280865639",
+        "fields": {
+            "quantity": 100
+        }
+    },
+    {
+        "model": "base.bookinventory",
+        "pk": "3249845693651",
+        "fields": {
+            "quantity": 100
+        }
+    },
+    {
+        "model": "base.bookinventory",
+        "pk": "3253730849377",
+        "fields": {
+            "quantity": 100
+        }
+    },
+    {
+        "model": "base.bookinventory",
+        "pk": "3374115003833",
+        "fields": {
+            "quantity": 100
+        }
+    },
+    {
+        "model": "base.bookinventory",
+        "pk": "3375842597603",
+        "fields": {
+            "quantity": 100
+        }
+    },
+    {
+        "model": "base.bookinventory",
+        "pk": "3407834188252",
+        "fields": {
+            "quantity": 100
+        }
+    },
+    {
+        "model": "base.bookinventory",
+        "pk": "3409090596544",
+        "fields": {
+            "quantity": 100
+        }
+    },
+    {
+        "model": "base.bookinventory",
+        "pk": "3473525846338",
+        "fields": {
+            "quantity": 100
+        }
+    },
+    {
+        "model": "base.bookinventory",
+        "pk": "3477055838515",
+        "fields": {
+            "quantity": 100
+        }
+    },
+    {
+        "model": "base.bookinventory",
+        "pk": "3590800102558",
+        "fields": {
+            "quantity": 100
+        }
+    },
+    {
+        "model": "base.bookinventory",
+        "pk": "3614381714522",
+        "fields": {
+            "quantity": 100
+        }
+    },
+    {
+        "model": "base.bookinventory",
+        "pk": "3717813259207",
+        "fields": {
+            "quantity": 100
+        }
+    },
+    {
+        "model": "base.bookinventory",
+        "pk": "3810775025941",
+        "fields": {
+            "quantity": 100
+        }
+    },
+    {
+        "model": "base.bookinventory",
+        "pk": "3837667847523",
+        "fields": {
+            "quantity": 100
+        }
+    },
+    {
+        "model": "base.bookinventory",
+        "pk": "4081282207251",
+        "fields": {
+            "quantity": 100
+        }
+    },
+    {
+        "model": "base.bookinventory",
+        "pk": "4127474808839",
+        "fields": {
+            "quantity": 100
+        }
+    },
+    {
+        "model": "base.bookinventory",
+        "pk": "4296507614612",
+        "fields": {
+            "quantity": 100
+        }
+    },
+    {
+        "model": "base.bookinventory",
+        "pk": "4446399876332",
+        "fields": {
+            "quantity": 100
+        }
+    },
+    {
+        "model": "base.bookinventory",
+        "pk": "4451638749579",
+        "fields": {
+            "quantity": 100
+        }
+    },
+    {
+        "model": "base.bookinventory",
+        "pk": "4526526156191",
+        "fields": {
+            "quantity": 100
+        }
+    },
+    {
+        "model": "base.bookinventory",
+        "pk": "4547753080905",
+        "fields": {
+            "quantity": 100
+        }
+    },
+    {
+        "model": "base.bookinventory",
+        "pk": "4695815147372",
+        "fields": {
+            "quantity": 100
+        }
+    },
+    {
+        "model": "base.bookinventory",
+        "pk": "4713862794209",
+        "fields": {
+            "quantity": 100
+        }
+    },
+    {
+        "model": "base.bookinventory",
+        "pk": "4886696026834",
+        "fields": {
+            "quantity": 100
+        }
+    },
+    {
+        "model": "base.bookinventory",
+        "pk": "4964824559292",
+        "fields": {
+            "quantity": 100
+        }
+    },
+    {
+        "model": "base.bookinventory",
+        "pk": "5079811478872",
+        "fields": {
+            "quantity": 100
+        }
+    },
+    {
+        "model": "base.bookinventory",
+        "pk": "5287855699593",
+        "fields": {
+            "quantity": 100
+        }
+    },
+    {
+        "model": "base.bookinventory",
+        "pk": "5301030943305",
+        "fields": {
+            "quantity": 100
+        }
+    },
+    {
+        "model": "base.bookinventory",
+        "pk": "5546922800106",
+        "fields": {
+            "quantity": 100
+        }
+    },
+    {
+        "model": "base.bookinventory",
+        "pk": "5589964889923",
+        "fields": {
+            "quantity": 100
+        }
+    },
+    {
+        "model": "base.bookinventory",
+        "pk": "5691048283727",
+        "fields": {
+            "quantity": 100
+        }
+    },
+    {
+        "model": "base.bookinventory",
+        "pk": "5820205917205",
+        "fields": {
+            "quantity": 100
+        }
+    },
+    {
+        "model": "base.bookinventory",
+        "pk": "6008051119416",
+        "fields": {
+            "quantity": 100
+        }
+    },
+    {
+        "model": "base.bookinventory",
+        "pk": "6053517631813",
+        "fields": {
+            "quantity": 100
+        }
+    },
+    {
+        "model": "base.bookinventory",
+        "pk": "6087439683843",
+        "fields": {
+            "quantity": 100
+        }
+    },
+    {
+        "model": "base.bookinventory",
+        "pk": "6120134733354",
+        "fields": {
+            "quantity": 100
+        }
+    },
+    {
+        "model": "base.bookinventory",
+        "pk": "6205050556395",
+        "fields": {
+            "quantity": 100
+        }
+    },
+    {
+        "model": "base.bookinventory",
+        "pk": "6216806179911",
+        "fields": {
+            "quantity": 100
+        }
+    },
+    {
+        "model": "base.bookinventory",
+        "pk": "6268824295162",
+        "fields": {
+            "quantity": 100
+        }
+    },
+    {
+        "model": "base.bookinventory",
+        "pk": "6412788856713",
+        "fields": {
+            "quantity": 100
+        }
+    },
+    {
+        "model": "base.bookinventory",
+        "pk": "6528981879139",
+        "fields": {
+            "quantity": 100
+        }
+    },
+    {
+        "model": "base.bookinventory",
+        "pk": "6535460272903",
+        "fields": {
+            "quantity": 100
+        }
+    },
+    {
+        "model": "base.bookinventory",
+        "pk": "6616916435647",
+        "fields": {
+            "quantity": 100
+        }
+    },
+    {
+        "model": "base.bookinventory",
+        "pk": "6749413300389",
+        "fields": {
+            "quantity": 100
+        }
+    },
+    {
+        "model": "base.bookinventory",
+        "pk": "6750820386741",
+        "fields": {
+            "quantity": 100
+        }
+    },
+    {
+        "model": "base.bookinventory",
+        "pk": "6926181199185",
+        "fields": {
+            "quantity": 100
+        }
+    },
+    {
+        "model": "base.bookinventory",
+        "pk": "6927813720245",
+        "fields": {
+            "quantity": 100
+        }
+    },
+    {
+        "model": "base.bookinventory",
+        "pk": "6997658923243",
+        "fields": {
+            "quantity": 100
+        }
+    },
+    {
+        "model": "base.bookinventory",
+        "pk": "7104420214473",
+        "fields": {
+            "quantity": 100
+        }
+    },
+    {
+        "model": "base.bookinventory",
+        "pk": "7258412282008",
+        "fields": {
+            "quantity": 100
+        }
+    },
+    {
+        "model": "base.bookinventory",
+        "pk": "7277340890911",
+        "fields": {
+            "quantity": 100
+        }
+    },
+    {
+        "model": "base.bookinventory",
+        "pk": "7337341429301",
+        "fields": {
+            "quantity": 100
+        }
+    },
+    {
+        "model": "base.bookinventory",
+        "pk": "7362806934317",
+        "fields": {
+            "quantity": 100
+        }
+    },
+    {
+        "model": "base.bookinventory",
+        "pk": "7444527965762",
+        "fields": {
+            "quantity": 100
+        }
+    },
+    {
+        "model": "base.bookinventory",
+        "pk": "7508959421320",
+        "fields": {
+            "quantity": 100
+        }
+    },
+    {
+        "model": "base.bookinventory",
+        "pk": "7516439082291",
+        "fields": {
+            "quantity": 100
+        }
+    },
+    {
+        "model": "base.bookinventory",
+        "pk": "7594619605157",
+        "fields": {
+            "quantity": 100
+        }
+    },
+    {
+        "model": "base.bookinventory",
+        "pk": "7694841682792",
+        "fields": {
+            "quantity": 100
+        }
+    },
+    {
+        "model": "base.bookinventory",
+        "pk": "7869598895284",
+        "fields": {
+            "quantity": 100
+        }
+    },
+    {
+        "model": "base.bookinventory",
+        "pk": "7984864491125",
+        "fields": {
+            "quantity": 100
+        }
+    },
+    {
+        "model": "base.bookinventory",
+        "pk": "8048940688712",
+        "fields": {
+            "quantity": 100
+        }
+    },
+    {
+        "model": "base.bookinventory",
+        "pk": "8170534563770",
+        "fields": {
+            "quantity": 100
+        }
+    },
+    {
+        "model": "base.bookinventory",
+        "pk": "8350437760689",
+        "fields": {
+            "quantity": 100
+        }
+    },
+    {
+        "model": "base.bookinventory",
+        "pk": "8485447929959",
+        "fields": {
+            "quantity": 100
+        }
+    },
+    {
+        "model": "base.bookinventory",
+        "pk": "8673376748938",
+        "fields": {
+            "quantity": 100
+        }
+    },
+    {
+        "model": "base.bookinventory",
+        "pk": "8866220620786",
+        "fields": {
+            "quantity": 100
+        }
+    },
+    {
+        "model": "base.bookinventory",
+        "pk": "9011663665595",
+        "fields": {
+            "quantity": 100
+        }
+    },
+    {
+        "model": "base.bookinventory",
+        "pk": "9025485530870",
+        "fields": {
+            "quantity": 100
+        }
+    },
+    {
+        "model": "base.bookinventory",
+        "pk": "9056273680760",
+        "fields": {
+            "quantity": 100
+        }
+    },
+    {
+        "model": "base.bookinventory",
+        "pk": "9389083732624",
+        "fields": {
+            "quantity": 100
+        }
+    },
+    {
+        "model": "base.bookinventory",
+        "pk": "9530189731284",
+        "fields": {
+            "quantity": 100
+        }
+    },
+    {
+        "model": "base.bookinventory",
+        "pk": "9705226516411",
+        "fields": {
+            "quantity": 100
+        }
+    },
+    {
+        "model": "base.bookinventory",
+        "pk": "9737543772227",
+        "fields": {
+            "quantity": 100
+        }
+    },
+    {
+        "model": "base.bookinventory",
+        "pk": "9764670355656",
+        "fields": {
+            "quantity": 100
+        }
+    },
+    {
+        "model": "base.bookinventory",
+        "pk": "9822724724233",
+        "fields": {
+            "quantity": 100
+        }
+    },
+    {
+        "model": "base.bookinventory",
+        "pk": "9869734977529",
+        "fields": {
+            "quantity": 100
+        }
+    },
+    {
+        "model": "base.bookinventory",
+        "pk": "9928621634097",
+        "fields": {
+            "quantity": 100
+        }
+    },
+    {
+        "model": "base.bookinventory",
+        "pk": "9987288972464",
+        "fields": {
+            "quantity": 100
+        }
+    }
+]    
