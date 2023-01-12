@@ -1,4 +1,5 @@
 from django.contrib.auth.base_user import BaseUserManager
+from django.db import models
 
 class UserManager(BaseUserManager):
     def create_user(self, email, name, password):
@@ -29,7 +30,7 @@ class UserManager(BaseUserManager):
         return superuser
 
 class CustomerManager(BaseUserManager):
-    def create_user(self, email, name, password, address):
+    def create_customer(self, email, name, password, address):
         if not email:
             raise ValueError('Customers must have an email address')
 
@@ -43,3 +44,51 @@ class CustomerManager(BaseUserManager):
         user.set_password(password)
         user.save(using=self._db)
         return user
+
+class OrderManager(models.Manager):
+    def create_order(self, customer):
+        order = self.model(
+            customer = customer,
+            shipping_address = customer.address,
+        )
+        order.save(using=self._db)
+        return order
+
+    def update_order_price(self, number):
+        order = self.objects.get(number = number)
+
+        result = 0
+        for item in order.order_items:
+            result += item.price * item.quantity
+        
+        order.price = result
+        order.save(using=self._db)
+        return order
+
+class OrderItemManager(models.Manager):
+    def create_order_item(self, book, quantity, order):
+        order_item = self.model(
+            book = book,
+            quantity = quantity,
+            order = order,
+            price = book.price
+        )
+        order_item.save(using=self._db)
+
+        book_inventory = book.inventory
+        book_inventory.quantity -= quantity
+        book_inventory.save(using=self._db)
+
+        return order_item
+    
+    def create_order_items(self, cart_items, order):
+        order_items = []
+        for item in cart_items:
+            order_items.append( self.create_order_item(
+                book = item.book,
+                quantity = item.quantity,
+                order = order,
+            ) )
+            
+        return order_items
+        

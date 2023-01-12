@@ -21,7 +21,9 @@ def create_customer(request):
             return Response(status=409)
 
         else:
-            Customer.objects.create_user(email=email,name=name, password=password, address = None)
+            customer = Customer.objects.create_customer(email=email,name=name, password=password, address = None)
+            Cart.objects.create(owner = customer)
+
             return Response(status=201)
 
     return Response(status=400)

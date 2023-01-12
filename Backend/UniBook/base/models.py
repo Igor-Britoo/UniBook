@@ -1,39 +1,42 @@
+import uuid
+
 from django.db import models
 from django.contrib.auth.base_user import AbstractBaseUser
 from django.contrib.auth.models import PermissionsMixin
+from django.utils.translation import gettext_lazy as _
+from django.utils import timezone
 
-from .managers import UserManager, CustomerManager
+from .managers import *
 
 class Address(models.Model):
-
     class State(models.TextChoices):
-        AC = 'AC', ('Acre')
-        AL = 'AL', ('Alagoas')
-        AP = 'AP', ('Amapá')
-        AM = 'AM', ('Amazonas')
-        BA = 'BA', ('Bahia')
-        CE = 'CE', ('Ceará')
-        DF = 'DF', ('Distrito Federal')
-        ES = 'ES', ('Espírito Santo')
-        GO = 'GO', ('Goiás')
-        MA = 'MA', ('Maranhão')
-        MT = 'MT', ('Mato Grosso')
-        MS = 'MS', ('Mato Grosso do Sul')
-        MG = 'MG', ('Minas Gerais')
-        PA = 'PA', ('Pará')
-        PB = 'PB', ('Paraíba')
-        PR = 'PR', ('Paraná')
-        PE = 'PE', ('Pernambuco')
-        PI = 'PI', ('Piauí')
-        RJ = 'RJ', ('Rio de Janeiro')
-        RN = 'RN', ('Rio Grande do Norte')
-        RS = 'RS', ('Rio Grande do Sul')
-        RO = 'RO', ('Rondônia')
-        RR = 'RR', ('Roraima')
-        SC = 'SC', ('Santa Catarina')
-        SP = 'SP', ('São Paulo')
-        SE = 'SE', ('Sergipe')
-        TO = 'TO', ('Tocantins')
+        AC = 'AC', _('Acre')
+        AL = 'AL', _('Alagoas')
+        AP = 'AP', _('Amapá')
+        AM = 'AM', _('Amazonas')
+        BA = 'BA', _('Bahia')
+        CE = 'CE', _('Ceará')
+        DF = 'DF', _('Distrito Federal')
+        ES = 'ES', _('Espírito Santo')
+        GO = 'GO', _('Goiás')
+        MA = 'MA', _('Maranhão')
+        MT = 'MT', _('Mato Grosso')
+        MS = 'MS', _('Mato Grosso do Sul')
+        MG = 'MG', _('Minas Gerais')
+        PA = 'PA', _('Pará')
+        PB = 'PB', _('Paraíba')
+        PR = 'PR', _('Paraná')
+        PE = 'PE', _('Pernambuco')
+        PI = 'PI', _('Piauí')
+        RJ = 'RJ', _('Rio de Janeiro')
+        RN = 'RN', _('Rio Grande do Norte')
+        RS = 'RS', _('Rio Grande do Sul')
+        RO = 'RO', _('Rondônia')
+        RR = 'RR', _('Roraima')
+        SC = 'SC', _('Santa Catarina')
+        SP = 'SP', _('São Paulo')
+        SE = 'SE', _('Sergipe')
+        TO = 'TO', _('Tocantins')
 
     street_name = models.CharField(max_length=255)
     house_number = models.IntegerField()
@@ -41,7 +44,16 @@ class Address(models.Model):
     state = models.CharField(max_length=2, choices=State.choices)
 
     def __str__(self):
-	    return self.street_name + ", " + str(self.house_number) + ", " + self.city
+        return self.street_name + ", " + str(self.house_number) + ", " + self.city
+
+    class Meta:
+        constraints = [
+            models.UniqueConstraint(
+                fields = ['street_name', 'house_number', 'city', 'state'], 
+                name = 'unique_address'
+            )
+        ]
+        verbose_name_plural = "Addresses"
 
 class User(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(max_length=255, primary_key=True, default="")
@@ -74,7 +86,7 @@ class Genre(models.Model):
     
 class Book(models.Model):
     ISBN = models.CharField(max_length=13, primary_key=True)
-    name = models.CharField(max_length=255)
+    title = models.CharField(max_length=255)
     author = models.CharField(max_length=255)
     publication_year = models.IntegerField()
     publisher = models.CharField(max_length=255)
@@ -93,5 +105,78 @@ class Book(models.Model):
         return url
 
     def __str__(self):
-	    return self.name + ", " + self.author + ", " + str(self.publication_year)
+	    return self.title + ", " + self.author + ", " + str(self.publication_year) + ", " + self.ISBN
 
+
+class BookInventory(models.Model):
+    book = models.OneToOneField(Book, on_delete=models.CASCADE, primary_key=True, related_name='inventory')
+    quantity = models.IntegerField()
+    
+    def __str__(self):
+        return self.book.title + ", " + str(self.quantity)
+
+    class Meta:
+        verbose_name_plural = "Book inventories"
+
+class Order(models.Model):
+    class Status(models.TextChoices):
+        P = 'P', _('Pending')
+        OC = 'OC', _('Order confirmed')
+        PA = 'PA', _('Payment approved')
+        S = 'S', _('Shipped')
+        T = 'T', _('In transit')
+        D = 'D', _('Delivered')
+        C = 'C', _('Cancelled')
+
+    code = models.UUIDField(primary_key=True, default = uuid.uuid4, editable=False)
+    customer = models.ForeignKey(Customer, on_delete=models.CASCADE, related_name='orders')
+    shipping_address = models.ForeignKey(Address, on_delete=models.CASCADE)
+    status = models.CharField(max_length=2, choices=Status.choices, default=Status.P)
+    price = models.DecimalField(max_digits=10, decimal_places=2, default=0)
+    date = models.DateField(auto_now_add=True, null=True, blank=True)
+    
+    objects = OrderManager()
+
+    def __str__(self):
+        return str(self.code) + ", " + self.status + ", " + self.customer.email + ", " + self.customer.name
+
+class Cart(models.Model):
+    owner = models.OneToOneField(Customer, on_delete=models.CASCADE, primary_key=True, related_name='shopping_cart')
+
+    @property
+    def price(self):
+        result = 0
+        for item in self.cart_items.all():
+            result += item.price * item.quantity
+        
+        return result
+    
+    def __str__(self):
+        return self.owner.email + ", " + self.owner.name
+
+
+class Item(models.Model):
+    book = models.ForeignKey(Book, on_delete=models.CASCADE)
+    quantity = models.IntegerField()
+
+    def __str__(self):
+        return self.book.title + ", " + str(self.quantity)
+
+class OrderItem(Item):
+    order = models.ForeignKey(Order, on_delete=models.CASCADE, related_name='order_items')
+    price = models.DecimalField(max_digits=10, decimal_places=2)
+
+    objects = OrderItemManager()
+
+    def __str__(self):
+        return self.book.title + ", " + str(self.quantity) + ", " + str(self.price)
+
+class CartItem(Item):
+    cart = models.ForeignKey(Cart, on_delete=models.CASCADE, related_name='cart_items')
+
+    @property
+    def price(self):
+        return self.book.price
+
+    def __str__(self):
+        return self.book.title + ", " + str(self.quantity)
