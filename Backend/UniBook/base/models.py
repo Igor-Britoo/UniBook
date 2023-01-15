@@ -56,7 +56,8 @@ class Address(models.Model):
         verbose_name_plural = "Addresses"
 
 class User(AbstractBaseUser, PermissionsMixin):
-    email = models.EmailField(max_length=255, primary_key=True, default="")
+    uuid = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    email = models.EmailField(max_length=255, unique=True)
     name = models.CharField(max_length=255)
     is_staff = models.BooleanField(default=False)
     is_active = models.BooleanField(default=False)
