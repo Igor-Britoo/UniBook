@@ -3,7 +3,7 @@ from .models import *
 from .models import User
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 
-class UserAdmin(BaseUserAdmin):
+class UserAdmin(admin.ModelAdmin):
     ordering = ('name', )
     list_display = ('name', 'email', 'is_active', 'is_staff', 'is_superuser')
     list_filter = ('is_active', 'is_staff', 'is_superuser')

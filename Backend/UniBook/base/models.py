@@ -71,7 +71,7 @@ class User(AbstractBaseUser, PermissionsMixin):
 	    return self.email
 
 class Customer(User):
-    address = models.ForeignKey(Address, on_delete=models.CASCADE, null=True, blank=True)
+    address = models.ForeignKey(Address, on_delete=models.SET_NULL, null=True, blank=True)
     
     objects = CustomerManager()
 
