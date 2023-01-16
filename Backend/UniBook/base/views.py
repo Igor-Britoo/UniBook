@@ -130,3 +130,33 @@ def get_customer_order_info(request, code):
                 return Response(status=404)
 
     return Response(status=400)
+
+@api_view(['GET'])
+def list_books(request):
+    """
+        Returns all books
+    """
+    if request.method == 'GET':
+        books = Book.objects.all()
+        books_serialized = BookSerializer(books, many=True)
+        print('list')
+        return Response(books_serialized.data, status=200)
+
+    return Response(status=400)
+
+@api_view(['GET'])
+def get_book(request, ISBN):
+    """
+        If it exists, returns the book with the specified ISBN
+    """
+    if request.method == 'GET':
+        book = Book.objects.filter(ISBN = ISBN).first()
+
+        if book :
+            book_serialized = BookSerializer(book)
+            return Response(book_serialized.data, status=200)
+
+        else:
+            return Response(status=404)
+
+    return Response(status=400)

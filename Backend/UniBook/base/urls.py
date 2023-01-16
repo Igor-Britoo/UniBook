@@ -15,4 +15,7 @@ urlpatterns = [
     path('customer-logged/update/', views.update_customer_logged, name='update_customer_logged'),      
     path('customer-logged/orders/', views.get_customer_orders, name='get_customer_orders'),
     path('customer-logged/orders/<str:code>/', views.get_customer_order_info, name='get_customer_order_info'),
+    
+    path('books/', views.list_books, name='list_books'),
+    path('books/<str:ISBN>/', views.get_book, name='get_book'),
 ] 
