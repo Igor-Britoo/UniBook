@@ -54,11 +54,11 @@ class OrderManager(models.Manager):
         order.save(using=self._db)
         return order
 
-    def update_order_price(self, number):
-        order = self.objects.get(number = number)
-
+    def update_order_price(self, code):
+        order = self.get(code = code)
         result = 0
-        for item in order.order_items:
+        
+        for item in order.order_items.all():
             result += item.price * item.quantity
         
         order.price = result

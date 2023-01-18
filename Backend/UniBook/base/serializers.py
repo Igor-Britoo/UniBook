@@ -24,19 +24,25 @@ class GenreSerializer(serializers.ModelSerializer):
 class BookSerializer(serializers.ModelSerializer):
     class Meta:
         model = Book
-        fields = '__all__'
-
+        fields = ('ISBN', 'title', 'author', 'publication_year', 'language',
+                'publisher', 'genres', 'number_of_pages', 'price', 'cover_url')
+        
 class OrderSerializer(serializers.ModelSerializer):
     class Meta:
         model = Order
         fields = '__all__'
 
+class CartSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Cart
+        fields = ('owner', 'price')
+
 class OrderItemSerializer(serializers.ModelSerializer):
     class Meta:
         model = OrderItem
-        fields = '__all__'
+        fields = ('book', 'quantity', 'price')
 
 class CartItemSerializer(serializers.ModelSerializer):
     class Meta:
         model = CartItem
-        fields = '__all__'
+        fields = ('id', 'book', 'quantity', 'price')

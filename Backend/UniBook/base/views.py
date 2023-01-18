@@ -41,13 +41,13 @@ def get_customer_logged(request):
         
         else:
             customer = Customer.objects.filter(email = request.user).first()
-            customer_serializer = CustomerSerializer(customer)
-            address_serializer = AddressSerializer(customer.address)
+            customer_serialized = CustomerSerializer(customer)
+            address_serialized = AddressSerializer(customer.address)
 
             return Response({
                 'customer': {
-                    **customer_serializer.data,
-                    'address': address_serializer.data 
+                    **customer_serialized.data,
+                    'address': address_serialized.data 
                 }
             }, status=200)
 
@@ -71,6 +71,7 @@ def update_customer_logged(request):
 
                 if user_exists: 
                     return Response(status=409)
+
                 else:
                     customer.email = request.data['email']
             
@@ -101,18 +102,18 @@ def get_customer_orders(request):
 
         else:
             customer = Customer.objects.filter(email = request.user).first()
-
             orders = customer.orders.all()
             orders_serialized = OrderSerializer(orders, many=True)
             
-            return Response(orders_serialized.data, status=200)
+            return Response({'orders': orders_serialized.data}, status=200)
 
     return Response(status=400)
 
 @api_view(['GET'])
 def get_customer_order_info(request, code):
     """
-        If it exists, returns the order of the logged in customer with the specified code
+        If it exists in the orders of the logged-in customer, returns the
+        order with the specified code
     """
     if request.method == 'GET':
         if(request.auth == None):
@@ -120,11 +121,22 @@ def get_customer_order_info(request, code):
 
         else:
             customer = Customer.objects.filter(email = request.user).first()
-            order = customer.orders.filter(code = code).first()
+            order = customer.orders.filter(code = code)
 
-            if order:
+            if order.exists():
+                order = order.first()
                 order_serialized = OrderSerializer(order)
-                return Response(order_serialized.data, status=200)
+                order_items_serialized = OrderItemSerializer(order.order_items.all(), many=True)
+                shipping_address_serialized = AddressSerializer(order.shipping_address)
+                
+                return Response({
+                    'order': {
+                        **order_serialized.data,
+                        'shipping_address': shipping_address_serialized.data,
+                        'order_items': order_items_serialized.data,
+                        'customer': customer.email,
+                    }
+                }, status=200)
 
             else:
                 return Response(status=404)
@@ -139,8 +151,8 @@ def list_books(request):
     if request.method == 'GET':
         books = Book.objects.all()
         books_serialized = BookSerializer(books, many=True)
-        print('list')
-        return Response(books_serialized.data, status=200)
+
+        return Response({'books': books_serialized.data}, status=200)
 
     return Response(status=400)
 
@@ -150,11 +162,12 @@ def get_book(request, ISBN):
         If it exists, returns the book with the specified ISBN
     """
     if request.method == 'GET':
-        book = Book.objects.filter(ISBN = ISBN).first()
+        book = Book.objects.filter(ISBN = ISBN)
 
-        if book :
+        if book.exists() :
+            book = book.first()
             book_serialized = BookSerializer(book)
-            return Response(book_serialized.data, status=200)
+            return Response({'book': book_serialized.data}, status=200)
 
         else:
             return Response(status=404)
