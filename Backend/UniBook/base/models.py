@@ -86,10 +86,16 @@ class Genre(models.Model):
 	    return self.name
     
 class Book(models.Model):
+    class Language(models.TextChoices):
+        PT_BR = 'pt-BR', _('Portuguese (Brazil)')
+        EN_US = 'en-US', _('English (United States)')
+        ES_ES = 'es-ES', _('Spanish (Spain)')
+    
     ISBN = models.CharField(max_length=13, primary_key=True)
     title = models.CharField(max_length=255)
     author = models.CharField(max_length=255)
     publication_year = models.IntegerField()
+    language = models.CharField(max_length=5, choices=Language.choices)
     publisher = models.CharField(max_length=255)
     genres = models.ManyToManyField(Genre) 
     number_of_pages = models.IntegerField()
