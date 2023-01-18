@@ -109,6 +109,30 @@ def get_customer_orders(request):
 
     return Response(status=400)
 
+@api_view(['POST'])
+def create_customer_order(request):
+    """
+        Create a new order for the customer logged-in with his cart items
+    """
+    if request.method == 'POST':
+        if(request.auth == None):
+            return Response(status=401)
+
+        else:
+            customer = Customer.objects.filter(email = request.user).first()
+            cart_items = customer.shopping_cart.cart_items.all()
+
+            if cart_items.exists():
+                order = Order.objects.create_order(customer= customer)
+                OrderItem.objects.create_order_items(order= order,
+                                                     cart_items= cart_items)
+                Order.objects.update_order_price(code = order.code)
+                cart_items.delete()
+
+                return Response(status=201)            
+
+    return Response(status=400)
+
 @api_view(['GET'])
 def get_customer_order_info(request, code):
     """
