@@ -36,7 +36,7 @@ def get_customer_logged(request):
         Returns the customer logged in
     """
     if request.method == 'GET':
-        if(request.auth == None):
+        if(request.auth is None):
             return Response(status=401)
         
         else:
@@ -59,7 +59,7 @@ def update_customer_logged(request):
         Updates the data of the logged in customer
     """
     if request.method == 'PUT':
-        if(request.auth == None):
+        if(request.auth is None):
             return Response(status=401)
 
         else:
@@ -97,7 +97,7 @@ def get_customer_orders(request):
         Returns all orders from the logged in customer
     """
     if request.method == 'GET':
-        if(request.auth == None):
+        if(request.auth is None):
             return Response(status=401)
 
         else:
@@ -115,7 +115,7 @@ def create_customer_order(request):
         Create a new order for the customer logged-in with his cart items
     """
     if request.method == 'POST':
-        if(request.auth == None):
+        if(request.auth is None):
             return Response(status=401)
 
         else:
@@ -140,7 +140,7 @@ def get_customer_order_info(request, code):
         order with the specified code
     """
     if request.method == 'GET':
-        if(request.auth == None):
+        if(request.auth is None):
             return Response(status=401)
 
         else:
@@ -173,7 +173,7 @@ def get_customer_cart(request):
         Returns the cart of the logged in customer
     """
     if request.method == 'GET':
-        if(request.auth == None):
+        if(request.auth is None):
             return Response(status=401)
 
         else:
@@ -201,7 +201,7 @@ def create_customer_cart_item(request):
         submitted, increment its quantity by one. Otherwise, create a new cart item
     """
     if request.method == 'POST':
-        if(request.auth == None):
+        if(request.auth is None):
             return Response(status=401)
 
         else:
@@ -239,7 +239,7 @@ def update_customer_cart_item(request, item_id):
         update the quantity of this item
     """
     if request.method == 'PATCH':
-        if(request.auth == None):
+        if(request.auth is None):
             return Response(status=401)
 
         else:
@@ -265,7 +265,7 @@ def delete_customer_cart_item(request, item_id):
         delete it
     """
     if request.method == 'DELETE':
-        if(request.auth == None):
+        if(request.auth is None):
             return Response(status=401)
 
         else:
@@ -310,4 +310,71 @@ def get_book(request, ISBN):
         else:
             return Response(status=404)
 
+    return Response(status=400)
+
+@api_view(['GET'])
+def search_books(request):
+    """
+        Search books by ISBN, title and author
+    """
+    if request.method == 'GET':
+        query = request.GET.get('q')
+        
+        books_filtered_by_ISBN = Book.objects.filter(ISBN__contains = query)
+        books_filtered_by_title = Book.objects.filter(title__icontains = query)
+        books_filtered_by_author = Book.objects.filter(author__icontains = query)
+
+        books = books_filtered_by_ISBN.union(books_filtered_by_title, books_filtered_by_author)
+        books_serialized = BookSerializer(books, many=True)
+    
+        return Response(books_serialized.data, status=200)
+
+    return Response(status=400)
+
+@api_view(['GET'])
+def list_books_with_filters(request):
+    """
+        Filter books by price interval, publication year interval, genres and language
+    """
+    def get_values_from_interval_slug(interval_slug):
+        for i in range(0, len(interval_slug)):
+            if (interval_slug[i] == "-"):
+                min = int(interval_slug[:i])
+                there_is_max = len(interval_slug) >  i+1
+
+                if there_is_max:
+                    max = int(interval_slug[i+1:])
+                else:
+                    max = None
+
+        return (min, max)
+
+    if request.method == 'GET':
+        genres = request.GET.getlist('genre')
+        languages = request.GET.getlist('language')
+        price_interval = request.GET.get('price-interval')
+        publication_year_interval = request.GET.get('publication-year-interval')
+
+        price_min, price_max = get_values_from_interval_slug(price_interval)
+        publication_year_min, publication_year_max = get_values_from_interval_slug(publication_year_interval)
+        
+        books = Book.objects.filter(language__in = languages)
+
+        for genre in genres:
+            books = books.filter(genres = genre)
+
+        if price_max is not None :
+            books = books.filter(price__range = (price_min, price_max))
+        else:
+            books = books.filter(price__gte = price_min)    
+
+        if publication_year_max is not None:
+            books = books.filter(publication_year__range = (publication_year_min, publication_year_max))
+        else:
+            books = books.filter(publication_year__gte = publication_year_min)
+        
+        books_serialized = BookSerializer(books, many=True)
+
+        return Response(books_serialized.data, status=200)
+        
     return Response(status=400)

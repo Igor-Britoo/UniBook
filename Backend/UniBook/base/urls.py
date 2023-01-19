@@ -25,4 +25,6 @@ urlpatterns = [
 
     path('books/', views.list_books, name='list_books'),
     path('books/<str:ISBN>/', views.get_book, name='get_book'),
+    path('books/filter', views.list_books_with_filters, name='list_books_with_filters'),
+    path('books/search', views.search_books, name='search_books'),
 ] 
