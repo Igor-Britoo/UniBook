@@ -11,7 +11,7 @@ def create_customer_order(request):
     """
     if request.method == 'POST':
         if(request.auth is None):
-            return Response(status=401)
+            return Response({ "detail": "Unauthorized access" }, status=401)
 
         else:
             customer = Customer.objects.filter(email = request.user).first()
@@ -24,7 +24,7 @@ def create_customer_order(request):
                 Order.objects.update_order_price(code = order.code)
                 cart_items.delete()
 
-                return Response(status=201)            
+                return Response({ "detail": "Order successfully created" }, status=201)            
 
     return Response(status=400)
     
@@ -35,7 +35,7 @@ def get_customer_orders(request):
     """
     if request.method == 'GET':
         if(request.auth is None):
-            return Response(status=401)
+            return Response({ "detail": "Unauthorized access" }, status=401)
 
         else:
             customer = Customer.objects.filter(email = request.user).first()
@@ -50,12 +50,12 @@ def get_customer_orders(request):
 @api_view(['GET'])
 def get_customer_order_info(request, code):
     """
-        If it exists in the orders of the logged-in customer, returns the
-        order with the specified code
+        If exists an order with the specified code in the orders of the logged-in 
+        customer, returns this order information.
     """
     if request.method == 'GET':
         if(request.auth is None):
-            return Response(status=401)
+            return Response({ "detail": "Unauthorized access" }, status=401)
 
         else:
             customer = Customer.objects.filter(email = request.user).first()
@@ -77,6 +77,6 @@ def get_customer_order_info(request, code):
                 }, status=200)
 
             else:
-                return Response(status=404)
+                return Response({ "detail": "Order not found" }, status=404)
 
     return Response(status=400)

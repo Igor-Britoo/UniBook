@@ -18,7 +18,7 @@ def create_customer(request):
         user_exists = User.objects.filter(email=email).exists()
 
         if user_exists: 
-            return Response(status=409)
+            return Response({ "detail": "User already exists" }, status=409)
 
         else:
             customer = Customer.objects.create_customer(email = email,
@@ -27,7 +27,7 @@ def create_customer(request):
                                                         address = None)
             Cart.objects.create(owner = customer)
 
-            return Response(status=201)
+            return Response({ "detail": "User created with success" }, status=201)
 
     return Response(status=400)
 
@@ -38,7 +38,7 @@ def get_customer_logged(request):
     """
     if request.method == 'GET':
         if(request.auth is None):
-            return Response(status=401)
+            return Response({ "detail": "Unauthorized access" }, status=401)
         
         else:
             customer = Customer.objects.filter(email = request.user).first()
@@ -61,7 +61,7 @@ def update_customer_logged(request):
     """
     if request.method == 'PUT':
         if(request.auth is None):
-            return Response(status=401)
+            return Response({ "detail": "Unauthorized access" }, status=401)
 
         else:
             customer = Customer.objects.filter(email = request.user).first()
@@ -71,7 +71,7 @@ def update_customer_logged(request):
                 user_exists = User.objects.filter(email=request.data['email']).exists()
 
                 if user_exists: 
-                    return Response(status=409)
+                    return Response({ "detail": "User already exists" }, status=409)
 
                 else:
                     customer.email = request.data['email']
@@ -88,6 +88,6 @@ def update_customer_logged(request):
             
             customer.save()
             
-            return Response(status=200)
+            return Response({ "detail": "User data successfully updated" }, status=200)
 
     return Response(status=400)

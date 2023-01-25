@@ -11,7 +11,7 @@ def get_customer_cart(request):
     """
     if request.method == 'GET':
         if(request.auth is None):
-            return Response(status=401)
+            return Response({ "detail": "Unauthorized access" }, status=401)
 
         else:
             customer = Customer.objects.filter(email = request.user).first()
@@ -39,7 +39,7 @@ def create_customer_cart_item(request):
     """
     if request.method == 'POST':
         if(request.auth is None):
-            return Response(status=401)
+            return Response({ "detail": "Unauthorized access" }, status=401)
 
         else:
             customer = Customer.objects.filter(email = request.user).first()
@@ -54,7 +54,7 @@ def create_customer_cart_item(request):
                     cart_item.quantity += 1
                     cart_item.save()
 
-                    return Response(status=200)
+                    return Response({ "detail": "Cart item quantity successfully incremented" }, status=200)
 
                 else:
                     cart = customer.shopping_cart
@@ -62,10 +62,10 @@ def create_customer_cart_item(request):
                                             quantity = 1,
                                             cart = cart)
 
-                    return Response(status=201)
+                    return Response({ "detail": "Cart item successfully created" }, status=201)
 
             else:
-                return Response(status=404)
+                return Response({ "detail": "Book not found" }, status=404)
 
     return Response(status=400)
 
@@ -77,7 +77,7 @@ def update_customer_cart_item(request, item_id):
     """
     if request.method == 'PATCH':
         if(request.auth is None):
-            return Response(status=401)
+            return Response({ "detail": "Unauthorized access" }, status=401)
 
         else:
             customer = Customer.objects.filter(email = request.user).first()
@@ -88,10 +88,10 @@ def update_customer_cart_item(request, item_id):
                 cart_item.quantity = request.data['quantity']
                 cart_item.save()
 
-                return Response(status=200)
+                return Response({ "detail": "Cart item quantity successfully updated" }, status=200)
 
             else:
-                return Response(status=404)
+                return Response({ "detail": "Cart item not found" }, status=404)
 
     return Response(status=400)
 
@@ -103,7 +103,7 @@ def delete_customer_cart_item(request, item_id):
     """
     if request.method == 'DELETE':
         if(request.auth is None):
-            return Response(status=401)
+            return Response({ "detail": "Unauthorized access" }, status=401)
 
         else:
             customer = Customer.objects.filter(email = request.user).first()
@@ -111,9 +111,9 @@ def delete_customer_cart_item(request, item_id):
 
             if cart_item.exists():
                 cart_item.first().delete()
-                return Response(status=200)
+                return Response({ "detail": "Cart item successfully deleted" }, status=200)
 
             else:
-                return Response(status=404)
+                return Response({ "detail": "Cart item not found" }, status=404)
 
     return Response(status=400)

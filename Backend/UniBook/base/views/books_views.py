@@ -83,7 +83,7 @@ def search_books(request):
     if request.method == 'GET':
         query = request.GET.get('q')
         
-        books_filtered_by_ISBN = Book.objects.filter(ISBN__contains = query)
+        books_filtered_by_ISBN = Book.objects.filter(ISBN__startswith = query)
         books_filtered_by_title = Book.objects.filter(title__icontains = query)
         books_filtered_by_author = Book.objects.filter(author__icontains = query)
 
@@ -108,6 +108,6 @@ def get_book(request, ISBN):
             return Response({'book': book_serialized.data}, status=200)
 
         else:
-            return Response(status=404)
+            return Response({ "detail": "Book not found" }, status=404)
 
     return Response(status=400)
