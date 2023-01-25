@@ -21,7 +21,7 @@ from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include('base.urls')),
+    path('api/', include('base.api.urls')),
     path('', TemplateView.as_view(template_name='index.html')),
 ]
 
