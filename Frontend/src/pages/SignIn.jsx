@@ -96,9 +96,10 @@ export const SignIn = () =>{
 
                     { errors.password ? <ErrorMessage>The password is required</ErrorMessage> : null }
                     <input type='password' name='password' placeholder='Password' value={user.password} onChange={handleInput}></input>
+                    
+                    <ButtonForm onClick={submit} >Login</ButtonForm>
                 </Form>
 
-                <ButtonForm onClick={submit} >Login</ButtonForm>
                 
                 <ParagraphForm>
                     Don't have an account? 

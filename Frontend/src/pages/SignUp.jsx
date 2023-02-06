@@ -118,9 +118,10 @@ export const SignUp = () => {
 
                     <input type='password' name='password' placeholder='Password' value={user.password} onChange={handleInput}></input>
                     <input type='password' name='passwordConfirmation' placeholder='Password Confirmation' value={user.passwordConfirmation} onChange={handleInput}></input>
+                    
+                    <ButtonForm onClick={submit}>Create</ButtonForm>
                 </Form>
 
-                <ButtonForm onClick={submit}>Create</ButtonForm>
                 
                 <ParagraphForm>
                     Already have an account?    
