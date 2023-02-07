@@ -21,7 +21,6 @@ export const TitlesHome = styled.h2`
     font-size: 24px;
     font-weight: 500;
     margin-top: 73px;
-    margin-bottom: 40px;
 `;
 
 export const ContainerSections = styled.div`
