@@ -1,9 +1,8 @@
 # Running Documentation
-This guide will walk you through the steps to run the documentation of this project api on your local machine.
+This guide will walk you through the steps to run the documentation of this project API on your local machine.
 
 ## Prerequisites
 - Node.js and npm installed on your machine
-- A basic understanding of JavaScript
 - A terminal or command prompt
 
 ## Step 1: Access `./documentation`
