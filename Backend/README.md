@@ -52,11 +52,11 @@ python manage.py migrate
 
 If you want, you can populate the database on Windows with the following commands:
 ```
-python3 manage.py loaddata base/fixtures/genres.json
-python3 manage.py loaddata base/fixtures/books.json
-python3 manage.py loaddata base/fixtures/book_inventories.json
-python3 manage.py loaddata base/fixtures/addresses.json
-python3 manage.py loaddata base/fixtures/users.json
+python manage.py loaddata base/fixtures/genres.json
+python manage.py loaddata base/fixtures/books.json
+python manage.py loaddata base/fixtures/book_inventories.json
+python manage.py loaddata base/fixtures/addresses.json
+python manage.py loaddata base/fixtures/users.json
 ```
 
 And on macOS and Linux with the following command:
