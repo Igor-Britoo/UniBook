@@ -33,5 +33,5 @@ We welcome contributions to the project. If you would like to contribute, please
 If you have any questions or run into any issues while using the web application, please open an issue in the repository or send an email to igor.brito@ufrpe.br
 
 ## License
-This project is licensed under the MIT License. See the [LICENSE](./LICENSE) file for details.
+This project is licensed under the MIT License. See the [LICENSE](./LICENSE.md) file for details.
 
