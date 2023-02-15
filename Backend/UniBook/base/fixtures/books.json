@@ -1,0 +1,2003 @@
+[
+    {
+        "model": "base.book",
+        "pk": "1567197439746",
+        "fields": {
+            "title": "title",
+            "author": "author",
+            "publication_year": 2021,
+            "language": "pt-BR",
+            "publisher": "publisher",
+            "number_of_pages": 338,
+            "price": "115.00",
+            "cover": "",
+            "discount": "0.00",
+            "views": 0,
+            "sellings": 0,
+            "genres": [
+                "Religion & Spirituality"
+            ]
+        }
+    },
+    {
+        "model": "base.book",
+        "pk": "1661193256266",
+        "fields": {
+            "title": "title",
+            "author": "author",
+            "publication_year": 1991,
+            "language": "es-ES",
+            "publisher": "publisher",
+            "number_of_pages": 818,
+            "price": "74.00",
+            "cover": "",
+            "discount": "0.00",
+            "views": 0,
+            "sellings": 0,
+            "genres": [
+                "Graphic Novel"
+            ]
+        }
+    },
+    {
+        "model": "base.book",
+        "pk": "1697942356156",
+        "fields": {
+            "title": "title",
+            "author": "author",
+            "publication_year": 1998,
+            "language": "es-ES",
+            "publisher": "publisher",
+            "number_of_pages": 832,
+            "price": "133.00",
+            "cover": "",
+            "discount": "0.00",
+            "views": 0,
+            "sellings": 0,
+            "genres": [
+                "Religion & Spirituality"
+            ]
+        }
+    },
+    {
+        "model": "base.book",
+        "pk": "1771826311642",
+        "fields": {
+            "title": "title",
+            "author": "author",
+            "publication_year": 1965,
+            "language": "en-US",
+            "publisher": "publisher",
+            "number_of_pages": 240,
+            "price": "81.00",
+            "cover": "",
+            "discount": "0.00",
+            "views": 0,
+            "sellings": 0,
+            "genres": [
+                "Women's Fiction"
+            ]
+        }
+    },
+    {
+        "model": "base.book",
+        "pk": "1777436517479",
+        "fields": {
+            "title": "title",
+            "author": "author",
+            "publication_year": 2012,
+            "language": "en-US",
+            "publisher": "publisher",
+            "number_of_pages": 318,
+            "price": "92.00",
+            "cover": "",
+            "discount": "0.00",
+            "views": 0,
+            "sellings": 0,
+            "genres": [
+                "Mystery"
+            ]
+        }
+    },
+    {
+        "model": "base.book",
+        "pk": "2145820837329",
+        "fields": {
+            "title": "title",
+            "author": "author",
+            "publication_year": 1966,
+            "language": "en-US",
+            "publisher": "publisher",
+            "number_of_pages": 647,
+            "price": "78.00",
+            "cover": "",
+            "discount": "0.00",
+            "views": 0,
+            "sellings": 0,
+            "genres": [
+                "Dystopian"
+            ]
+        }
+    },
+    {
+        "model": "base.book",
+        "pk": "2400221501609",
+        "fields": {
+            "title": "title",
+            "author": "author",
+            "publication_year": 2012,
+            "language": "pt-BR",
+            "publisher": "publisher",
+            "number_of_pages": 289,
+            "price": "107.00",
+            "cover": "",
+            "discount": "0.00",
+            "views": 0,
+            "sellings": 0,
+            "genres": [
+                "Food & Drink"
+            ]
+        }
+    },
+    {
+        "model": "base.book",
+        "pk": "2408357792166",
+        "fields": {
+            "title": "title",
+            "author": "author",
+            "publication_year": 2007,
+            "language": "pt-BR",
+            "publisher": "publisher",
+            "number_of_pages": 428,
+            "price": "101.00",
+            "cover": "",
+            "discount": "0.00",
+            "views": 0,
+            "sellings": 0,
+            "genres": [
+                "Humanities & Social Sciences"
+            ]
+        }
+    },
+    {
+        "model": "base.book",
+        "pk": "2442414055395",
+        "fields": {
+            "title": "title",
+            "author": "author",
+            "publication_year": 1977,
+            "language": "es-ES",
+            "publisher": "publisher",
+            "number_of_pages": 267,
+            "price": "58.00",
+            "cover": "",
+            "discount": "0.00",
+            "views": 0,
+            "sellings": 0,
+            "genres": [
+                "True Crime"
+            ]
+        }
+    },
+    {
+        "model": "base.book",
+        "pk": "2477124261544",
+        "fields": {
+            "title": "title",
+            "author": "author",
+            "publication_year": 2014,
+            "language": "en-US",
+            "publisher": "publisher",
+            "number_of_pages": 240,
+            "price": "133.00",
+            "cover": "",
+            "discount": "0.00",
+            "views": 0,
+            "sellings": 0,
+            "genres": [
+                "Religion & Spirituality"
+            ]
+        }
+    },
+    {
+        "model": "base.book",
+        "pk": "2514797601542",
+        "fields": {
+            "title": "title",
+            "author": "author",
+            "publication_year": 1991,
+            "language": "en-US",
+            "publisher": "publisher",
+            "number_of_pages": 765,
+            "price": "116.00",
+            "cover": "",
+            "discount": "0.00",
+            "views": 0,
+            "sellings": 0,
+            "genres": [
+                "Horror"
+            ]
+        }
+    },
+    {
+        "model": "base.book",
+        "pk": "2644348197452",
+        "fields": {
+            "title": "title",
+            "author": "author",
+            "publication_year": 1986,
+            "language": "es-ES",
+            "publisher": "publisher",
+            "number_of_pages": 340,
+            "price": "50.00",
+            "cover": "",
+            "discount": "0.00",
+            "views": 0,
+            "sellings": 0,
+            "genres": [
+                "Essays"
+            ]
+        }
+    },
+    {
+        "model": "base.book",
+        "pk": "2673821099794",
+        "fields": {
+            "title": "title",
+            "author": "author",
+            "publication_year": 1962,
+            "language": "es-ES",
+            "publisher": "publisher",
+            "number_of_pages": 187,
+            "price": "134.00",
+            "cover": "",
+            "discount": "0.00",
+            "views": 0,
+            "sellings": 0,
+            "genres": [
+                "Essays"
+            ]
+        }
+    },
+    {
+        "model": "base.book",
+        "pk": "2675411100127",
+        "fields": {
+            "title": "title",
+            "author": "author",
+            "publication_year": 1989,
+            "language": "es-ES",
+            "publisher": "publisher",
+            "number_of_pages": 570,
+            "price": "135.00",
+            "cover": "",
+            "discount": "0.00",
+            "views": 0,
+            "sellings": 0,
+            "genres": [
+                "Magical Realism"
+            ]
+        }
+    },
+    {
+        "model": "base.book",
+        "pk": "2716274565994",
+        "fields": {
+            "title": "title",
+            "author": "author",
+            "publication_year": 1994,
+            "language": "es-ES",
+            "publisher": "publisher",
+            "number_of_pages": 806,
+            "price": "90.00",
+            "cover": "",
+            "discount": "0.00",
+            "views": 0,
+            "sellings": 0,
+            "genres": [
+                "Parenting & Families"
+            ]
+        }
+    },
+    {
+        "model": "base.book",
+        "pk": "2869848956823",
+        "fields": {
+            "title": "title",
+            "author": "author",
+            "publication_year": 2020,
+            "language": "es-ES",
+            "publisher": "publisher",
+            "number_of_pages": 427,
+            "price": "133.00",
+            "cover": "",
+            "discount": "0.00",
+            "views": 0,
+            "sellings": 0,
+            "genres": [
+                "Essays"
+            ]
+        }
+    },
+    {
+        "model": "base.book",
+        "pk": "2895700661253",
+        "fields": {
+            "title": "title",
+            "author": "author",
+            "publication_year": 2002,
+            "language": "es-ES",
+            "publisher": "publisher",
+            "number_of_pages": 159,
+            "price": "93.00",
+            "cover": "",
+            "discount": "0.00",
+            "views": 0,
+            "sellings": 0,
+            "genres": [
+                "Humor"
+            ]
+        }
+    },
+    {
+        "model": "base.book",
+        "pk": "2951971967902",
+        "fields": {
+            "title": "title",
+            "author": "author",
+            "publication_year": 1996,
+            "language": "es-ES",
+            "publisher": "publisher",
+            "number_of_pages": 835,
+            "price": "60.00",
+            "cover": "",
+            "discount": "0.00",
+            "views": 0,
+            "sellings": 0,
+            "genres": [
+                "Food & Drink"
+            ]
+        }
+    },
+    {
+        "model": "base.book",
+        "pk": "2960421593270",
+        "fields": {
+            "title": "title",
+            "author": "author",
+            "publication_year": 1966,
+            "language": "pt-BR",
+            "publisher": "publisher",
+            "number_of_pages": 316,
+            "price": "142.00",
+            "cover": "",
+            "discount": "0.00",
+            "views": 0,
+            "sellings": 0,
+            "genres": [
+                "Action & Adventure"
+            ]
+        }
+    },
+    {
+        "model": "base.book",
+        "pk": "2970985214781",
+        "fields": {
+            "title": "title",
+            "author": "author",
+            "publication_year": 1987,
+            "language": "pt-BR",
+            "publisher": "publisher",
+            "number_of_pages": 618,
+            "price": "68.00",
+            "cover": "",
+            "discount": "0.00",
+            "views": 0,
+            "sellings": 0,
+            "genres": [
+                "Contemporary Fiction"
+            ]
+        }
+    },
+    {
+        "model": "base.book",
+        "pk": "3035625877406",
+        "fields": {
+            "title": "title",
+            "author": "author",
+            "publication_year": 1960,
+            "language": "pt-BR",
+            "publisher": "publisher",
+            "number_of_pages": 137,
+            "price": "106.00",
+            "cover": "",
+            "discount": "0.00",
+            "views": 0,
+            "sellings": 0,
+            "genres": [
+                "Horror"
+            ]
+        }
+    },
+    {
+        "model": "base.book",
+        "pk": "3220896223479",
+        "fields": {
+            "title": "title",
+            "author": "author",
+            "publication_year": 1998,
+            "language": "en-US",
+            "publisher": "publisher",
+            "number_of_pages": 466,
+            "price": "133.00",
+            "cover": "",
+            "discount": "0.00",
+            "views": 0,
+            "sellings": 0,
+            "genres": [
+                "Contemporary Fiction"
+            ]
+        }
+    },
+    {
+        "model": "base.book",
+        "pk": "3223280865639",
+        "fields": {
+            "title": "title",
+            "author": "author",
+            "publication_year": 2006,
+            "language": "en-US",
+            "publisher": "publisher",
+            "number_of_pages": 550,
+            "price": "115.00",
+            "cover": "",
+            "discount": "0.00",
+            "views": 0,
+            "sellings": 0,
+            "genres": [
+                "Dystopian"
+            ]
+        }
+    },
+    {
+        "model": "base.book",
+        "pk": "3249845693651",
+        "fields": {
+            "title": "title",
+            "author": "author",
+            "publication_year": 2013,
+            "language": "pt-BR",
+            "publisher": "publisher",
+            "number_of_pages": 957,
+            "price": "85.00",
+            "cover": "",
+            "discount": "0.00",
+            "views": 0,
+            "sellings": 0,
+            "genres": [
+                "True Crime"
+            ]
+        }
+    },
+    {
+        "model": "base.book",
+        "pk": "3253730849377",
+        "fields": {
+            "title": "title",
+            "author": "author",
+            "publication_year": 1996,
+            "language": "en-US",
+            "publisher": "publisher",
+            "number_of_pages": 409,
+            "price": "131.00",
+            "cover": "",
+            "discount": "0.00",
+            "views": 0,
+            "sellings": 0,
+            "genres": [
+                "Memoir & Autobiography"
+            ]
+        }
+    },
+    {
+        "model": "base.book",
+        "pk": "3374115003833",
+        "fields": {
+            "title": "title",
+            "author": "author",
+            "publication_year": 2012,
+            "language": "pt-BR",
+            "publisher": "publisher",
+            "number_of_pages": 600,
+            "price": "132.00",
+            "cover": "",
+            "discount": "0.00",
+            "views": 0,
+            "sellings": 0,
+            "genres": [
+                "Travel"
+            ]
+        }
+    },
+    {
+        "model": "base.book",
+        "pk": "3375842597603",
+        "fields": {
+            "title": "title",
+            "author": "author",
+            "publication_year": 2008,
+            "language": "pt-BR",
+            "publisher": "publisher",
+            "number_of_pages": 550,
+            "price": "57.00",
+            "cover": "",
+            "discount": "0.00",
+            "views": 0,
+            "sellings": 0,
+            "genres": [
+                "Short Story"
+            ]
+        }
+    },
+    {
+        "model": "base.book",
+        "pk": "3407834188252",
+        "fields": {
+            "title": "title",
+            "author": "author",
+            "publication_year": 1999,
+            "language": "pt-BR",
+            "publisher": "publisher",
+            "number_of_pages": 269,
+            "price": "110.00",
+            "cover": "",
+            "discount": "0.00",
+            "views": 0,
+            "sellings": 0,
+            "genres": [
+                "Essays"
+            ]
+        }
+    },
+    {
+        "model": "base.book",
+        "pk": "3409090596544",
+        "fields": {
+            "title": "title",
+            "author": "author",
+            "publication_year": 1961,
+            "language": "en-US",
+            "publisher": "publisher",
+            "number_of_pages": 724,
+            "price": "74.00",
+            "cover": "",
+            "discount": "0.00",
+            "views": 0,
+            "sellings": 0,
+            "genres": [
+                "LGBTQ+"
+            ]
+        }
+    },
+    {
+        "model": "base.book",
+        "pk": "3473525846338",
+        "fields": {
+            "title": "title",
+            "author": "author",
+            "publication_year": 1981,
+            "language": "es-ES",
+            "publisher": "publisher",
+            "number_of_pages": 495,
+            "price": "134.00",
+            "cover": "",
+            "discount": "0.00",
+            "views": 0,
+            "sellings": 0,
+            "genres": [
+                "Fantasy"
+            ]
+        }
+    },
+    {
+        "model": "base.book",
+        "pk": "3477055838515",
+        "fields": {
+            "title": "title",
+            "author": "author",
+            "publication_year": 2019,
+            "language": "pt-BR",
+            "publisher": "publisher",
+            "number_of_pages": 826,
+            "price": "134.00",
+            "cover": "",
+            "discount": "0.00",
+            "views": 0,
+            "sellings": 0,
+            "genres": [
+                "Mystery"
+            ]
+        }
+    },
+    {
+        "model": "base.book",
+        "pk": "3590800102558",
+        "fields": {
+            "title": "title",
+            "author": "author",
+            "publication_year": 2000,
+            "language": "es-ES",
+            "publisher": "publisher",
+            "number_of_pages": 510,
+            "price": "82.00",
+            "cover": "",
+            "discount": "0.00",
+            "views": 0,
+            "sellings": 0,
+            "genres": [
+                "History"
+            ]
+        }
+    },
+    {
+        "model": "base.book",
+        "pk": "3614381714522",
+        "fields": {
+            "title": "title",
+            "author": "author",
+            "publication_year": 1998,
+            "language": "es-ES",
+            "publisher": "publisher",
+            "number_of_pages": 164,
+            "price": "74.00",
+            "cover": "",
+            "discount": "0.00",
+            "views": 0,
+            "sellings": 0,
+            "genres": [
+                "Art & Photography"
+            ]
+        }
+    },
+    {
+        "model": "base.book",
+        "pk": "3717813259207",
+        "fields": {
+            "title": "title",
+            "author": "author",
+            "publication_year": 1984,
+            "language": "pt-BR",
+            "publisher": "publisher",
+            "number_of_pages": 224,
+            "price": "63.00",
+            "cover": "",
+            "discount": "0.00",
+            "views": 0,
+            "sellings": 0,
+            "genres": [
+                "Short Story"
+            ]
+        }
+    },
+    {
+        "model": "base.book",
+        "pk": "3810775025941",
+        "fields": {
+            "title": "title",
+            "author": "author",
+            "publication_year": 1970,
+            "language": "es-ES",
+            "publisher": "publisher",
+            "number_of_pages": 361,
+            "price": "99.00",
+            "cover": "",
+            "discount": "0.00",
+            "views": 0,
+            "sellings": 0,
+            "genres": [
+                "Graphic Novel"
+            ]
+        }
+    },
+    {
+        "model": "base.book",
+        "pk": "3837667847523",
+        "fields": {
+            "title": "title",
+            "author": "author",
+            "publication_year": 1974,
+            "language": "pt-BR",
+            "publisher": "publisher",
+            "number_of_pages": 156,
+            "price": "100.00",
+            "cover": "",
+            "discount": "0.00",
+            "views": 0,
+            "sellings": 0,
+            "genres": [
+                "Memoir & Autobiography"
+            ]
+        }
+    },
+    {
+        "model": "base.book",
+        "pk": "4081282207251",
+        "fields": {
+            "title": "title",
+            "author": "author",
+            "publication_year": 2002,
+            "language": "es-ES",
+            "publisher": "publisher",
+            "number_of_pages": 505,
+            "price": "64.00",
+            "cover": "",
+            "discount": "0.00",
+            "views": 0,
+            "sellings": 0,
+            "genres": [
+                "Guide / How-to"
+            ]
+        }
+    },
+    {
+        "model": "base.book",
+        "pk": "4127474808839",
+        "fields": {
+            "title": "title",
+            "author": "author",
+            "publication_year": 1981,
+            "language": "es-ES",
+            "publisher": "publisher",
+            "number_of_pages": 541,
+            "price": "106.00",
+            "cover": "",
+            "discount": "0.00",
+            "views": 0,
+            "sellings": 0,
+            "genres": [
+                "Action & Adventure",
+                "Fantasy"
+            ]
+        }
+    },
+    {
+        "model": "base.book",
+        "pk": "4296507614612",
+        "fields": {
+            "title": "title",
+            "author": "author",
+            "publication_year": 1979,
+            "language": "en-US",
+            "publisher": "publisher",
+            "number_of_pages": 372,
+            "price": "137.00",
+            "cover": "",
+            "discount": "0.00",
+            "views": 0,
+            "sellings": 0,
+            "genres": [
+                "Travel"
+            ]
+        }
+    },
+    {
+        "model": "base.book",
+        "pk": "4446399876332",
+        "fields": {
+            "title": "title",
+            "author": "author",
+            "publication_year": 1991,
+            "language": "es-ES",
+            "publisher": "publisher",
+            "number_of_pages": 942,
+            "price": "117.00",
+            "cover": "",
+            "discount": "0.00",
+            "views": 0,
+            "sellings": 0,
+            "genres": [
+                "Women's Fiction"
+            ]
+        }
+    },
+    {
+        "model": "base.book",
+        "pk": "4451638749579",
+        "fields": {
+            "title": "title",
+            "author": "author",
+            "publication_year": 1960,
+            "language": "pt-BR",
+            "publisher": "publisher",
+            "number_of_pages": 396,
+            "price": "128.00",
+            "cover": "",
+            "discount": "0.00",
+            "views": 0,
+            "sellings": 0,
+            "genres": [
+                "Magical Realism"
+            ]
+        }
+    },
+    {
+        "model": "base.book",
+        "pk": "4526526156191",
+        "fields": {
+            "title": "title",
+            "author": "author",
+            "publication_year": 1998,
+            "language": "es-ES",
+            "publisher": "publisher",
+            "number_of_pages": 329,
+            "price": "113.00",
+            "cover": "",
+            "discount": "0.00",
+            "views": 0,
+            "sellings": 0,
+            "genres": [
+                "Travel"
+            ]
+        }
+    },
+    {
+        "model": "base.book",
+        "pk": "4547753080905",
+        "fields": {
+            "title": "title",
+            "author": "author",
+            "publication_year": 2009,
+            "language": "es-ES",
+            "publisher": "publisher",
+            "number_of_pages": 264,
+            "price": "88.00",
+            "cover": "",
+            "discount": "0.00",
+            "views": 0,
+            "sellings": 0,
+            "genres": [
+                "Fantasy"
+            ]
+        }
+    },
+    {
+        "model": "base.book",
+        "pk": "4695815147372",
+        "fields": {
+            "title": "title",
+            "author": "author",
+            "publication_year": 1963,
+            "language": "en-US",
+            "publisher": "publisher",
+            "number_of_pages": 996,
+            "price": "129.00",
+            "cover": "",
+            "discount": "0.00",
+            "views": 0,
+            "sellings": 0,
+            "genres": [
+                "Biography"
+            ]
+        }
+    },
+    {
+        "model": "base.book",
+        "pk": "4713862794209",
+        "fields": {
+            "title": "title",
+            "author": "author",
+            "publication_year": 1972,
+            "language": "pt-BR",
+            "publisher": "publisher",
+            "number_of_pages": 214,
+            "price": "148.00",
+            "cover": "",
+            "discount": "0.00",
+            "views": 0,
+            "sellings": 0,
+            "genres": [
+                "True Crime"
+            ]
+        }
+    },
+    {
+        "model": "base.book",
+        "pk": "4886696026834",
+        "fields": {
+            "title": "title",
+            "author": "author",
+            "publication_year": 1987,
+            "language": "pt-BR",
+            "publisher": "publisher",
+            "number_of_pages": 840,
+            "price": "136.00",
+            "cover": "",
+            "discount": "0.00",
+            "views": 0,
+            "sellings": 0,
+            "genres": [
+                "History"
+            ]
+        }
+    },
+    {
+        "model": "base.book",
+        "pk": "4964824559292",
+        "fields": {
+            "title": "title",
+            "author": "author",
+            "publication_year": 1980,
+            "language": "en-US",
+            "publisher": "publisher",
+            "number_of_pages": 323,
+            "price": "102.00",
+            "cover": "",
+            "discount": "0.00",
+            "views": 0,
+            "sellings": 0,
+            "genres": [
+                "Historical Fiction"
+            ]
+        }
+    },
+    {
+        "model": "base.book",
+        "pk": "5079811478872",
+        "fields": {
+            "title": "title",
+            "author": "author",
+            "publication_year": 1968,
+            "language": "es-ES",
+            "publisher": "publisher",
+            "number_of_pages": 519,
+            "price": "122.00",
+            "cover": "",
+            "discount": "0.00",
+            "views": 0,
+            "sellings": 0,
+            "genres": [
+                "Short Story"
+            ]
+        }
+    },
+    {
+        "model": "base.book",
+        "pk": "5287855699593",
+        "fields": {
+            "title": "title",
+            "author": "author",
+            "publication_year": 2018,
+            "language": "en-US",
+            "publisher": "publisher",
+            "number_of_pages": 112,
+            "price": "87.00",
+            "cover": "",
+            "discount": "0.00",
+            "views": 0,
+            "sellings": 0,
+            "genres": [
+                "New Adult"
+            ]
+        }
+    },
+    {
+        "model": "base.book",
+        "pk": "5301030943305",
+        "fields": {
+            "title": "title",
+            "author": "author",
+            "publication_year": 1983,
+            "language": "pt-BR",
+            "publisher": "publisher",
+            "number_of_pages": 351,
+            "price": "81.00",
+            "cover": "",
+            "discount": "0.00",
+            "views": 0,
+            "sellings": 0,
+            "genres": [
+                "Women's Fiction"
+            ]
+        }
+    },
+    {
+        "model": "base.book",
+        "pk": "5546922800106",
+        "fields": {
+            "title": "title",
+            "author": "author",
+            "publication_year": 1966,
+            "language": "es-ES",
+            "publisher": "publisher",
+            "number_of_pages": 933,
+            "price": "58.00",
+            "cover": "",
+            "discount": "0.00",
+            "views": 0,
+            "sellings": 0,
+            "genres": [
+                "Romance"
+            ]
+        }
+    },
+    {
+        "model": "base.book",
+        "pk": "5589964889923",
+        "fields": {
+            "title": "title",
+            "author": "author",
+            "publication_year": 1989,
+            "language": "en-US",
+            "publisher": "publisher",
+            "number_of_pages": 961,
+            "price": "87.00",
+            "cover": "",
+            "discount": "0.00",
+            "views": 0,
+            "sellings": 0,
+            "genres": [
+                "Magical Realism"
+            ]
+        }
+    },
+    {
+        "model": "base.book",
+        "pk": "5691048283727",
+        "fields": {
+            "title": "title",
+            "author": "author",
+            "publication_year": 1962,
+            "language": "pt-BR",
+            "publisher": "publisher",
+            "number_of_pages": 533,
+            "price": "82.00",
+            "cover": "",
+            "discount": "0.00",
+            "views": 0,
+            "sellings": 0,
+            "genres": [
+                "Romance"
+            ]
+        }
+    },
+    {
+        "model": "base.book",
+        "pk": "5820205917205",
+        "fields": {
+            "title": "title",
+            "author": "author",
+            "publication_year": 2011,
+            "language": "pt-BR",
+            "publisher": "publisher",
+            "number_of_pages": 945,
+            "price": "114.00",
+            "cover": "",
+            "discount": "0.00",
+            "views": 0,
+            "sellings": 0,
+            "genres": [
+                "Literary Fiction"
+            ]
+        }
+    },
+    {
+        "model": "base.book",
+        "pk": "6008051119416",
+        "fields": {
+            "title": "title",
+            "author": "author",
+            "publication_year": 1964,
+            "language": "pt-BR",
+            "publisher": "publisher",
+            "number_of_pages": 888,
+            "price": "112.00",
+            "cover": "",
+            "discount": "0.00",
+            "views": 0,
+            "sellings": 0,
+            "genres": [
+                "Mystery"
+            ]
+        }
+    },
+    {
+        "model": "base.book",
+        "pk": "6053517631813",
+        "fields": {
+            "title": "title",
+            "author": "author",
+            "publication_year": 1986,
+            "language": "es-ES",
+            "publisher": "publisher",
+            "number_of_pages": 933,
+            "price": "105.00",
+            "cover": "",
+            "discount": "0.00",
+            "views": 0,
+            "sellings": 0,
+            "genres": [
+                "Religion & Spirituality"
+            ]
+        }
+    },
+    {
+        "model": "base.book",
+        "pk": "6087439683843",
+        "fields": {
+            "title": "title",
+            "author": "author",
+            "publication_year": 2011,
+            "language": "es-ES",
+            "publisher": "publisher",
+            "number_of_pages": 322,
+            "price": "122.00",
+            "cover": "",
+            "discount": "0.00",
+            "views": 0,
+            "sellings": 0,
+            "genres": [
+                "Science & Technology"
+            ]
+        }
+    },
+    {
+        "model": "base.book",
+        "pk": "6120134733354",
+        "fields": {
+            "title": "title",
+            "author": "author",
+            "publication_year": 1985,
+            "language": "en-US",
+            "publisher": "publisher",
+            "number_of_pages": 132,
+            "price": "54.00",
+            "cover": "",
+            "discount": "0.00",
+            "views": 0,
+            "sellings": 0,
+            "genres": [
+                "Religion & Spirituality"
+            ]
+        }
+    },
+    {
+        "model": "base.book",
+        "pk": "6205050556395",
+        "fields": {
+            "title": "title",
+            "author": "author",
+            "publication_year": 2001,
+            "language": "en-US",
+            "publisher": "publisher",
+            "number_of_pages": 966,
+            "price": "63.00",
+            "cover": "",
+            "discount": "0.00",
+            "views": 0,
+            "sellings": 0,
+            "genres": [
+                "History"
+            ]
+        }
+    },
+    {
+        "model": "base.book",
+        "pk": "6216806179911",
+        "fields": {
+            "title": "title",
+            "author": "author",
+            "publication_year": 1965,
+            "language": "es-ES",
+            "publisher": "publisher",
+            "number_of_pages": 660,
+            "price": "103.00",
+            "cover": "",
+            "discount": "0.00",
+            "views": 0,
+            "sellings": 0,
+            "genres": [
+                "Religion & Spirituality"
+            ]
+        }
+    },
+    {
+        "model": "base.book",
+        "pk": "6268824295162",
+        "fields": {
+            "title": "title",
+            "author": "author",
+            "publication_year": 1982,
+            "language": "pt-BR",
+            "publisher": "publisher",
+            "number_of_pages": 433,
+            "price": "96.00",
+            "cover": "",
+            "discount": "0.00",
+            "views": 0,
+            "sellings": 0,
+            "genres": [
+                "Action & Adventure"
+            ]
+        }
+    },
+    {
+        "model": "base.book",
+        "pk": "6412788856713",
+        "fields": {
+            "title": "title",
+            "author": "author",
+            "publication_year": 1993,
+            "language": "es-ES",
+            "publisher": "publisher",
+            "number_of_pages": 383,
+            "price": "127.00",
+            "cover": "",
+            "discount": "0.00",
+            "views": 0,
+            "sellings": 0,
+            "genres": [
+                "Art & Photography"
+            ]
+        }
+    },
+    {
+        "model": "base.book",
+        "pk": "6528981879139",
+        "fields": {
+            "title": "title",
+            "author": "author",
+            "publication_year": 1961,
+            "language": "es-ES",
+            "publisher": "publisher",
+            "number_of_pages": 105,
+            "price": "144.00",
+            "cover": "",
+            "discount": "0.00",
+            "views": 0,
+            "sellings": 0,
+            "genres": [
+                "Art & Photography"
+            ]
+        }
+    },
+    {
+        "model": "base.book",
+        "pk": "6535460272903",
+        "fields": {
+            "title": "title",
+            "author": "author",
+            "publication_year": 1975,
+            "language": "es-ES",
+            "publisher": "publisher",
+            "number_of_pages": 769,
+            "price": "60.00",
+            "cover": "",
+            "discount": "0.00",
+            "views": 0,
+            "sellings": 0,
+            "genres": [
+                "Self-help"
+            ]
+        }
+    },
+    {
+        "model": "base.book",
+        "pk": "6616916435647",
+        "fields": {
+            "title": "title",
+            "author": "author",
+            "publication_year": 1974,
+            "language": "es-ES",
+            "publisher": "publisher",
+            "number_of_pages": 403,
+            "price": "145.00",
+            "cover": "",
+            "discount": "0.00",
+            "views": 0,
+            "sellings": 0,
+            "genres": [
+                "Parenting & Families"
+            ]
+        }
+    },
+    {
+        "model": "base.book",
+        "pk": "6749413300389",
+        "fields": {
+            "title": "title",
+            "author": "author",
+            "publication_year": 1978,
+            "language": "en-US",
+            "publisher": "publisher",
+            "number_of_pages": 348,
+            "price": "144.00",
+            "cover": "",
+            "discount": "0.00",
+            "views": 0,
+            "sellings": 0,
+            "genres": [
+                "Women's Fiction"
+            ]
+        }
+    },
+    {
+        "model": "base.book",
+        "pk": "6750820386741",
+        "fields": {
+            "title": "title",
+            "author": "author",
+            "publication_year": 1964,
+            "language": "en-US",
+            "publisher": "publisher",
+            "number_of_pages": 632,
+            "price": "64.00",
+            "cover": "",
+            "discount": "0.00",
+            "views": 0,
+            "sellings": 0,
+            "genres": [
+                "Parenting & Families"
+            ]
+        }
+    },
+    {
+        "model": "base.book",
+        "pk": "6926181199185",
+        "fields": {
+            "title": "title",
+            "author": "author",
+            "publication_year": 1999,
+            "language": "en-US",
+            "publisher": "publisher",
+            "number_of_pages": 265,
+            "price": "121.00",
+            "cover": "",
+            "discount": "0.00",
+            "views": 0,
+            "sellings": 0,
+            "genres": [
+                "Humor"
+            ]
+        }
+    },
+    {
+        "model": "base.book",
+        "pk": "6927813720245",
+        "fields": {
+            "title": "title",
+            "author": "author",
+            "publication_year": 2007,
+            "language": "en-US",
+            "publisher": "publisher",
+            "number_of_pages": 303,
+            "price": "63.00",
+            "cover": "",
+            "discount": "0.00",
+            "views": 0,
+            "sellings": 0,
+            "genres": [
+                "Children's"
+            ]
+        }
+    },
+    {
+        "model": "base.book",
+        "pk": "6997658923243",
+        "fields": {
+            "title": "title",
+            "author": "author",
+            "publication_year": 1968,
+            "language": "es-ES",
+            "publisher": "publisher",
+            "number_of_pages": 692,
+            "price": "144.00",
+            "cover": "",
+            "discount": "0.00",
+            "views": 0,
+            "sellings": 0,
+            "genres": [
+                "Essays"
+            ]
+        }
+    },
+    {
+        "model": "base.book",
+        "pk": "7104420214473",
+        "fields": {
+            "title": "title",
+            "author": "author",
+            "publication_year": 1984,
+            "language": "es-ES",
+            "publisher": "publisher",
+            "number_of_pages": 815,
+            "price": "53.00",
+            "cover": "",
+            "discount": "0.00",
+            "views": 0,
+            "sellings": 0,
+            "genres": [
+                "Graphic Novel"
+            ]
+        }
+    },
+    {
+        "model": "base.book",
+        "pk": "7258412282008",
+        "fields": {
+            "title": "title",
+            "author": "author",
+            "publication_year": 1993,
+            "language": "pt-BR",
+            "publisher": "publisher",
+            "number_of_pages": 391,
+            "price": "115.00",
+            "cover": "",
+            "discount": "0.00",
+            "views": 0,
+            "sellings": 0,
+            "genres": [
+                "Contemporary Fiction"
+            ]
+        }
+    },
+    {
+        "model": "base.book",
+        "pk": "7277340890911",
+        "fields": {
+            "title": "title",
+            "author": "author",
+            "publication_year": 2014,
+            "language": "pt-BR",
+            "publisher": "publisher",
+            "number_of_pages": 999,
+            "price": "104.00",
+            "cover": "",
+            "discount": "0.00",
+            "views": 0,
+            "sellings": 0,
+            "genres": [
+                "Food & Drink"
+            ]
+        }
+    },
+    {
+        "model": "base.book",
+        "pk": "7337341429301",
+        "fields": {
+            "title": "title",
+            "author": "author",
+            "publication_year": 1969,
+            "language": "pt-BR",
+            "publisher": "publisher",
+            "number_of_pages": 927,
+            "price": "114.00",
+            "cover": "",
+            "discount": "0.00",
+            "views": 0,
+            "sellings": 0,
+            "genres": [
+                "True Crime"
+            ]
+        }
+    },
+    {
+        "model": "base.book",
+        "pk": "7362806934317",
+        "fields": {
+            "title": "title",
+            "author": "author",
+            "publication_year": 1990,
+            "language": "en-US",
+            "publisher": "publisher",
+            "number_of_pages": 686,
+            "price": "99.00",
+            "cover": "",
+            "discount": "0.00",
+            "views": 0,
+            "sellings": 0,
+            "genres": [
+                "Horror"
+            ]
+        }
+    },
+    {
+        "model": "base.book",
+        "pk": "7444527965762",
+        "fields": {
+            "title": "title",
+            "author": "author",
+            "publication_year": 1990,
+            "language": "pt-BR",
+            "publisher": "publisher",
+            "number_of_pages": 674,
+            "price": "72.00",
+            "cover": "",
+            "discount": "0.00",
+            "views": 0,
+            "sellings": 0,
+            "genres": [
+                "Memoir & Autobiography"
+            ]
+        }
+    },
+    {
+        "model": "base.book",
+        "pk": "7508959421320",
+        "fields": {
+            "title": "title",
+            "author": "author",
+            "publication_year": 1984,
+            "language": "es-ES",
+            "publisher": "publisher",
+            "number_of_pages": 699,
+            "price": "89.00",
+            "cover": "",
+            "discount": "0.00",
+            "views": 0,
+            "sellings": 0,
+            "genres": [
+                "Horror"
+            ]
+        }
+    },
+    {
+        "model": "base.book",
+        "pk": "7516439082291",
+        "fields": {
+            "title": "title",
+            "author": "author",
+            "publication_year": 2021,
+            "language": "pt-BR",
+            "publisher": "publisher",
+            "number_of_pages": 484,
+            "price": "66.00",
+            "cover": "",
+            "discount": "0.00",
+            "views": 0,
+            "sellings": 0,
+            "genres": [
+                "History"
+            ]
+        }
+    },
+    {
+        "model": "base.book",
+        "pk": "7594619605157",
+        "fields": {
+            "title": "title",
+            "author": "author",
+            "publication_year": 2007,
+            "language": "pt-BR",
+            "publisher": "publisher",
+            "number_of_pages": 743,
+            "price": "135.00",
+            "cover": "",
+            "discount": "0.00",
+            "views": 0,
+            "sellings": 0,
+            "genres": [
+                "Biography"
+            ]
+        }
+    },
+    {
+        "model": "base.book",
+        "pk": "7694841682792",
+        "fields": {
+            "title": "title",
+            "author": "author",
+            "publication_year": 1981,
+            "language": "en-US",
+            "publisher": "publisher",
+            "number_of_pages": 956,
+            "price": "71.00",
+            "cover": "",
+            "discount": "0.00",
+            "views": 0,
+            "sellings": 0,
+            "genres": [
+                "Self-help"
+            ]
+        }
+    },
+    {
+        "model": "base.book",
+        "pk": "7869598895284",
+        "fields": {
+            "title": "title",
+            "author": "author",
+            "publication_year": 1991,
+            "language": "es-ES",
+            "publisher": "publisher",
+            "number_of_pages": 686,
+            "price": "74.00",
+            "cover": "",
+            "discount": "0.00",
+            "views": 0,
+            "sellings": 0,
+            "genres": [
+                "Science & Technology"
+            ]
+        }
+    },
+    {
+        "model": "base.book",
+        "pk": "7984864491125",
+        "fields": {
+            "title": "title",
+            "author": "author",
+            "publication_year": 1999,
+            "language": "en-US",
+            "publisher": "publisher",
+            "number_of_pages": 492,
+            "price": "137.00",
+            "cover": "",
+            "discount": "0.00",
+            "views": 0,
+            "sellings": 0,
+            "genres": [
+                "Parenting & Families"
+            ]
+        }
+    },
+    {
+        "model": "base.book",
+        "pk": "8048940688712",
+        "fields": {
+            "title": "title",
+            "author": "author",
+            "publication_year": 2001,
+            "language": "es-ES",
+            "publisher": "publisher",
+            "number_of_pages": 131,
+            "price": "108.00",
+            "cover": "",
+            "discount": "0.00",
+            "views": 0,
+            "sellings": 0,
+            "genres": [
+                "True Crime"
+            ]
+        }
+    },
+    {
+        "model": "base.book",
+        "pk": "8170534563770",
+        "fields": {
+            "title": "title",
+            "author": "author",
+            "publication_year": 1990,
+            "language": "es-ES",
+            "publisher": "publisher",
+            "number_of_pages": 488,
+            "price": "142.00",
+            "cover": "",
+            "discount": "0.00",
+            "views": 0,
+            "sellings": 0,
+            "genres": [
+                "Fantasy"
+            ]
+        }
+    },
+    {
+        "model": "base.book",
+        "pk": "8350437760689",
+        "fields": {
+            "title": "title",
+            "author": "author",
+            "publication_year": 1965,
+            "language": "es-ES",
+            "publisher": "publisher",
+            "number_of_pages": 702,
+            "price": "58.00",
+            "cover": "",
+            "discount": "0.00",
+            "views": 0,
+            "sellings": 0,
+            "genres": [
+                "Magical Realism"
+            ]
+        }
+    },
+    {
+        "model": "base.book",
+        "pk": "8485447929959",
+        "fields": {
+            "title": "title",
+            "author": "author",
+            "publication_year": 1996,
+            "language": "en-US",
+            "publisher": "publisher",
+            "number_of_pages": 745,
+            "price": "124.00",
+            "cover": "",
+            "discount": "0.00",
+            "views": 0,
+            "sellings": 0,
+            "genres": [
+                "Essays"
+            ]
+        }
+    },
+    {
+        "model": "base.book",
+        "pk": "8673376748938",
+        "fields": {
+            "title": "title",
+            "author": "author",
+            "publication_year": 2002,
+            "language": "es-ES",
+            "publisher": "publisher",
+            "number_of_pages": 151,
+            "price": "82.00",
+            "cover": "",
+            "discount": "0.00",
+            "views": 0,
+            "sellings": 0,
+            "genres": [
+                "Science Fiction"
+            ]
+        }
+    },
+    {
+        "model": "base.book",
+        "pk": "8866220620786",
+        "fields": {
+            "title": "title",
+            "author": "author",
+            "publication_year": 2002,
+            "language": "en-US",
+            "publisher": "publisher",
+            "number_of_pages": 744,
+            "price": "61.00",
+            "cover": "",
+            "discount": "0.00",
+            "views": 0,
+            "sellings": 0,
+            "genres": [
+                "True Crime"
+            ]
+        }
+    },
+    {
+        "model": "base.book",
+        "pk": "9011663665595",
+        "fields": {
+            "title": "title",
+            "author": "author",
+            "publication_year": 1974,
+            "language": "en-US",
+            "publisher": "publisher",
+            "number_of_pages": 152,
+            "price": "75.00",
+            "cover": "",
+            "discount": "0.00",
+            "views": 0,
+            "sellings": 0,
+            "genres": [
+                "Children's"
+            ]
+        }
+    },
+    {
+        "model": "base.book",
+        "pk": "9025485530870",
+        "fields": {
+            "title": "title",
+            "author": "author",
+            "publication_year": 2006,
+            "language": "es-ES",
+            "publisher": "publisher",
+            "number_of_pages": 698,
+            "price": "106.00",
+            "cover": "",
+            "discount": "0.00",
+            "views": 0,
+            "sellings": 0,
+            "genres": [
+                "Magical Realism"
+            ]
+        }
+    },
+    {
+        "model": "base.book",
+        "pk": "9056273680760",
+        "fields": {
+            "title": "title",
+            "author": "author",
+            "publication_year": 1975,
+            "language": "en-US",
+            "publisher": "publisher",
+            "number_of_pages": 339,
+            "price": "126.00",
+            "cover": "",
+            "discount": "0.00",
+            "views": 0,
+            "sellings": 0,
+            "genres": [
+                "History"
+            ]
+        }
+    },
+    {
+        "model": "base.book",
+        "pk": "9389083732624",
+        "fields": {
+            "title": "title",
+            "author": "author",
+            "publication_year": 1983,
+            "language": "en-US",
+            "publisher": "publisher",
+            "number_of_pages": 690,
+            "price": "94.00",
+            "cover": "",
+            "discount": "0.00",
+            "views": 0,
+            "sellings": 0,
+            "genres": [
+                "Religion & Spirituality"
+            ]
+        }
+    },
+    {
+        "model": "base.book",
+        "pk": "9530189731284",
+        "fields": {
+            "title": "title",
+            "author": "author",
+            "publication_year": 1974,
+            "language": "en-US",
+            "publisher": "publisher",
+            "number_of_pages": 877,
+            "price": "52.00",
+            "cover": "",
+            "discount": "0.00",
+            "views": 0,
+            "sellings": 0,
+            "genres": [
+                "Literary Fiction"
+            ]
+        }
+    },
+    {
+        "model": "base.book",
+        "pk": "9705226516411",
+        "fields": {
+            "title": "title",
+            "author": "author",
+            "publication_year": 1992,
+            "language": "pt-BR",
+            "publisher": "publisher",
+            "number_of_pages": 738,
+            "price": "75.00",
+            "cover": "",
+            "discount": "0.00",
+            "views": 0,
+            "sellings": 0,
+            "genres": [
+                "Memoir & Autobiography"
+            ]
+        }
+    },
+    {
+        "model": "base.book",
+        "pk": "9737543772227",
+        "fields": {
+            "title": "title",
+            "author": "author",
+            "publication_year": 2009,
+            "language": "pt-BR",
+            "publisher": "publisher",
+            "number_of_pages": 208,
+            "price": "64.00",
+            "cover": "",
+            "discount": "0.00",
+            "views": 0,
+            "sellings": 0,
+            "genres": [
+                "Romance"
+            ]
+        }
+    },
+    {
+        "model": "base.book",
+        "pk": "9764670355656",
+        "fields": {
+            "title": "title",
+            "author": "author",
+            "publication_year": 2018,
+            "language": "en-US",
+            "publisher": "publisher",
+            "number_of_pages": 574,
+            "price": "128.00",
+            "cover": "",
+            "discount": "0.00",
+            "views": 0,
+            "sellings": 0,
+            "genres": [
+                "Religion & Spirituality"
+            ]
+        }
+    },
+    {
+        "model": "base.book",
+        "pk": "9822724724233",
+        "fields": {
+            "title": "title",
+            "author": "author",
+            "publication_year": 1974,
+            "language": "en-US",
+            "publisher": "publisher",
+            "number_of_pages": 431,
+            "price": "117.00",
+            "cover": "",
+            "discount": "0.00",
+            "views": 0,
+            "sellings": 0,
+            "genres": [
+                "Romance"
+            ]
+        }
+    },
+    {
+        "model": "base.book",
+        "pk": "9869734977529",
+        "fields": {
+            "title": "title",
+            "author": "author",
+            "publication_year": 2012,
+            "language": "en-US",
+            "publisher": "publisher",
+            "number_of_pages": 135,
+            "price": "61.00",
+            "cover": "",
+            "discount": "0.00",
+            "views": 0,
+            "sellings": 0,
+            "genres": [
+                "Memoir & Autobiography"
+            ]
+        }
+    },
+    {
+        "model": "base.book",
+        "pk": "9928621634097",
+        "fields": {
+            "title": "title",
+            "author": "author",
+            "publication_year": 2018,
+            "language": "en-US",
+            "publisher": "publisher",
+            "number_of_pages": 818,
+            "price": "119.00",
+            "cover": "",
+            "discount": "0.00",
+            "views": 0,
+            "sellings": 0,
+            "genres": [
+                "Humanities & Social Sciences"
+            ]
+        }
+    },
+    {
+        "model": "base.book",
+        "pk": "9987288972464",
+        "fields": {
+            "title": "title",
+            "author": "author",
+            "publication_year": 1972,
+            "language": "pt-BR",
+            "publisher": "publisher",
+            "number_of_pages": 593,
+            "price": "146.00",
+            "cover": "",
+            "discount": "0.00",
+            "views": 0,
+            "sellings": 0,
+            "genres": [
+                "Science Fiction"
+            ]
+        }
+    }
+]

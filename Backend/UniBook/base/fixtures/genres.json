@@ -1,0 +1,240 @@
+[
+    {
+        "model": "base.genre",
+        "pk": "Action & Adventure",
+        "fields": {
+            "description": "If you're writing adventure, then chances are your book follows the structure of the Hero's Journey. Your protagonist has a very important goal to achieve, but they're really going to have to go through the wringer first! You throw up obstacle after obstacle, putting your hero in downright dangerous situations but eventually, they triumph and return home transformed. The action and adventure genre also complements a huge range of others, which means it has its fingers in everything from fantasy novels like The Hobbit to classic romance like Jane Eyre."
+        }
+    },
+    {
+        "model": "base.genre",
+        "pk": "Art & Photography",
+        "fields": {
+            "description": "This genre is home to a few different kinds of books, all united by their love of art. Your book could find its way into this vibrant and stylish genre if it discusses an artist's work or an artistic style in detail; if it teaches a specific art method; if it explores a facet of art history; or if it showcases your own art in that chic, coffee-table book way."
+        }
+    },
+    {
+        "model": "base.genre",
+        "pk": "Biography",
+        "fields": {
+            "description": "Like autobiographies, biographies provide readers with a person's life story; but they're written in the third person by someone other than the subject. Generally, the subject of a biography is (or was) well-known — somebody whose life can teach readers an interesting lesson worth learning. Biographies, memoirs, and autobiographies differ from the rest of the nonfiction on this list, in that they weave a narrative in almost the same way a novel does. A great biography, like Ron Chernow's Alexander Hamilton, isn't a laundry list of events, but a life-giving tribute."
+        }
+    },
+    {
+        "model": "base.genre",
+        "pk": "Children's",
+        "fields": {
+            "description": "Books in this genre are written with readers under the age of twelve in mind. Of course, kids will do a lot of growing between the ages of zero and twelve, which is why children's books range from baby board books all the way up to middle grade ‘epics' of 50,000 words. Hopefully, if you're writing children's literature, you already know you are. But it's crucial that you also know which age group you're trying to target, as this will impact the themes, characters, and complexity of your book."
+        }
+    },
+    {
+        "model": "base.genre",
+        "pk": "Contemporary Fiction",
+        "fields": {
+            "description": "This book genre is occasionally lumped in with others to indicate that the book takes place in the present day. But in its simplest form, contemporary fiction is better understood as the absence of a genre. Your book doesn't need tropes and trappings, monsters and mysteries, when its tension, drama, and conflict lies in the quirks and quandaries of your protagonist's everyday life: work, politics, relationships, and the struggles of the modern era."
+        }
+    },
+    {
+        "model": "base.genre",
+        "pk": "Dystopian",
+        "fields": {
+            "description": "A popular genre of science fiction, dystopian novels offer a bleak and frightening vision of the future. Authors writing dystopias imagine a grim society, often in the aftermath of a disaster, facing things like oppressive governments, Black Mirror-esque technology, and environmental ruin. From widely popular series like The Hunger Games to critically-acclaimed classics like Nineteen Eighty-four, the enduring appeal of dystopian fiction lies in our burning desire to know where mankind is headed — and our perverse enjoyment of dark stories, so long as they aren't actually happening to us."
+        }
+    },
+    {
+        "model": "base.genre",
+        "pk": "Essays",
+        "fields": {
+            "description": "An essay may sound like a boring assignment from your school years, but the books in this genre are among some of the most moving and inspirational works of literature there are. Many powerful voices — like James Baldwin and Roxane Gay — have used these short works to reflect on their own personal experiences and views, combining them into a collection that serves as an eye-opening social commentary on a particular theme or subject."
+        }
+    },
+    {
+        "model": "base.genre",
+        "pk": "Fantasy",
+        "fields": {
+            "description": "This book genre is characterized by elements of magic or the supernatural and is often inspired by mythology or folklore. In high fantasy — one that's set in an entirely fictional world — these magical elements are at the forefront of the plot, as in Trudi Canavan's Black Magician trilogy. In low fantasy or magical realism, however, magic is subtly woven into an otherwise familiar, real-world setting. You can delve into fantasy's many subgenres to get to know your Arcanepunk from your Flintlock, and find your book's home!"
+        }
+    },
+    {
+        "model": "base.genre",
+        "pk": "Food & Drink",
+        "fields": {
+            "description": "Food and drink is one of nonfiction's hottest book genres, making it a crowded and highly competitive market. As a result, today's cookbooks tend to cater to specific cuisines, dietary, and/or lifestyle needs. If you're writing a cookbook, you might consider pairing recipes with nutritional information, short autobiographical narratives, or even workouts. Jo Wicks's 30 Day Kickstart Plan and Less Fuss No Waste Kitchen by Lindsay Miles are excellent examples of modern cookbooks."
+        }
+    },
+    {
+        "model": "base.genre",
+        "pk": "Graphic Novel",
+        "fields": {
+            "description": "Some book genres aren't defined by their content at all, but by their form. Graphic novels are presented to the reader through narrative art (illustrations and typography) either in the traditional panel layout you'll be familiar with from comic books, or in the artist's own style. Once considered cheap entertainment for children, graphic novels are increasingly read and respected these days for their rich blend of visuals and writing. This powerful method of storytelling now portrays everything from memoirs, to manga, to adaptations of classic literature."
+        }
+    },
+    {
+        "model": "base.genre",
+        "pk": "Guide / How-to",
+        "fields": {
+            "description": "Readers turn to this book genre to develop a skill, hobby, or craft. So if you're an expert in a particular field and you've written a book showing hobbyists how to achieve something specific (like “how to master chess openings” or “a guide to floristry”), then this is its home! Of course, one dead giveaway might be your book's title."
+        }
+    },
+    {
+        "model": "base.genre",
+        "pk": "Historical Fiction",
+        "fields": {
+            "description": "This book genre encompasses fictional stories in a historical setting, carefully balancing creativity and facts. In most cases, the characters and events are imagined by the author and enriched with historically accurate details from a specific time period. Take The Help by Kathryn Stockett, for example — a fictional story set in Mississippi during the Civil Rights Movement. But occasionally, as is the case with Hilary Mantel's Cromwell trilogy, the author builds the main story around real historical figures and events."
+        }
+    },
+    {
+        "model": "base.genre",
+        "pk": "History",
+        "fields": {
+            "description": "The books in this genre lay down the known facts about a historical era, event, or figure. And since this is nonfiction, all the facts have to be accurate (though that doesn't mean there's no room for inference or opinion). The goal of these books is to educate and inform the reader, so this genre does include all those textbooks you used in school. But many history books ditch the play-by-play format to chronicle the past in a way more akin to storytelling. One of our favorite history books is Sapiens: A Brief History of Mankind by Yuval Noah Harari."
+        }
+    },
+    {
+        "model": "base.genre",
+        "pk": "Horror",
+        "fields": {
+            "description": "What unites the books in this genre is not theme, plot, or setting, but the feeling they inspire in the reader: your pulse quickens, and your skin prickles as you turn the page with bated breath. Of course, this feeling of dread only comes about if the author creates the right atmosphere — an essential feature dependent on the subgenre. Gothic horror, for example, sends a shiver down your spine with spooky settings and paranormal elements, while gross-out horror shocks the reader with hacked-up flesh and buckets of blood. The master of horror fiction in all its guises? Stephen King, of course."
+        }
+    },
+    {
+        "model": "base.genre",
+        "pk": "Humanities & Social Sciences",
+        "fields": {
+            "description": "Got something wise to say? Then your book might just belong among the books of this eclectic genre — as long as it discusses a topic related to (deep breath): philosophy, history, literature, language, art, religion, music, or the human condition. This might seem like a pretty wide net to fall into, but keep in mind that books in this genre are typically quite academic; if you've written more of a free-flowing spiritual guide, it probably belongs in the previous genre."
+        }
+    },
+    {
+        "model": "base.genre",
+        "pk": "Humor",
+        "fields": {
+            "description": "Laugh-out-loud memoirs by the funniest celebs, satirical essays from the likes of David Sedaris, or gag gifts like How to Adult — all the books in this rib-tickling genre are written with one thing in mind: making readers laugh! So if you've compiled a collection of all your favorite dad jokes or penned a cathartic brain-dump of your most cringe-worthy memories, then your book may also belong in the humor genre."
+        }
+    },
+    {
+        "model": "base.genre",
+        "pk": "LGBTQ+",
+        "fields": {
+            "description": "Any fiction with authentic LGBTQ+ representation falls into this book genre. It's important to note that while your book's queer characters should feature in the main plot, the centerpiece of your plot doesn't have to be a romance. In fact, there doesn't need to be any romance at all! This means that your fantasy, thriller, or historical novel could fall under the LGBTQ+ umbrella."
+        }
+    },
+    {
+        "model": "base.genre",
+        "pk": "Literary Fiction",
+        "fields": {
+            "description": "Like contemporary fiction, books considered literary fiction can't be neatly filed under any other genre. What distinguishes this genre from contemporary fiction is that works of literary fiction are thought to have considerable artistic value. If your prose is meant to engage the reader in thought, if your narrative is character-driven and introspective, and if you provide personal or social commentary on a “serious” theme, then chances are you're writing lit-fic. Modern classics by the likes of Virginia Woolf or Ali Smith would be labeled literary fiction."
+        }
+    },
+    {
+        "model": "base.genre",
+        "pk": "Magical Realism",
+        "fields": {
+            "description": "You may remember us mentioning magical realism under the umbrella of fantasy — but considering its highbrow style and literary prestige, magical realism is often considered a genre in its own right. Its hallmarks include a real-world setting, a cast of run-of-the-mill characters (no vampires, fairies, or sorcerers), a fluid and non-linear timeline, and supernatural happenings — a baby born with feathered wings, or an egg hatching a ruby — left unexplained. Authors like Isabel Allende and Toni Morrison have used this literary style to grapple with serious social ills, from colonialism to fascism and slavery."
+        }
+    },
+    {
+        "model": "base.genre",
+        "pk": "Memoir & Autobiography",
+        "fields": {
+            "description": "Both memoirs and autobiographies provide a true account of the author's life. They differ in that an autobiography provides a chronological account of your life's events and accomplishments, whereas a memoir puts the emphasis on only the most defining, emotional moments. Generally, these moments are drawn together by a single theme — or a significant time, place, or relationship — to communicate a message you wish to share with readers. The Argonauts by Maggie Nelson is a popular example of a memoir."
+        }
+    },
+    {
+        "model": "base.genre",
+        "pk": "Mystery",
+        "fields": {
+            "description": "Also called detective fiction, this book genre is characterized by a gripping plot that revolves around a mystery — but hopefully, you've cracked that clue! The setting, characters, and tone of your book will determine precisely which category it falls under: cozy mystery, hardboiled, or something in between. But at the core of any mystery is a crime that must be solved by the protagonist. To get a sense of the clever trail of clues that's so vital to this genre, check out Murder on the Orient Express by Agatha Christie — the grande dame of mystery fiction."
+        }
+    },
+    {
+        "model": "base.genre",
+        "pk": "New Adult",
+        "fields": {
+            "description": "The shiny new penny on this book genres list, new adult is like young adult aged-up: coming-of-age stories after the messiness of adolescence. Its college-age protagonists are walked through the gauntlet of becoming fully-fledged grownups, ditching the stress of the SATs and senior prom for college exams, career transitions, and more mature first times. Big names in New Adult, like Cora Carmack, tend to write steamy romances set in dorm rooms. But this genre isn't all about collegiate love stories — your gritty urban fantasy or immersive historical fiction could find its home here, too."
+        }
+    },
+    {
+        "model": "base.genre",
+        "pk": "Parenting & Families",
+        "fields": {
+            "description": "Parents and families struggling with discipline, education, bonding, the care of a newborn baby, or a child with special needs, can turn to this well-stocked genre of books when they need to bring in the reinforcements. If you've written a memoir that'll have families whole-heartedly nodding in agreement, or a guide brimming with advice for frazzled parents, then you can find a place for your book in the parenting and families section."
+        }
+    },
+    {
+        "model": "base.genre",
+        "pk": "Religion & Spirituality",
+        "fields": {
+            "description": "From histories of the Catholic Church to spiritual guidebooks and memoirs of the Eat, Pray, Love variety, this genre has a place for anything and everything related to the topics of religion and spirituality."
+        }
+    },
+    {
+        "model": "base.genre",
+        "pk": "Romance",
+        "fields": {
+            "description": "Romance is so frequently used as a subplot that it can sometimes be tricky to know whether or not you're writing in this genre. The key thing to remember is that the romantic relationship must be the center point of the plot. (Other giveaways include a “happily ever after” ending and the warm fuzzies.) If your novel has a romantic relationship at its heart and is perfectly at home in another genre, it probably falls into one of romance's many subgenres, including but not limited to: young adult romance, paranormal romance, and historical romance."
+        }
+    },
+    {
+        "model": "base.genre",
+        "pk": "Science & Technology",
+        "fields": {
+            "description": "The job of science nonfiction is not to predict the future, but to make sense of the world we're currently living in — which, quite honestly, can feel like science fiction to some of us! Readers of this genre range from complete beginners trying to understand the things around them to technophiles whose brains are whirring to keep up with the pace of change, so there's bound to be a niche for your book, however advanced it is."
+        }
+    },
+    {
+        "model": "base.genre",
+        "pk": "Science Fiction",
+        "fields": {
+            "description": "Though science fiction and fantasy are often considered two sides of the same (speculative fiction) coin, sci-fi is distinguished by its preoccupation with real or real-feeling science. Lots of sci-fi is set in the distant future, which makes it a seedbed for stories about time travel and space exploration. But your science fiction novel doesn't need to be inspired by “hard” science like physics and astronomy. Some of the books in this genre reflect on “soft” sciences, such as sociology and anthropology, to predict the future of the human race — more on that next!"
+        }
+    },
+    {
+        "model": "base.genre",
+        "pk": "Self-help",
+        "fields": {
+            "description": "Some of the bestselling books in nonfiction, self-help books encourage personal improvement and confidence. Whether the focus is on relationships, emotional well-being, or finances, if you're writing a book that aims to uplift and empower the reader, then you're probably writing self-help."
+        }
+    },
+    {
+        "model": "base.genre",
+        "pk": "Short Story",
+        "fields": {
+            "description": "Though they can belong to any of the other book genres on this list, short stories are frequently grouped together in their own genre because they're, well, so much shorter than novels. Often the author will compile a collection linked together by a narrative thread or, more commonly, a shared theme. The stories in A Manual for Cleaning Women by Lucia Berlin, for example, follow a series of women in different occupations — from cleaning women to ER nurses — all struggling to survive."
+        }
+    },
+    {
+        "model": "base.genre",
+        "pk": "Thriller & Suspense",
+        "fields": {
+            "description": "A horror story can also be called a thriller, if it employs psychological fear to build suspense. But not all thrillers are horror stories. So what are they? While this book genre encompasses many of the same elements as mystery, in a thriller the protagonist is usually acting to save their own life, rather than to solve the crime. Thrillers typically include cliffhangers, deception, high emotional stakes, and plenty of action — keeping the reader on the edge of their seat until the book's climax. Gillian Flynn's Gone Girl is a masterclass in the dark, mysterious thriller."
+        }
+    },
+    {
+        "model": "base.genre",
+        "pk": "Travel",
+        "fields": {
+            "description": "Travel memoirs and travelogues, like Jonathan Glancey's The Journey Matters, take us all over the world, giving even the most devoted homebodies a tantalizing taste of adventure, wildlife, and the great outdoors. These pocket-sized books — featuring destination reviews, lists of where to eat and what to see, and tips for traveling on a budget — are without a doubt some of the most useful titles on the shelves."
+        }
+    },
+    {
+        "model": "base.genre",
+        "pk": "True Crime",
+        "fields": {
+            "description": "Crime-fiction writers have put some pretty twisted plots to paper, but if you prefer to chronicle real crimes in all their haunting and fascinating detail, then the true crime genre is where your book belongs. From infamous murders to domestic disappearances, works in this genre pen true stories, about all things fearful and forbidden, that read as smoothly as well-crafted fiction."
+        }
+    },
+    {
+        "model": "base.genre",
+        "pk": "Women's Fiction",
+        "fields": {
+            "description": "Women's fiction is an umbrella term for books written to target a female audience, generally reflecting on the shared experience of being a woman or the growth of a female protagonist. Because of this rather broad definition, authors will quite often write a romance novel or mystery, for example, that could also be labeled women's fiction. Despite the connotations of one alternative name for this genre (“chick-lit”), many critically acclaimed bestsellers, including Jaqueline Woodson's Red at The Bone, fall under its purview."
+        }
+    },
+    {
+        "model": "base.genre",
+        "pk": "Young Adult",
+        "fields": {
+            "description": "Young adult fiction, or YA, targets readers aged 12-18 and reflects its readership by following teenage characters as they grapple with the unique challenges of adolescence. Most works of YA fiction can be labeled “coming-of-age novels”, in which the characters exit childhood and enter adulthood — a transition that results in a loss of innocence and a shifting sense of identity. Some of the biggest bestsellers in recent years have belonged to this genre, including The Hate U Give by Angie Thomas and anything by John Green."
+        }
+    }
+]

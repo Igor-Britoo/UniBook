@@ -1,0 +1,17 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Oswald', sans-serif;
+    letter-spacing: -4.5%;
+
+    --green-500: #619885;
+    --green-600: #558272;
+    --green-800: #1C3333;
+
+    --gray-300: #F3F3F3;
+    --gray-400: #E3E4E4;
+    --gray-500:#D9D9D9;
+    --gray-700: #9D9F9E;
+    --gray-800: #767D7B;
+}

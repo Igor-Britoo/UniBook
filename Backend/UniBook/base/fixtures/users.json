@@ -1,0 +1,153 @@
+[
+    {
+        "model": "base.user",
+        "pk": "08ffd6aa-b10d-4a75-87b5-3dfdaa785c71",
+        "fields": {
+            "password": "pbkdf2_sha256$390000$VDsHNsXSyjKenKJQJf5giI$XhPMASIx4zr3j00GdXiYiaNS+FBI+Ce38bEz9iXvQ5c=",
+            "last_login": null,
+            "is_superuser": false,
+            "email": "customer3@gmail.com",
+            "name": "customer3",
+            "is_staff": false,
+            "is_active": true,
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "base.user",
+        "pk": "a419d969-2184-414d-b980-1dfa13e55d4e",
+        "fields": {
+            "password": "pbkdf2_sha256$390000$UlrQpFuGJ0h6vDoKmP5w30$eGQAnIsiwsj2/hLWzaPY0UrNk5kBo1SRdgqmr9HxOmI=",
+            "last_login": null,
+            "is_superuser": false,
+            "email": "customer0@gmail.com",
+            "name": "customer0",
+            "is_staff": false,
+            "is_active": true,
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "base.user",
+        "pk": "a52933bc-b37f-4cbc-b343-2a250f6674f1",
+        "fields": {
+            "password": "pbkdf2_sha256$390000$wxNEJYrBVjYfklohvyDg0V$6VBsdOXo24kJLypqIfYlnPoNGluWfhNOP+owMtcMtEA=",
+            "last_login": null,
+            "is_superuser": false,
+            "email": "customer1@gmail.com",
+            "name": "customer1",
+            "is_staff": false,
+            "is_active": true,
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "base.user",
+        "pk": "bb6f72c2-c349-4f37-b4b8-693a28e43ddf",
+        "fields": {
+            "password": "pbkdf2_sha256$390000$8Lq42DJP7Z1Z5oL6yNHUE9$Sal6SNCdiO7rFtkgNdZSLzyqvRjaOf7IRlsCFbdv2io=",
+            "last_login": "2023-01-15T15:07:19.871Z",
+            "is_superuser": true,
+            "email": "admin@gmail.com",
+            "name": "admin",
+            "is_staff": true,
+            "is_active": true,
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "base.user",
+        "pk": "e9568b59-d2ee-4085-9ea9-21ba8d2015ea",
+        "fields": {
+            "password": "pbkdf2_sha256$390000$a7VpBjLfJaJWBsj6SHTgSp$rGt65vRWfg1iVUrKKyChhz/tpRscmGVG0/OCaRwYMlw=",
+            "last_login": null,
+            "is_superuser": false,
+            "email": "customer2@gmail.com",
+            "name": "customer2",
+            "is_staff": false,
+            "is_active": true,
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "base.user",
+        "pk": "fd9b0fab-1174-402c-9ea6-10d0f31d870c",
+        "fields": {
+            "password": "pbkdf2_sha256$390000$WG5scuIyJI2sTptRhYk72E$WMgsEtbhtfIpt2kOoGFkqQjtmxEPqcyCnCHHQnNGIOs=",
+            "last_login": null,
+            "is_superuser": false,
+            "email": "customer4@gmail.com",
+            "name": "customer4",
+            "is_staff": false,
+            "is_active": true,
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "base.customer",
+        "pk": "08ffd6aa-b10d-4a75-87b5-3dfdaa785c71",
+        "fields": {
+            "address": 4
+        }
+    },
+    {
+        "model": "base.customer",
+        "pk": "a419d969-2184-414d-b980-1dfa13e55d4e",
+        "fields": {
+            "address": 1
+        }
+    },
+    {
+        "model": "base.customer",
+        "pk": "a52933bc-b37f-4cbc-b343-2a250f6674f1",
+        "fields": {
+            "address": 2
+        }
+    },
+    {
+        "model": "base.customer",
+        "pk": "e9568b59-d2ee-4085-9ea9-21ba8d2015ea",
+        "fields": {
+            "address": 3
+        }
+    },
+    {
+        "model": "base.customer",
+        "pk": "fd9b0fab-1174-402c-9ea6-10d0f31d870c",
+        "fields": {
+            "address": 5
+        }
+    },
+    {
+        "model": "base.cart",
+        "pk": "08ffd6aa-b10d-4a75-87b5-3dfdaa785c71",
+        "fields": {}
+    },
+    {
+        "model": "base.cart",
+        "pk": "a419d969-2184-414d-b980-1dfa13e55d4e",
+        "fields": {}
+    },
+    {
+        "model": "base.cart",
+        "pk": "a52933bc-b37f-4cbc-b343-2a250f6674f1",
+        "fields": {}
+    },
+    {
+        "model": "base.cart",
+        "pk": "e9568b59-d2ee-4085-9ea9-21ba8d2015ea",
+        "fields": {}
+    },
+    {
+        "model": "base.cart",
+        "pk": "fd9b0fab-1174-402c-9ea6-10d0f31d870c",
+        "fields": {}
+    }
+]
+    

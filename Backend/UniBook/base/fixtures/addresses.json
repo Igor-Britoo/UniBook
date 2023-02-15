@@ -1,0 +1,52 @@
+[
+    {
+        "model": "base.address",
+        "pk": 1,
+        "fields": {
+            "street_name": "street_name",
+            "house_number": 89,
+            "city": "city",
+            "state": "AC"
+        }
+    },
+    {
+        "model": "base.address",
+        "pk": 2,
+        "fields": {
+            "street_name": "street_name",
+            "house_number": 107,
+            "city": "city",
+            "state": "AC"
+        }
+    },
+    {
+        "model": "base.address",
+        "pk": 3,
+        "fields": {
+            "street_name": "street_name",
+            "house_number": 108,
+            "city": "city",
+            "state": "AC"
+        }
+    },
+    {
+        "model": "base.address",
+        "pk": 4,
+        "fields": {
+            "street_name": "street_name",
+            "house_number": 76,
+            "city": "city",
+            "state": "AC"
+        }
+    },
+    {
+        "model": "base.address",
+        "pk": 5,
+        "fields": {
+            "street_name": "street_name",
+            "house_number": 84,
+            "city": "city",
+            "state": "AC"
+        }
+    }
+]
