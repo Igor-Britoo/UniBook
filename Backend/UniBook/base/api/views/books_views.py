@@ -3,40 +3,44 @@ from rest_framework.decorators import api_view
 
 from ...models import *
 from ..serializers import *
+from ..utils import *
 
 @api_view(['GET'])
 def list_books(request):
     """
         Returns all books
     """
+    limit = int(request.GET.get('limit'))
+    offset = int(request.GET.get('offset'))
 
     books = Book.objects.all()
-    books_serialized = BookSerializer(books, many=True)
 
-    return Response({ 'books': books_serialized.data }, status=200)
+    number_of_pages = get_number_of_pages(books, limit)
+
+    page = (offset/limit) + 1
+    page_exists =  page > 0 and page <= number_of_pages
+
+    if page_exists:
+        books_page = get_books_page(offset, limit, books)
+        books_serialized = BookSerializer(books_page, many=True)
+
+        return Response({ 'number_of_pages' : str(number_of_pages),
+                        'books': books_serialized.data }, status=200)
+    else:
+        return Response({ "detail": "Page not found" }, status=404)
 
 @api_view(['GET'])
 def list_books_with_filters(request):
     """
         Filter books by price interval, publication year interval, genres and languages
     """
-    def get_values_from_interval_slug(interval_slug):
-        for i in range(0, len(interval_slug)):
-            if (interval_slug[i] == "-"):
-                min = int(interval_slug[:i])
-                there_is_max = len(interval_slug) >  i+1
-
-                if there_is_max:
-                    max = int(interval_slug[i+1:])
-                else:
-                    max = None
-
-        return (min, max)
 
     genres = request.GET.getlist('genre')
     languages = request.GET.getlist('language')
     price_interval = request.GET.get('price-interval')
     publication_year_interval = request.GET.get('publication-year-interval')
+    limit = int(request.GET.get('limit'))
+    offset = int(request.GET.get('offset'))
 
     price_min, price_max = get_values_from_interval_slug(price_interval)
     publication_year_min, publication_year_max = get_values_from_interval_slug(publication_year_interval)
@@ -66,9 +70,19 @@ def list_books_with_filters(request):
     else:
         books = books.filter(publication_year__gte = publication_year_min)
     
-    books_serialized = BookSerializer(books, many=True)
+    number_of_pages = get_number_of_pages(books, limit)
 
-    return Response({ 'books': books_serialized.data }, status=200)
+    page = (offset/limit) + 1
+    page_exists =  page > 0 and page <= number_of_pages
+
+    if page_exists:
+        books_page = get_books_page(offset, limit, books)
+        books_serialized = BookSerializer(books_page, many=True)
+
+        return Response({ 'number_of_pages' : str(number_of_pages),
+                        'books': books_serialized.data }, status=200)
+    else:
+        return Response({ "detail": "Page not found" }, status=404)
         
 @api_view(['GET'])
 def search_books(request):
@@ -77,15 +91,101 @@ def search_books(request):
     """
     
     query = request.GET.get('q')
+    limit = int(request.GET.get('limit'))
+    offset = int(request.GET.get('offset'))
     
     books_filtered_by_ISBN = Book.objects.filter(ISBN__startswith = query)
     books_filtered_by_title = Book.objects.filter(title__icontains = query)
     books_filtered_by_author = Book.objects.filter(author__icontains = query)
 
     books = books_filtered_by_ISBN.union(books_filtered_by_title, books_filtered_by_author)
-    books_serialized = BookSerializer(books, many=True)
+    
+    number_of_pages = get_number_of_pages(books, limit)
 
-    return Response({ 'books': books_serialized.data }, status=200)
+    page = (offset/limit) + 1
+    page_exists =  page > 0 and page <= number_of_pages
+
+    if page_exists:
+        books_page = get_books_page(offset, limit, books)
+        books_serialized = BookSerializer(books_page, many=True)
+
+        return Response({ 'number_of_pages' : str(number_of_pages),
+                        'books': books_serialized.data }, status=200)
+    else:
+        return Response({ "detail": "Page not found" }, status=404)
+
+@api_view(['GET'])
+def most_viewed_books(request):
+    """
+        Returns the most viewed books
+    """
+    limit = int(request.GET.get('limit'))
+    offset = int(request.GET.get('offset'))
+
+    books = Book.objects.all().order_by('-views')
+    
+    number_of_pages = get_number_of_pages(books, limit)
+
+    page = (offset/limit) + 1
+    page_exists =  page > 0 and page <= number_of_pages
+
+    if page_exists:
+        books_page = get_books_page(offset, limit, books)
+        books_serialized = BookSerializer(books_page, many=True)
+
+        return Response({ 'number_of_pages' : str(number_of_pages),
+                        'books': books_serialized.data }, status=200)
+    else:
+        return Response({ "detail": "Page not found" }, status=404)
+
+
+@api_view(['GET'])
+def best_sellers(request):
+    """
+        Returns a list with the best sellers
+    """
+    limit = int(request.GET.get('limit'))
+    offset = int(request.GET.get('offset'))
+
+    books = Book.objects.all().order_by('-sellings')
+    
+    number_of_pages = get_number_of_pages(books, limit)
+
+    page = (offset/limit) + 1
+    page_exists =  page > 0 and page <= number_of_pages
+
+    if page_exists:
+        books_page = get_books_page(offset, limit, books)
+        books_serialized = BookSerializer(books_page, many=True)
+
+        return Response({ 'number_of_pages' : str(number_of_pages),
+                        'books': books_serialized.data }, status=200)
+    else:
+        return Response({ "detail": "Page not found" }, status=404)
+
+@api_view(['GET'])
+def books_on_sale(request):
+    """
+        Returns the most viewed books
+    """
+    limit = int(request.GET.get('limit'))
+    offset = int(request.GET.get('offset'))
+
+    books = Book.objects.all().order_by('-discount')
+
+    number_of_pages = get_number_of_pages(books, limit)
+
+    page = (offset/limit) + 1
+    page_exists =  page > 0 and page <= number_of_pages
+
+    if page_exists:
+        books_page = get_books_page(offset, limit, books)
+        books_serialized = BookSerializer(books_page, many=True)
+
+        return Response({ 'number_of_pages' : str(number_of_pages),
+                        'books': books_serialized.data }, status=200)
+    else:
+        return Response({ "detail": "Page not found" }, status=404)
 
 @api_view(['GET'])
 def get_book(request, ISBN):
@@ -97,6 +197,8 @@ def get_book(request, ISBN):
 
     if book.exists() :
         book = book.first()
+        book.views = book.views + 1
+        book.save()
         book_serialized = BookSerializer(book)
         return Response({ 'book': book_serialized.data }, status=200)
 

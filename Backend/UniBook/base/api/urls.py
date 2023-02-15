@@ -36,6 +36,9 @@ urlpatterns = [
         path('', books_views.list_books, name='list_books'),
         path('filter', books_views.list_books_with_filters, name='list_books_with_filters'),
         path('search', books_views.search_books, name='search_books'),
+        path('most-viewed', books_views.most_viewed_books, name='most_viewed_books'),
+        path('best-sellers', books_views.best_sellers, name='best_sellers'),
+        path('on-sale', books_views.books_on_sale, name='books_on_sale'),
         path('<str:ISBN>/', books_views.get_book, name='get_book'),
     ]))          
 ] 

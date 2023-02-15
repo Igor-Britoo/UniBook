@@ -25,7 +25,8 @@ class BookSerializer(serializers.ModelSerializer):
     class Meta:
         model = Book
         fields = ('ISBN', 'title', 'author', 'publication_year', 'language',
-                'publisher', 'genres', 'number_of_pages', 'price', 'cover_url')
+                'publisher', 'genres', 'number_of_pages', 'price', 'discount',
+                'cover_url', 'views', 'sellings')
         
 class OrderSerializer(serializers.ModelSerializer):
     class Meta:

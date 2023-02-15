@@ -101,6 +101,9 @@ class Book(models.Model):
     number_of_pages = models.IntegerField()
     price = models.DecimalField(max_digits=10, decimal_places=2)
     cover = models.ImageField(null=True, blank=True)
+    discount = models.DecimalField(max_digits=3, decimal_places=2, default = 0)
+    views = models.BigIntegerField(default = 0)
+    sellings = models.BigIntegerField(default = 0)
 
     @property
     def cover_url(self):

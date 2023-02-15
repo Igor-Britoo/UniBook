@@ -16,6 +16,11 @@ def create_customer_order(request):
     cart_items = customer.shopping_cart.cart_items.all()
 
     if cart_items.exists():
+        for cart_item in cart_items:
+            book = cart_item.book
+            book.sellings = cart_item.quantity
+            book.save()
+            
         order = Order.objects.create_order(customer= customer)
         OrderItem.objects.create_order_items(order= order,
                                                 cart_items= cart_items)
