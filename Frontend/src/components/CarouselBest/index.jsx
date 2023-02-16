@@ -16,23 +16,22 @@ import "swiper/css/navigation";
 // import required modules
 import { Pagination, Navigation } from "swiper";
 
-export const Carousel = () => {
+export const CarouselBest = () => {
   return (
     <>
       <ContainerCarousel>
 
-        <div className="swiper-button-prev"></div>
-        <div className="swiper-button-next"></div>
+        <div className="swiper-button-prev-best"></div>
         <Swiper
           slidesPerView={5}
-          spaceBetween={30}
+          spaceBetween={50}
           loop={true}
           pagination={{
             clickable: true,
           }}
           navigation={{
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev'
+            nextEl: '.swiper-button-next-best',
+            prevEl: '.swiper-button-prev-best'
           }}
           modules={[Pagination, Navigation]}
           className="mySwiper"
@@ -59,6 +58,8 @@ export const Carousel = () => {
           <SwiperSlide><Card/></SwiperSlide>
           
         </Swiper>
+        <div className="swiper-button-next-best"></div>
+
       </ContainerCarousel>
     </>
   );

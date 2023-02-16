@@ -5,17 +5,18 @@ export const ContainerCarousel = styled.div`
     align-items: center;
     justify-content: center;
     width: 100%;
+    margin-bottom: 200px;
 
     .swiper {
-    width: 80%;
+    width: 70%;
     height: 325px;
     }
     
-    .swiper-button-prev {
+    .swiper-button-prev-most {
+        position: relative;
         margin-left: 100px;
         background-color: #619885;
         border-radius: 50%;
-        margin-top: 700px !important;
         color: black !important;
         width: 64px !important; 
         height: 64px !important;
@@ -24,11 +25,11 @@ export const ContainerCarousel = styled.div`
         background-position: center;
     }
 
-    .swiper-button-next {
+    .swiper-button-next-most {
+        position: relative;
         margin-right: 100px;
         background-color: #619885;
         border-radius: 50%;
-        margin-top: 700px !important;
         color: black !important;
         width: 64px !important;
         height: 64px !important;
