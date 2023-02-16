@@ -14,7 +14,7 @@ import "swiper/css/navigation";
 // import './App.css'
 
 // import required modules
-import { Pagination, Navigation } from "swiper";
+import { Autoplay, Pagination, Navigation } from "swiper";
 
 export const CarouselBest = () => {
   return (
@@ -26,6 +26,10 @@ export const CarouselBest = () => {
           slidesPerView={5}
           spaceBetween={50}
           loop={true}
+          autoplay={{
+            delay: 2500,
+            disableOnInteraction: false,
+          }}
           pagination={{
             clickable: true,
           }}
@@ -33,7 +37,7 @@ export const CarouselBest = () => {
             nextEl: '.swiper-button-next-best',
             prevEl: '.swiper-button-prev-best'
           }}
-          modules={[Pagination, Navigation]}
+          modules={[Autoplay, Pagination, Navigation]}
           className="mySwiper"
           >
           
