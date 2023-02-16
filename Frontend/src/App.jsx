@@ -7,6 +7,7 @@ import { AuthProvider } from './contexts/AuthContext';
 import { SignIn } from './pages/SignIn';
 import { SignUp } from './pages/SignUp';
 import { Home } from './pages/Home';
+import { Book } from './pages/Book';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/signin/" element= {<SignIn/>} />
           <Route path="/signup/" element= {<SignUp/>} />
           <Route path="/home" element= {<Home/>} />
+          <Route path="/book" element= {<Book/>} />
           
         </Routes>
       </HashRouter>
