@@ -10,6 +10,7 @@ import { MainHome,
   ButtonAddToCart,
   ContainerCarousel,
 } from '../styles/Home';
+import { Carousel } from '../components/Carousel';
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -36,11 +37,13 @@ export const Home = () => {
         <img className='banner' src='/images/banner.png'></img>
 
         <TitleCarousel>Best Sellers of the Week</TitleCarousel>
+        <Carousel/>
         
-        <ContainerCarousel>
+        {/* <ContainerCarousel>
 
           <div className="swiper-button-prev"></div>
           <div className="swiper-button-next"></div>
+
           <Swiper
             slidesPerView={5}
             spaceBetween={30}
@@ -49,8 +52,8 @@ export const Home = () => {
               clickable: true,
             }}
             navigation={{
-              nextEl: '.swiper-button-next',
-              prevEl: '.swiper-button-prev'
+              nextEl: '.swiper-button-next-unique',
+              prevEl: '.swiper-button-prev-unique'
             }}
             modules={[Pagination, Navigation]}
             className="mySwiper"
@@ -110,6 +113,7 @@ export const Home = () => {
                 <ButtonAddToCart>Add to Cart</ButtonAddToCart>
               </Card>
             </SwiperSlide>
+
             <SwiperSlide>
               <Card>
                 <img className='book' src='images/book.png'></img>
@@ -146,11 +150,17 @@ export const Home = () => {
                 <ButtonAddToCart>Add to Cart</ButtonAddToCart>
               </Card>
             </SwiperSlide>
+
             
           </Swiper>
-        </ContainerCarousel>
+        </ContainerCarousel> */}
 
         <TitleCarousel>On Sale</TitleCarousel>
+        <Carousel/>
+
+        <TitleCarousel>Most Viewed</TitleCarousel>
+        <Carousel/>
+
       </MainHome>
 
       <Footer/>

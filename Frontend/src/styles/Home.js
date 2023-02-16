@@ -11,6 +11,26 @@ export const MainHome = styled.main`
         margin-top: 55px;
     }
 
+
+`;
+
+export const TitleCarousel = styled.h2`
+    display: flex;
+    align-self: flex-start;
+    margin-top: 73px;
+    margin-left: 132px;
+    margin-bottom: 40px;
+    font-size: 24px;
+    font-weight: 700;
+    color: #1C3333;
+`;
+
+export const ContainerCarousel = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+
     .swiper {
     width: 80%;
     height: 325px;
@@ -53,24 +73,6 @@ export const MainHome = styled.main`
     }
 `;
 
-export const TitleCarousel = styled.h2`
-    display: flex;
-    align-self: flex-start;
-    margin-top: 73px;
-    margin-left: 132px;
-    margin-bottom: 40px;
-    font-size: 24px;
-    font-weight: 700;
-    color: #1C3333;
-`;
-
-export const ContainerCarousel = styled.div`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-`;
-
 export const Card = styled.div`
     display: flex;
     flex-direction: column;
@@ -81,7 +83,6 @@ export const Card = styled.div`
     border-radius: 10px;
     background-color: #F7F7F7;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    /* border: 1px solid black; */
 
     .book {
         margin-top: 10px;
