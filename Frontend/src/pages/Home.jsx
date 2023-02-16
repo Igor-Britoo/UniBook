@@ -1,196 +1,157 @@
 import React from 'react';
 import { Footer } from '../components/Footer/index';
 import { Nav } from "../components/NavBar/index";
-import { StyledText, 
-  TitlesHome,
-  ContainerSections,
+import { MainHome, 
+  TitleCarousel,
   Card,
   TitleBook,
   AuthorName,
-  Price,
-  ButtonAddCart,
-  RowBooks, } from '../components/MainPageComponents';
+  PriceBook,
+  ButtonAddToCart,
+  ContainerCarousel,
+} from '../styles/Home';
+
+// Import Swiper React components
+import { Swiper, SwiperSlide } from "swiper/react";
+
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+
+// import "./styles.css";
+// import './App.css'
+
+// import required modules
+import { Pagination, Navigation } from "swiper";
 
 export const Home = () => {
   return(
+      
     <main>
       <Nav></Nav>
-  
-      <StyledText>
-        <img src='/images/banner.png'></img>
-        <ContainerSections>
-          <TitlesHome>Best Sellers of the Week</TitlesHome>
-          <RowBooks>
 
-          <Card>
-            {/* <img src='./images/book.png'></img> */}
-            <TitleBook>What I Learned from the Trees</TitleBook>
-            <AuthorName>L.E. Browman</AuthorName>
-            <Price>$ 20.00</Price>
-            <ButtonAddCart>
-              Add to Cart
-            </ButtonAddCart>
-          </Card>
 
-          <Card>
-            {/* <img src='./images/book.png'></img> */}
-            <TitleBook>What I Learned from the Trees</TitleBook>
-            <AuthorName>L.E. Browman</AuthorName>
-            <Price>$ 20.00</Price>
-            <ButtonAddCart>
-              Add to Cart
-            </ButtonAddCart>
-          </Card>
+      <MainHome>
+        <img className='banner' src='/images/banner.png'></img>
 
-          <Card>
-            {/* <img src='./images/book.png'></img> */}
-            <TitleBook>What I Learned from the Trees</TitleBook>
-            <AuthorName>L.E. Browman</AuthorName>
-            <Price>$ 20.00</Price>
-            <ButtonAddCart>
-              Add to Cart
-            </ButtonAddCart>
-          </Card>
+        <TitleCarousel>Best Sellers of the Week</TitleCarousel>
+        
+        <ContainerCarousel>
 
-          <Card>
-            {/* <img src='./images/book.png'></img> */}
-            <TitleBook>What I Learned from the Trees</TitleBook>
-            <AuthorName>L.E. Browman</AuthorName>
-            <Price>$ 20.00</Price>
-            <ButtonAddCart>
-              Add to Cart
-            </ButtonAddCart>
-          </Card>
+          <div className="swiper-button-prev"></div>
+          <div className="swiper-button-next"></div>
+          <Swiper
+            slidesPerView={5}
+            spaceBetween={30}
+            loop={true}
+            pagination={{
+              clickable: true,
+            }}
+            navigation={{
+              nextEl: '.swiper-button-next',
+              prevEl: '.swiper-button-prev'
+            }}
+            modules={[Pagination, Navigation]}
+            className="mySwiper"
+            >
+            
+            <SwiperSlide>
+              <Card>
+                <img className='book' src='images/book.png'></img>
+                <TitleBook>What I Lerned from the Trees</TitleBook>
+                <AuthorName>L.E. Bowman</AuthorName>
+                <PriceBook>$ 20.00</PriceBook>
+                <ButtonAddToCart>Add to Cart</ButtonAddToCart>
+              </Card>
+            </SwiperSlide>
+            <SwiperSlide>
+              <Card>
+                <img className='book' src='images/book.png'></img>
+                <TitleBook>What I Lerned from the Trees</TitleBook>
+                <AuthorName>L.E. Bowman</AuthorName>
+                <PriceBook>$ 20.00</PriceBook>
+                <ButtonAddToCart>Add to Cart</ButtonAddToCart>
+              </Card>
+            </SwiperSlide>
+            <SwiperSlide>
+              <Card>
+                <img className='book' src='images/book.png'></img>
+                <TitleBook>What I Lerned from the Trees</TitleBook>
+                <AuthorName>L.E. Bowman</AuthorName>
+                <PriceBook>$ 20.00</PriceBook>
+                <ButtonAddToCart>Add to Cart</ButtonAddToCart>
+              </Card>
+            </SwiperSlide>
+            <SwiperSlide>
+              <Card>
+                <img className='book' src='images/book.png'></img>
+                <TitleBook>What I Lerned from the Trees</TitleBook>
+                <AuthorName>L.E. Bowman</AuthorName>
+                <PriceBook>$ 20.00</PriceBook>
+                <ButtonAddToCart>Add to Cart</ButtonAddToCart>
+              </Card>
+            </SwiperSlide>
+            <SwiperSlide>
+              <Card>
+                <img className='book' src='images/book.png'></img>
+                <TitleBook>What I Lerned from the Trees</TitleBook>
+                <AuthorName>L.E. Bowman</AuthorName>
+                <PriceBook>$ 20.00</PriceBook>
+                <ButtonAddToCart>Add to Cart</ButtonAddToCart>
+              </Card>
+            </SwiperSlide>
+            <SwiperSlide>
+              <Card>
+                <img className='book' src='images/book.png'></img>
+                <TitleBook>What I Lerned from the Trees</TitleBook>
+                <AuthorName>L.E. Bowman</AuthorName>
+                <PriceBook>$ 20.00</PriceBook>
+                <ButtonAddToCart>Add to Cart</ButtonAddToCart>
+              </Card>
+            </SwiperSlide>
+            <SwiperSlide>
+              <Card>
+                <img className='book' src='images/book.png'></img>
+                <TitleBook>What I Lerned from the Trees</TitleBook>
+                <AuthorName>L.E. Bowman</AuthorName>
+                <PriceBook>$ 20.00</PriceBook>
+                <ButtonAddToCart>Add to Cart</ButtonAddToCart>
+              </Card>
+            </SwiperSlide>
+            <SwiperSlide>
+              <Card>
+                <img className='book' src='images/book.png'></img>
+                <TitleBook>What I Lerned from the Trees</TitleBook>
+                <AuthorName>L.E. Bowman</AuthorName>
+                <PriceBook>$ 20.00</PriceBook>
+                <ButtonAddToCart>Add to Cart</ButtonAddToCart>
+              </Card>
+            </SwiperSlide>
+            <SwiperSlide>
+              <Card>
+                <img className='book' src='images/book.png'></img>
+                <TitleBook>What I Lerned from the Trees</TitleBook>
+                <AuthorName>L.E. Bowman</AuthorName>
+                <PriceBook>$ 20.00</PriceBook>
+                <ButtonAddToCart>Add to Cart</ButtonAddToCart>
+              </Card>
+            </SwiperSlide>
+            <SwiperSlide>
+              <Card>
+                <img className='book' src='images/book.png'></img>
+                <TitleBook>What I Lerned from the Trees</TitleBook>
+                <AuthorName>L.E. Bowman</AuthorName>
+                <PriceBook>$ 20.00</PriceBook>
+                <ButtonAddToCart>Add to Cart</ButtonAddToCart>
+              </Card>
+            </SwiperSlide>
+            
+          </Swiper>
+        </ContainerCarousel>
 
-          <Card>
-            {/* <img src='./images/book.png'></img> */}
-            <TitleBook>What I Learned from the Trees</TitleBook>
-            <AuthorName>L.E. Browman</AuthorName>
-            <Price>$ 20.00</Price>
-            <ButtonAddCart>
-              Add to Cart
-            </ButtonAddCart>
-          </Card>
-          
-          </RowBooks>
-        </ContainerSections>
-
-        <ContainerSections>
-          <TitlesHome>On Sale</TitlesHome>
-
-          <RowBooks>
-
-          <Card>
-            {/* <img src='./images/book.png'></img> */}
-            <TitleBook>What I Learned from the Trees</TitleBook>
-            <AuthorName>L.E. Browman</AuthorName>
-            <Price>$ 20.00</Price>
-            <ButtonAddCart>
-              Add to Cart
-            </ButtonAddCart>
-          </Card>
-
-          <Card>
-            {/* <img src='./images/book.png'></img> */}
-            <TitleBook>What I Learned from the Trees</TitleBook>
-            <AuthorName>L.E. Browman</AuthorName>
-            <Price>$ 20.00</Price>
-            <ButtonAddCart>
-              Add to Cart
-            </ButtonAddCart>
-          </Card>
-
-          <Card>
-            {/* <img src='./images/book.png'></img> */}
-            <TitleBook>What I Learned from the Trees</TitleBook>
-            <AuthorName>L.E. Browman</AuthorName>
-            <Price>$ 20.00</Price>
-            <ButtonAddCart>
-              Add to Cart
-            </ButtonAddCart>
-          </Card>
-
-          <Card>
-            {/* <img src='./images/book.png'></img> */}
-            <TitleBook>What I Learned from the Trees</TitleBook>
-            <AuthorName>L.E. Browman</AuthorName>
-            <Price>$ 20.00</Price>
-            <ButtonAddCart>
-              Add to Cart
-            </ButtonAddCart>
-          </Card>
-
-          <Card>
-            {/* <img src='./images/book.png'></img> */}
-            <TitleBook>What I Learned from the Trees</TitleBook>
-            <AuthorName>L.E. Browman</AuthorName>
-            <Price>$ 20.00</Price>
-            <ButtonAddCart>
-              Add to Cart
-            </ButtonAddCart>
-          </Card>
-          
-          </RowBooks>
-        </ContainerSections>
-
-        <ContainerSections>
-          <TitlesHome>Most Viewed</TitlesHome>
-
-          <RowBooks>
-
-          <Card>
-            {/* <img src='./images/book.png'></img> */}
-            <TitleBook>What I Learned from the Trees</TitleBook>
-            <AuthorName>L.E. Browman</AuthorName>
-            <Price>$ 20.00</Price>
-            <ButtonAddCart>
-              Add to Cart
-            </ButtonAddCart>
-          </Card>
-
-          <Card>
-            {/* <img src='./images/book.png'></img> */}
-            <TitleBook>What I Learned from the Trees</TitleBook>
-            <AuthorName>L.E. Browman</AuthorName>
-            <Price>$ 20.00</Price>
-            <ButtonAddCart>
-              Add to Cart
-            </ButtonAddCart>
-          </Card>
-
-          <Card>
-            {/* <img src='./images/book.png'></img> */}
-            <TitleBook>What I Learned from the Trees</TitleBook>
-            <AuthorName>L.E. Browman</AuthorName>
-            <Price>$ 20.00</Price>
-            <ButtonAddCart>
-              Add to Cart
-            </ButtonAddCart>
-          </Card>
-
-          <Card>
-            {/* <img src='./images/book.png'></img> */}
-            <TitleBook>What I Learned from the Trees</TitleBook>
-            <AuthorName>L.E. Browman</AuthorName>
-            <Price>$ 20.00</Price>
-            <ButtonAddCart>
-              Add to Cart
-            </ButtonAddCart>
-          </Card>
-
-          <Card>
-            {/* <img src='./images/book.png'></img> */}
-            <TitleBook>What I Learned from the Trees</TitleBook>
-            <AuthorName>L.E. Browman</AuthorName>
-            <Price>$ 20.00</Price>
-            <ButtonAddCart>
-              Add to Cart
-            </ButtonAddCart>
-          </Card>
-          
-          </RowBooks>
-        </ContainerSections>
-      </StyledText>
+        <TitleCarousel>On Sale</TitleCarousel>
+      </MainHome>
 
       <Footer/>
     </main>
