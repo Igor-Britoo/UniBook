@@ -1,13 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom'
-import { Main, 
-    Logo, 
-    ContainerForm, 
-    TitleForm, 
-    Form, 
-    ButtonForm,
-    ParagraphForm, 
-    ErrorMessage } from '../components/SignComponents';
+
+import { H1, H2, Button, Paragraph, ErrorMessage } from '../styles/styles';
+import { Main, ContainerForm, Form } from '../styles/Sign'
     
 import { api } from '../lib/axios';
 
@@ -55,7 +50,7 @@ export const SignIn = () =>{
         })
     }
     
-    const submit = async () =>{     
+    const submit = () =>{     
         let canSubmit = true;
         setErrors(defaultErrors)
         
@@ -85,10 +80,10 @@ export const SignIn = () =>{
 
     return(
         <Main>
-            <Logo>UniBook</Logo>
+            <H1 fontSize='xxxxxl' >UniBook</H1>
 
             <ContainerForm>
-                <TitleForm>Sign in</TitleForm>
+                <H2 fontSize='xxxxl' fontWeight="500">Sign in</H2>
 
                 <Form>
                     { errors.email ? <ErrorMessage>Invalid email address</ErrorMessage> : null }
@@ -97,14 +92,14 @@ export const SignIn = () =>{
                     { errors.password ? <ErrorMessage>The password is required</ErrorMessage> : null }
                     <input type='password' name='password' placeholder='Password' value={user.password} onChange={handleInput}></input>
                     
-                    <ButtonForm onClick={submit} >Login</ButtonForm>
                 </Form>
-
                 
-                <ParagraphForm>
+                <Button onClick={submit} >Login</Button>
+
+                <Paragraph color="gray" fontSize="md" fontWeight="400" textAlign="center">
                     Don't have an account? 
                     <Link to="/signup/"> Sign up. </Link>
-                </ParagraphForm>
+                </Paragraph>
             </ContainerForm>
         </Main>
     )

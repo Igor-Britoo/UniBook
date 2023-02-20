@@ -1,6 +1,6 @@
 import React from 'react';
-import { Card } from '../Card';
-import { ContainerCarousel } from './style';
+import { Card } from './Card';
+import { ContainerCarousel } from '../styles/Carousel';
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -16,7 +16,7 @@ import "swiper/css/navigation";
 // import required modules
 import { Autoplay, Pagination, Navigation } from "swiper";
 
-export const CarouselMost = () => {
+export const Carousel = ({ books }) => {
   return (
     <>
       <ContainerCarousel>
@@ -39,27 +39,11 @@ export const CarouselMost = () => {
           }}
           modules={[Autoplay, Pagination, Navigation]}
           className="mySwiper"
-          >
+        >
           
-          <SwiperSlide><Card/></SwiperSlide>
-          
-          <SwiperSlide><Card/></SwiperSlide>
-          
-          <SwiperSlide><Card/></SwiperSlide>
-
-          <SwiperSlide><Card/></SwiperSlide>
-          
-          <SwiperSlide><Card/></SwiperSlide>
-
-          <SwiperSlide><Card/></SwiperSlide>
-
-          <SwiperSlide><Card/></SwiperSlide>
-
-          <SwiperSlide><Card/></SwiperSlide>
-
-          <SwiperSlide><Card/></SwiperSlide>
-
-          <SwiperSlide><Card/></SwiperSlide>
+        { books.map((book, index) =>
+            <SwiperSlide><Card ISBN={book.ISBN} coverUrl={book.cover_url} title={book.title} author={book.author} price={book.price} key={index} /></SwiperSlide>
+        )}
           
         </Swiper>
         <div className="swiper-button-next-most"></div>
@@ -68,3 +52,4 @@ export const CarouselMost = () => {
     </>
   );
 }
+

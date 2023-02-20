@@ -8,8 +8,8 @@ export const ContainerCarousel = styled.div`
     margin-bottom: 200px;
 
     .swiper {
-    width: 70%;
-    height: 325px;
+        width: 70%;
+        height: 325px;
     }
     
     .swiper-button-prev-most {
@@ -42,7 +42,6 @@ export const ContainerCarousel = styled.div`
     .swiper-button-prev::after {
         display: none;
     }
-
 
     .swiper-pagination-bullets {
         display: none;

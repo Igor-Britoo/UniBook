@@ -200,7 +200,11 @@ def get_book(request, ISBN):
         book.views = book.views + 1
         book.save()
         book_serialized = BookSerializer(book)
-        return Response({ 'book': book_serialized.data }, status=200)
+
+        return Response({ 'book': {
+            **book_serialized.data,
+            "language" : Book.Language[str(book.language.upper()).replace('-', '_')].label
+        } }, status=200)
 
     else:
         return Response({ "detail": "Book not found" }, status=404)

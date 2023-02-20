@@ -1,144 +1,97 @@
 import styled from "styled-components";
 
-export const MainBook = styled.div`
+export const Container = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
-    margin-bottom: 86px;
-    background-color: #F5F5F5;
+    gap: 20px;
+
+    a{
+        align-self: start;
+        color: inherit;
+    }
+
 `;
 export const BackHome = styled.div`
     display: flex;
-    align-self: flex-start;
     align-items: center;
-    margin-left: 45px;
-    margin-top: 37px;
-
-    .back {
-        font-size: 24px;
-        font-weight: 600;
-        color: #619885;
-        margin-left: 7px;
-    }
-`;
-
-export const Categories = styled.p`
-    font-size: 28px;
-    font-weight: 600;
-    color: #1C3333;
-    margin-top: 19px;
+    gap: 8px;
 `;
 
 export const ContainerBook = styled.div`
     display: flex;
     margin-top: 34px;
+    gap: 40px;
 
-    .img_book {
-        width: 327px;
-        height: 497px;
-        margin-right: 54px;
+    .book-cover {
+        max-width: 327px;
+        max-height: 497px;
+    }
+
+    @media screen and (max-width: ${props => props.theme.breakpoints.lg}) {
+        flex-direction: column;
+        align-items: center;
+        margin: 0;
+
+        .book-cover {
+            width: 80%;
+            height: 90%;
+        }
     }
 `;
 
 export const CardInfo = styled.div`
-    background-color: #F3F3F3;
-    width: 587px;
-    height: 769px;
+    width: 600px;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background-color: ${props => props.theme.colors.gray[300]};
     border-radius: 10px;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
-`;
+    box-shadow: 0px 2px 8px -2px rgba(0, 0, 0, 0.25);
 
-export const Title = styled.h1`
-    font-size: 24px;
-    font-weight: 600;
-    color: #1C3333;
-    margin-left: 41px;
-    margin-top: 32px;
-`;
-
-export const Author = styled.h2`
-    font-size: 20px;
-    font-weight: 400;
-    color: #1C3333;
-    margin-left: 41px;
-`;
-
-export const Price = styled.p`
-    font-size: 32px;
-    font-weight: 600;
-    color: #1C3333;
-    margin-left: 41px;
-    margin-top: 17px;
+    @media screen and (max-width: ${props => props.theme.breakpoints.sm}) {
+        width: 95%;
+        min-width: 300px;
+        padding: 32px;
+    }
 `;
 
 export const ContainerButtons = styled.div`
-    display: flex;
+    width: 100%;
+    display: flex ;
     gap: 25px;
-    margin-top: 21px;
-    margin-left: 41px;
+
+    button{
+        width: 50%;
+    }
+
+    @media screen and (max-width: ${props => props.theme.breakpoints.sm}) {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        button{
+            width: 100%;
+        }
+    }
 `;
 
-export const AddButton = styled.button`
-    width: 240px;
-    height: 31px;
-    background-color: #619885;
-    border-radius: 5px;
-    color: #FFFFFF;
-    border: transparent;
-`;
-
-export const BuyButton = styled.button`
-    width: 240px;
-    height: 31px;
-    background-color: #FFFFFF;
-    border-radius: 5px;
-    color: #619885;
-    border: 1px solid #619885
-`;
-
-export const TitleDescription = styled.p`
-    font-size: 22px;
-    font-weight: 600;
-    color: #1C3333;
-    margin-left: 41px;
-    margin-top: 44px;
-`;
-
-export const TextDescription = styled.p`
-    font-size: 16px;
-    font-weight: 400;
-    margin-left: 41px;
-    margin-right: 41px;
-    margin-top: 14px;
-`;
-
-export const TitleProduct = styled.p`
-font-size: 22px;
-    font-weight: 600;
-    color: #1C3333;
-    margin-left: 41px;
-    margin-top: 21px; 
-    margin-bottom: 14px;
-`;
-
-export const ContainerDetails = styled.p`
+export const Detail = styled.div`
     display: flex;
-    justify-content: space-between;
-    width: 100px;
-    /* gap: 17px; */
-    /* margin-top: 14px; */
-    margin-left: 41px;
+    gap: 10px;
+    width: 100%;
+
+    label{
+        width: 58px;
+    }
+    p{
+        width: 90%;
+    }
 `;
 
-export const Details = styled.p`
-    font-size: 16px;
-    font-weight: 400;
-    color: #1C3333;
-`;
-
-export const TextDetails = styled.p`
-    font-size: 16px;
-    font-weight: 300;
-    color: #1C3333;
+export const ContainerDetails = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 `;

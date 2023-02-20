@@ -26,14 +26,10 @@ def get_values_from_interval_slug(interval_slug):
     """
         Returns the minimum and maximum values from an interval slug.
     """
-    for i in range(0, len(interval_slug)):
-        if (interval_slug[i] == "-"):
-            min = int(interval_slug[:i])
-            there_is_max = len(interval_slug) >  i+1
+    [min, max] = interval_slug.split('-')
+    there_is_no_max = not max
 
-            if there_is_max:
-                max = int(interval_slug[i+1:])
-            else:
-                max = None
+    if there_is_no_max:
+        max = None
 
     return (min, max)

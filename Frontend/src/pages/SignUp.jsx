@@ -1,13 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom'
-import { Main, 
-    Logo, 
-    ContainerForm, 
-    TitleForm, 
-    Form, 
-    ButtonForm,
-    ParagraphForm,
-    ErrorMessage } from '../components/SignComponents';
+
+import { H1, H2, Button, Paragraph, ErrorMessage } from '../styles/styles';
+import { Main, ContainerForm, Form } from '../styles/Sign'
 
 import { api } from '../lib/axios';
 
@@ -40,17 +35,17 @@ export const SignUp = () => {
 
     const signUp = () => {
         api.post('/signup/', user)
-            .then(response => {
-                console.log(response)
-                alert('Congratulations! Your account has been successfully created.')
-                setUser(defaultUser)
-            })
-            .catch(error => {
-                console.log(error)
-                if(error.response.status === 409){
-                    alert('A user with that email already exists.')
-                }
-            })
+        .then(response => {
+            console.log(response)
+            alert('Congratulations! Your account has been successfully created.')
+            setUser(defaultUser)
+        })
+        .catch(error => {
+            console.log(error)
+            if(error.response.status === 409){
+                alert('A user with that email already exists.')
+            }
+        })
     }
 
     const submit = () => {
@@ -100,11 +95,11 @@ export const SignUp = () => {
     return(
         <Main>
 
-            <Logo>UniBook</Logo>
+            <H1 fontSize='xxxxxl'>UniBook</H1>
 
             <ContainerForm>
+                <H2 fontSize='xxxxl' fontWeight="500">Create an Account</H2>
 
-                <TitleForm>Create an Account</TitleForm>
                 <Form>
                     
                     { errors.email ? <ErrorMessage>Invalid email address</ErrorMessage> : null }
@@ -119,14 +114,14 @@ export const SignUp = () => {
                     <input type='password' name='password' placeholder='Password' value={user.password} onChange={handleInput}></input>
                     <input type='password' name='passwordConfirmation' placeholder='Password Confirmation' value={user.passwordConfirmation} onChange={handleInput}></input>
                     
-                    <ButtonForm onClick={submit}>Create</ButtonForm>
                 </Form>
-
                 
-                <ParagraphForm>
+                <Button onClick={submit}>Create</Button>
+                
+                <Paragraph color="gray" fontSize="md" fontWeight="400" textAlign="center">
                     Already have an account?    
                     <Link to="/signin/"> Sign in. </Link>
-                </ParagraphForm>
+                </Paragraph>
             </ContainerForm>
         </Main>
     )
