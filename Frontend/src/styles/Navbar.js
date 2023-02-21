@@ -1,9 +1,8 @@
 import styled from 'styled-components';
 
-export const NavbarContainer = styled.div`
+export const NavbarContainer = styled.nav`
   width: 100%;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
-  margin-bottom: 50px;
   position: fixed;
   top: 0px;
 `;
@@ -12,7 +11,8 @@ export const UpNav = styled.div`
   display: flex;
   align-items: center;
   vertical-align: center;
-  justify-content: space-around;
+  justify-content: space-between;
+  padding: 0px 70px;
   background-color: ${props => props.theme.colors.green[500]};
   height: 80px;
 
@@ -32,7 +32,20 @@ export const DownNav = styled.ul`
   padding: 0px 110px;
 
   @media screen and (max-width: ${props => props.theme.breakpoints.lg}) {
-    display:none
+    display: ${props => props.mobileMenuOpen ? 'flex' : 'none'};
+    position: fixed;
+    top: 0;
+    width: 100%;
+    min-height:100vh;
+    flex-direction: column;
+    background-color: ${props => props.theme.colors.green[800]};
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+
+    h2{
+      color: ${props => props.theme.colors.white};
+    }
   }
 `;
 
@@ -45,6 +58,16 @@ export const NavOption = styled.li`
     text-align: center;
     padding: 10px 20px
   }
+
+  @media screen and (max-width: ${props => props.theme.breakpoints.lg}) {
+    h2{
+      font-size: ${props => props.theme.fontSizes.xxl}
+    }
+
+    h2:hover{
+      color: ${props => props.theme.colors.gray[700]};
+    }
+  }
 `;
 
 export const NavButton = styled.button`
@@ -54,6 +77,17 @@ export const NavButton = styled.button`
   :hover {
     cursor: pointer;
   }
+
+  span {
+    position: relative;
+    border-radius: 50px;
+    color: ${props => props.theme.colors.white};
+    background-color: ${props => props.theme.colors.green[800]};
+    padding: 0px 5px;
+    top: -20px;
+    left: -10px;
+    width: 100%;
+  }
 `;
 
 export const NavButtonsContainer = styled.div`
@@ -61,7 +95,13 @@ export const NavButtonsContainer = styled.div`
   gap: 50px;
 
   @media screen and (max-width: ${props => props.theme.breakpoints.lg}) {
-    display: none;
+    position: absolute;
+    top: 24px;
+    right: 5%;
+    gap: 32px;
+  }
+  @media screen and (max-width: ${props => props.theme.breakpoints.sm}) {
+    gap: 8px;
   }
 `;
 
@@ -73,10 +113,17 @@ export const SearchContainer = styled.div`
   background-color: ${ props => props.theme.colors.white };
   border: 1px solid ${ props => props.theme.colors.gray[700] } ;
   border-radius: 20px;
-  padding: 0 24px;
+  padding: 0px 18px 0px 24px;
+
+  button{
+    display: flex;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+  }
 
   @media screen and (max-width: ${props => props.theme.breakpoints.lg}) {
-    width: 70%;
+    width: 90%;
   }  
 `;
 
@@ -93,3 +140,16 @@ export const SearchInput = styled.input`
     outline: none;
   }
 `;
+
+export const MobileMenu = styled.div`
+  display: none;
+
+  @media screen and (max-width: ${props => props.theme.breakpoints.lg}) {
+    display: flex;
+    position: absolute;
+    top: 16px;
+    left: 5% ;
+    cursor: pointer;
+    z-index: 9999;
+  } 
+`
