@@ -49,6 +49,7 @@ export const H3 = styled.h3`
 
     ${props => props.maxChars && `
     text-overflow: ellipsis;
+    overflow-x: hidden;
     max-width: ${props.maxChars}ch;
     display: inline-block;
     white-space: nowrap;`}
@@ -86,6 +87,7 @@ export const Span = styled.span`
 
     ${props => props.maxChars && `
     text-overflow: ellipsis;
+    overflow-x: hidden;
     max-width: ${props.maxChars}ch;
     display: inline-block;
     white-space: nowrap;`}

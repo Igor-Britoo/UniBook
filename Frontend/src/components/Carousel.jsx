@@ -1,53 +1,65 @@
 import React from 'react';
+import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
+
 import { Card } from './Card';
 import { ContainerCarousel } from '../styles/Carousel';
+import { ArrowButton } from '../styles/Carousel';
 
-// Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
-
-// Import Swiper styles
+import { Pagination, Navigation } from "swiper";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 
-// import "./styles.css";
-// import './App.css'
 
-// import required modules
-import { Autoplay, Pagination, Navigation } from "swiper";
-
-export const Carousel = ({ books }) => {
+export const Carousel = ({ books , carouselClassName}) => {
   return (
     <>
       <ContainerCarousel>
+        <ArrowButton className={`swiper-button-prev-${carouselClassName}`}>
+          <FaArrowLeft color="#1C3333" fontSize="2.5em"/>
+        </ArrowButton>
 
-        <div className="swiper-button-prev-most"></div>
         <Swiper
-          slidesPerView={5}
-          spaceBetween={50}
+          slidesPerView={1}
+          spaceBetween={10}
           loop={true}
-          autoplay={{
-            delay: 3500,
-            disableOnInteraction: false,
-          }}
           pagination={{
-            clickable: true,
+            dynamicBullets: true,
           }}
           navigation={{
-            nextEl: '.swiper-button-next-most',
-            prevEl: '.swiper-button-prev-most'
+            nextEl: `.swiper-button-next-${carouselClassName}`,
+            prevEl: `.swiper-button-prev-${carouselClassName}`
           }}
-          modules={[Autoplay, Pagination, Navigation]}
-          className="mySwiper"
+          breakpoints={{
+            1024: {
+              slidesPerView: 5,
+              spaceBetween: 12,
+            },
+            768: {
+              slidesPerView: 4,
+              spaceBetween: 12,
+            },
+            640: {
+              slidesPerView: 3,
+              spaceBetween: 12,
+            },
+          }}
+          modules={[Pagination, Navigation]}
+          className={carouselClassName}
         >
           
-        { books.map((book, index) =>
-            <SwiperSlide><Card ISBN={book.ISBN} coverUrl={book.cover_url} title={book.title} author={book.author} price={book.price} key={index} /></SwiperSlide>
-        )}
-          
-        </Swiper>
-        <div className="swiper-button-next-most"></div>
+          { books.map((book, index) =>
+            <SwiperSlide key={index}>
+              <Card ISBN={book.ISBN} coverUrl={book.cover_url} title={book.title} author={book.author} price={book.price} key={index} />
+            </SwiperSlide>
+          )} 
 
+        </Swiper>
+
+        <ArrowButton className={`swiper-button-next-${carouselClassName}`}>
+          <FaArrowRight color="#1C3333" fontSize="2.5em"/>
+        </ArrowButton>
       </ContainerCarousel>
     </>
   );

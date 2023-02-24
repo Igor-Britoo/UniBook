@@ -13,15 +13,15 @@ export const Footer = () => {
         
         <Social>
           <Link>
-            <FaInstagram color="white" font-size="2.4em"/>
+            <FaInstagram color="white" fontSize="2.4em"/>
           </Link>
           
           <Link>
-            <FaTwitter color="white" font-size="2.4em" />
+            <FaTwitter color="white" fontSize="2.4em" />
           </Link>
 
           <Link>
-            <FaLinkedin color="white" font-size="2.4em" />
+            <FaLinkedin color="white" fontSize="2.4em" />
           </Link>
         </Social>
       </UpFooter>

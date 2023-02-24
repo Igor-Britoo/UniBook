@@ -7,7 +7,6 @@ const GlobalStyle = createGlobalStyle`
         box-sizing: border-box;
         font-family: ${ props => props.theme.fonts.default };
         letter-spacing: -4.5%;
-        overflow-x: hidden;
     }
 
     a{

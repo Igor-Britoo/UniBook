@@ -5,45 +5,36 @@ export const ContainerCarousel = styled.div`
     align-items: center;
     justify-content: center;
     width: 100%;
-    margin-bottom: 200px;
+    gap: 16px;
 
-    .swiper {
-        width: 70%;
-        height: 325px;
-    }
-    
-    .swiper-button-prev-most {
-        position: relative;
-        margin-left: 100px;
-        background-color: #619885;
-        border-radius: 50%;
-        color: black !important;
-        width: 64px !important; 
-        height: 64px !important;
-        background-image: url('./images/arrow-left.svg');
-        background-repeat: no-repeat;
-        background-position: center;
+    .swiper-wrapper{
+        margin: 0;
+        width: 1000px;
+        padding: 40px 0;
     }
 
-    .swiper-button-next-most {
-        position: relative;
-        margin-right: 100px;
-        background-color: #619885;
-        border-radius: 50%;
-        color: black !important;
-        width: 64px !important;
-        height: 64px !important;
-        background-image: url('./images/arrow-right.svg');
-        background-repeat: no-repeat;
-        background-position: center;
+    .swiper-slide{
+        margin: 0;
     }
 
-    .swiper-button-next::after,
-    .swiper-button-prev::after {
-        display: none;
+    .swiper-pagination-bullet{
+        background-color: ${props => props.theme.colors.green[600]};
+        margin: 0 50px;
     }
+`;
 
-    .swiper-pagination-bullets {
-        display: none;
-    }
+export const ArrowButton = styled.button`
+  width: 64px;
+  height: 64px;
+  border-radius: 50px;
+  border: none;
+  background-color: ${props => props.theme.colors.green[500]};
+  box-shadow: 0px 2px 8px -2px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  align-self: center;
+  transition:  0.2s background-color ease-in-out ;
+
+  :hover{
+    background-color: ${props => props.theme.colors.green[600]};
+  }
 `;
