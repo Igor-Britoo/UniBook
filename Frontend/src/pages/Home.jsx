@@ -1,12 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { H2, Main } from '../styles/styles';
 import { Container, Section } from '../styles/Home';
-import { FaArrowLeft, FaArrowRight } from "react-icons/fa"
-
-import { Card } from '../components/Card';
+import { Carousel } from '../components/Carousel';
 
 import { api } from '../lib/axios'
-import { Carousel } from '../components/Carousel';
 
 export const Home = () => {
   const [bestSellers, setBestSellers] = useState({ books: [] })

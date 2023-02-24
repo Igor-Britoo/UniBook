@@ -6,7 +6,7 @@ import { ContainerCarousel } from '../styles/Carousel';
 import { ArrowButton } from '../styles/Carousel';
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination, Navigation } from "swiper";
+import { Pagination, Navigation, Mousewheel, FreeMode } from "swiper";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
@@ -22,30 +22,41 @@ export const Carousel = ({ books , carouselClassName}) => {
 
         <Swiper
           slidesPerView={1}
-          spaceBetween={10}
-          loop={true}
+          spaceBetween={12}
+          mousewheel={true}
+          freeMode={true}
           pagination={{
             dynamicBullets: true,
+            clickable: true,
           }}
           navigation={{
             nextEl: `.swiper-button-next-${carouselClassName}`,
             prevEl: `.swiper-button-prev-${carouselClassName}`
           }}
           breakpoints={{
-            1024: {
+            1536: {
               slidesPerView: 5,
               spaceBetween: 12,
             },
-            768: {
+            1280: {
+              slidesPerView: 5,
+              spaceBetween: 12,
+            },
+            1024: {
               slidesPerView: 4,
               spaceBetween: 12,
             },
-            640: {
+            768: {
               slidesPerView: 3,
               spaceBetween: 12,
             },
+            640: {
+              slidesPerView: 2,
+              spaceBetween: 12,
+            }
+
           }}
-          modules={[Pagination, Navigation]}
+          modules={[Pagination, Navigation, Mousewheel, FreeMode]}
           className={carouselClassName}
         >
           
