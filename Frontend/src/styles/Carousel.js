@@ -7,10 +7,9 @@ export const ContainerCarousel = styled.div`
     width: 100%;
     gap: 16px;
 
-    .swiper-wrapper{
-        margin: 0;
-        width: 1000px;
-        padding: 40px 0;
+    .swiper-horizontal{
+      margin: 0;
+      padding: 40px 0;
     }
 
     .swiper-slide{
@@ -18,14 +17,14 @@ export const ContainerCarousel = styled.div`
     }
 
     .swiper-pagination-bullet{
-        background-color: ${props => props.theme.colors.green[600]};
+        background-color: ${props => props.theme.colors.green[700]};
         margin: 0 50px;
     }
 `;
 
 export const ArrowButton = styled.button`
-  width: 64px;
-  height: 64px;
+  min-width: 64px;
+  min-height: 64px;
   border-radius: 50px;
   border: none;
   background-color: ${props => props.theme.colors.green[500]};
@@ -36,5 +35,14 @@ export const ArrowButton = styled.button`
 
   :hover{
     background-color: ${props => props.theme.colors.green[600]};
+  }
+
+  @media screen and (max-width: ${props => props.theme.breakpoints.sm}){
+    min-width: 48px;
+    min-height: 48px;
+
+    svg{
+      font-size: 2em;
+    }
   }
 `;
