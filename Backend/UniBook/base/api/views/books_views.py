@@ -42,10 +42,23 @@ def list_books_with_filters(request):
     limit = int(request.GET.get('limit'))
     offset = int(request.GET.get('offset'))
 
-    price_min, price_max = get_values_from_interval_slug(price_interval)
-    publication_year_min, publication_year_max = get_values_from_interval_slug(publication_year_interval)
-    
     books = Book.objects.all()
+    
+    if price_interval:
+        price_min, price_max = get_values_from_interval_slug(price_interval)
+
+        if price_max is not None :
+            books = books.filter(price__range = (price_min, price_max))
+        else:
+            books = books.filter(price__gte = price_min)  
+
+    if publication_year_interval:
+        publication_year_min, publication_year_max = get_values_from_interval_slug(publication_year_interval)
+
+        if publication_year_max is not None:
+            books = books.filter(publication_year__range = (publication_year_min, publication_year_max))
+        else:
+            books = books.filter(publication_year__gte = publication_year_min)
 
     there_is_languages = len(languages) > 0
     all_languages_selected = len(Book.Language.choices) == len(languages)
@@ -58,18 +71,20 @@ def list_books_with_filters(request):
 
     if there_is_genres and not all_genres_selected:
         for genre in genres:
-            books = books.filter(genres = genre)
+            books = books.filter(genres = genre)  
 
-    if price_max is not None :
-        books = books.filter(price__range = (price_min, price_max))
-    else:
-        books = books.filter(price__gte = price_min)    
+    genres = []
+    for genre in Genre.objects.all():
+        count = books.filter(genres = genre ).count()
+        if count > 0:
+            genres.append({ 'genre': genre.name, 'count': count })
 
-    if publication_year_max is not None:
-        books = books.filter(publication_year__range = (publication_year_min, publication_year_max))
-    else:
-        books = books.filter(publication_year__gte = publication_year_min)
-    
+    languages = []
+    for language in Book.Language.values:
+        count = books.filter(language = language).count()
+        if count > 0:
+            languages.append({ 'language': language, 'count': count })
+
     number_of_pages = get_number_of_pages(books, limit)
 
     page = (offset/limit) + 1
@@ -80,7 +95,11 @@ def list_books_with_filters(request):
         books_serialized = BookSerializer(books_page, many=True)
 
         return Response({ 'number_of_pages' : str(number_of_pages),
-                        'books': books_serialized.data }, status=200)
+                        'books': books_serialized.data,
+                        'filters': {
+                            'genres': genres,
+                            'languages': languages,
+                        }}, status=200)
     else:
         return Response({ "detail": "Page not found" }, status=404)
         
