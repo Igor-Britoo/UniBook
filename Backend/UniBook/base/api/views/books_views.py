@@ -1,3 +1,5 @@
+from django.db.models import Count, Max, Min
+
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 
@@ -43,7 +45,8 @@ def list_books_with_filters(request):
     offset = int(request.GET.get('offset'))
 
     books = Book.objects.all()
-    
+
+    # Filtering by price interval
     if price_interval:
         price_min, price_max = get_values_from_interval_slug(price_interval)
 
@@ -52,6 +55,7 @@ def list_books_with_filters(request):
         else:
             books = books.filter(price__gte = price_min)  
 
+    # Filtering by price publication year interval
     if publication_year_interval:
         publication_year_min, publication_year_max = get_values_from_interval_slug(publication_year_interval)
 
@@ -60,6 +64,7 @@ def list_books_with_filters(request):
         else:
             books = books.filter(publication_year__gte = publication_year_min)
 
+    # Filtering by languages
     there_is_languages = len(languages) > 0
     all_languages_selected = len(Book.Language.choices) == len(languages)
     
@@ -69,33 +74,27 @@ def list_books_with_filters(request):
     there_is_genres = len(genres) > 0
     all_genres_selected = Genre.objects.all().count() == len(genres)
 
+    # Filtering by genres
     if there_is_genres and not all_genres_selected:
         for genre in genres:
             books = books.filter(genres = genre)  
 
+    # Getting genres count
     genres = []
     for genre in Genre.objects.all():
         count = books.filter(genres = genre ).count()
         if count > 0:
             genres.append({ 'genre': genre.name, 'count': count })
 
-    languages = []
-    for language in Book.Language.values:
-        count = books.filter(language = language).count()
-        if count > 0:
-            languages.append({ 'language': language, 'count': count })
+    # Getting languages count
+    languages = books.values('language').annotate(count=Count('language')).values('language', 'count').filter(count__gt=0)
 
-    books_ordered_by_price = books.order_by("-price")    
-    books_ordered_by_publication_year = books.order_by("-publication_year")
+    # Getting price and publication year ranges
+    price_range = books.aggregate(min=Min('price'), max=Max('price'))
+    publication_year_range = books.aggregate(min=Min('publication_year'), max=Max('publication_year'))
 
-    price_min = books_ordered_by_price.last().price
-    price_max = books_ordered_by_price.first().price
-
-    publication_year_min = books_ordered_by_publication_year.last().publication_year
-    publication_year_max = books_ordered_by_publication_year.first().publication_year
-
+    # Getting the required page
     number_of_pages = get_number_of_pages(books, limit)
-
     page = (offset/limit) + 1
     page_exists =  page > 0 and page <= number_of_pages
 
@@ -109,12 +108,12 @@ def list_books_with_filters(request):
                             'genres': genres,
                             'languages': languages,
                             'price': {
-                                'min': price_min,
-                                'max': price_max
+                                'min': price_range['min'],
+                                'max': price_range['max']
                             },
                             'publication_year':{
-                                'min': publication_year_min,
-                                'max': publication_year_max
+                                'min': publication_year_range['min'],
+                                'max': publication_year_range['max']
                             }
                         }}, status=200)
     else:
