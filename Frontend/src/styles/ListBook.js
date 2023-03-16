@@ -1,61 +1,79 @@
 import styled from "styled-components";
 
-export const ListTitle = styled.h2`
-    align-self: flex-start;
-    font-size: 40px;
-    font-weight: 500;
-    color: #1C3333;
-    margin-top: 57px;
-`;
-
-export const CardFilter = styled.div`
-    align-self: flex-start;
-    width: 316px;
-    height: 812px;
-    border-radius: 10px;
-    background-color: #D9D9D9;
-    padding-left: 29px;
-`;
-
-export const FilterTitle = styled.h2`
-    font-size: 32px;
-    font-weight: 500;
-    color: #1C3333;
-    margin-top: 25px;
-`;
-
-export const FilterOption = styled.h2`
-    font-size: 24px;
-    font-weight: 500;
-    color: #1C3333;
-    margin-top: 35px;
-    margin-bottom: 25px;
-`;
-
-export const RowCards = styled.div`
-    display: flex;
-    gap: 23px;
-    margin-bottom: 35px;
-`;
-
-export const SectionContent = styled.div`
-    display: flex;
-    flex-direction: column;
-    margin-left: 65px;
-`;
-
 export const Content = styled.div`
     display: flex;
+    flex-direction: column;
+    gap: 40px;
+    padding-top: 40px;
     width: 100%;
-    margin-top: 30px;
+    max-width: 1100px;
+
+    @media screen and (max-width: ${props => props.theme.breakpoints.xl}) {
+        max-width: 900px;
+    }
+    @media screen and (max-width: ${props => props.theme.breakpoints.lg}) {
+        max-width: 600px;
+    }
 `;
 
-export const ButtonMore = styled.button`
-    align-self: center;
-    width: 196px;
-    height: 31px;
-    background-color: #619885;
-    color: #FFFFFF;
-    border: transparent;
-    border-radius: 5px;
+export const Sections = styled.div`
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    gap: 60px;
+    text-align: left;
 `;
+
+export const BooksSection = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    
+    align-items: center;
+
+    .btn-load-more{
+        width: 200px;
+        height: 30px;
+    }
+`;
+
+export const Books = styled.div`
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+
+    @media screen and (max-width: ${props => props.theme.breakpoints.xl}) {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+`;
+
+export const FiltersSection = styled.div`
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    height: fit-content;
+    border-radius: 10px;
+    background-color: ${props => props.theme.colors.gray[500]};
+    padding: 32px 30px;
+    gap: 35px;
+
+    @media screen and (max-width: ${props => props.theme.breakpoints.lg}) {
+        display: none;
+    }
+`;
+
+export const FilterSection = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+`;
+
+export const Options = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+`;
+
+
+

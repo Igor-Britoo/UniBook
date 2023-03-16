@@ -9,6 +9,10 @@ const GlobalStyle = createGlobalStyle`
         letter-spacing: -4.5%;
     }
 
+    body{
+        scroll-behavior: smooth;
+    }
+
     a{
         text-decoration: none;
     }
