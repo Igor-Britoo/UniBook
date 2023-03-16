@@ -85,6 +85,15 @@ def list_books_with_filters(request):
         if count > 0:
             languages.append({ 'language': language, 'count': count })
 
+    books_ordered_by_price = books.order_by("-price")    
+    books_ordered_by_publication_year = books.order_by("-publication_year")
+
+    price_min = books_ordered_by_price.last().price
+    price_max = books_ordered_by_price.first().price
+
+    publication_year_min = books_ordered_by_publication_year.last().publication_year
+    publication_year_max = books_ordered_by_publication_year.first().publication_year
+
     number_of_pages = get_number_of_pages(books, limit)
 
     page = (offset/limit) + 1
@@ -99,6 +108,14 @@ def list_books_with_filters(request):
                         'filters': {
                             'genres': genres,
                             'languages': languages,
+                            'price': {
+                                'min': price_min,
+                                'max': price_max
+                            },
+                            'publication_year':{
+                                'min': publication_year_min,
+                                'max': publication_year_max
+                            }
                         }}, status=200)
     else:
         return Response({ "detail": "Page not found" }, status=404)
