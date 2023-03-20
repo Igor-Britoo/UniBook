@@ -17,7 +17,7 @@ class ListBooks(APITestCase):
             description="Lorem",
         )
         self.book_1 = Book.objects.create(
-                                    ISBN= '01234567890123', 
+                                    ISBN= '0123456789012', 
                                     title= 'Book 1',
                                     author= 'Author 1',
                                     publication_year=2000,
@@ -28,7 +28,7 @@ class ListBooks(APITestCase):
                                     cover= "",
                                 )
         self.book_2 = Book.objects.create(
-                                    ISBN= '12345678901234', 
+                                    ISBN= '1234567890123', 
                                     title= 'Book 2',
                                     author= 'Author 2',
                                     publication_year=2000,
@@ -50,7 +50,7 @@ class ListBooks(APITestCase):
             "number_of_pages":2,
             "books":[
                 {
-                    "ISBN":"01234567890123",
+                    "ISBN":"0123456789012",
                     "title":"Book 1",
                     "author":"Author 1",
                     "publication_year":2000,
@@ -116,7 +116,7 @@ class ListBooksWithFilters(APITestCase):
             description="Lorem",
         )
         self.book_1 = Book.objects.create(
-                                    ISBN= '01234567890123', 
+                                    ISBN= '0123456789012', 
                                     title= 'Book 1',
                                     author= 'Author 1',
                                     publication_year=1990,
@@ -127,7 +127,7 @@ class ListBooksWithFilters(APITestCase):
                                     cover= "",
                                 )
         self.book_2 = Book.objects.create(
-                                    ISBN= '12345678901234', 
+                                    ISBN= '1234567890123', 
                                     title= 'Book 2',
                                     author= 'Author 2',
                                     publication_year=2010,
@@ -145,7 +145,7 @@ class ListBooksWithFilters(APITestCase):
             "number_of_pages":2,
             "books":[
                 {
-                    "ISBN":"01234567890123",
+                    "ISBN":"0123456789012",
                     "title":"Book 1",
                     "author":"Author 1",
                     "publication_year":1990,
@@ -203,7 +203,7 @@ class ListBooksWithFilters(APITestCase):
             "number_of_pages":1,
             "books":[
                 {
-                    "ISBN":"01234567890123",
+                    "ISBN":"0123456789012",
                     "title":"Book 1",
                     "author":"Author 1",
                     "publication_year":1990,
@@ -312,7 +312,7 @@ class SearchBooks(APITestCase):
             description="Lorem",
         )
         self.book_1 = Book.objects.create(
-                                    ISBN= '01234567890123', 
+                                    ISBN= '0123456789012', 
                                     title= 'Book 1',
                                     author= 'Author 1',
                                     publication_year=1990,
@@ -323,7 +323,7 @@ class SearchBooks(APITestCase):
                                     cover= "",
                                 )
         self.book_2 = Book.objects.create(
-                                    ISBN= '12345678901234', 
+                                    ISBN= '1234567890123', 
                                     title= 'Book 2',
                                     author= 'Author 2',
                                     publication_year=2010,
@@ -341,7 +341,7 @@ class SearchBooks(APITestCase):
             "number_of_pages":1,
             "books":[
                 {
-                    "ISBN":"01234567890123",
+                    "ISBN":"0123456789012",
                     "title":"Book 1",
                     "author":"Author 1",
                     "publication_year":1990,
@@ -451,7 +451,7 @@ class MostViewedBooks(APITestCase):
             description="Lorem",
         )
         self.book_1 = Book.objects.create(
-                                    ISBN= '01234567890123', 
+                                    ISBN= '0123456789012', 
                                     title= 'Book 1',
                                     author= 'Author 1',
                                     publication_year=2000,
@@ -463,7 +463,7 @@ class MostViewedBooks(APITestCase):
                                     views=1,
                                 )
         self.book_2 = Book.objects.create(
-                                    ISBN= '12345678901234', 
+                                    ISBN= '1234567890123', 
                                     title= 'Book 2',
                                     author= 'Author 2',
                                     publication_year=2000,
@@ -486,7 +486,7 @@ class MostViewedBooks(APITestCase):
             "number_of_pages":1,
             "books":[
                 {
-                    "ISBN":"01234567890123",
+                    "ISBN":"0123456789012",
                     "title":"Book 1",
                     "author":"Author 1",
                     "publication_year":2000,
@@ -503,7 +503,7 @@ class MostViewedBooks(APITestCase):
                     "sellings":0
                 },
                 {
-                    "ISBN":"12345678901234",
+                    "ISBN":"1234567890123",
                     "title":"Book 2",
                     "author":"Author 2",
                     "publication_year":2000,
@@ -569,7 +569,7 @@ class MostViewedBooks(APITestCase):
             "number_of_pages":1,
             "books":[
                 {
-                    "ISBN":"01234567890123",
+                    "ISBN":"0123456789012",
                     "title":"Book 1",
                     "author":"Author 1",
                     "publication_year":2000,
@@ -631,7 +631,7 @@ class BestSellers(APITestCase):
             description="Lorem",
         )
         self.book_1 = Book.objects.create(
-                                    ISBN= '01234567890123', 
+                                    ISBN= '0123456789012', 
                                     title= 'Book 1',
                                     author= 'Author 1',
                                     publication_year=2000,
@@ -643,7 +643,7 @@ class BestSellers(APITestCase):
                                     sellings=1,
                                 )
         self.book_2 = Book.objects.create(
-                                    ISBN= '12345678901234', 
+                                    ISBN= '1234567890123', 
                                     title= 'Book 2',
                                     author= 'Author 2',
                                     publication_year=2000,
@@ -666,7 +666,7 @@ class BestSellers(APITestCase):
             "number_of_pages":1,
             "books":[
                 {
-                    "ISBN":"01234567890123",
+                    "ISBN":"0123456789012",
                     "title":"Book 1",
                     "author":"Author 1",
                     "publication_year":2000,
@@ -683,7 +683,7 @@ class BestSellers(APITestCase):
                     "sellings":1
                 },
                 {
-                    "ISBN":"12345678901234",
+                    "ISBN":"1234567890123",
                     "title":"Book 2",
                     "author":"Author 2",
                     "publication_year":2000,
@@ -749,7 +749,7 @@ class BestSellers(APITestCase):
             "number_of_pages":1,
             "books":[
                 {
-                    "ISBN":"01234567890123",
+                    "ISBN":"0123456789012",
                     "title":"Book 1",
                     "author":"Author 1",
                     "publication_year":2000,
@@ -811,7 +811,7 @@ class BooksOnSale(APITestCase):
             description="Lorem",
         )
         self.book_1 = Book.objects.create(
-                                    ISBN= '01234567890123', 
+                                    ISBN= '0123456789012', 
                                     title= 'Book 1',
                                     author= 'Author 1',
                                     publication_year=2000,
@@ -823,7 +823,7 @@ class BooksOnSale(APITestCase):
                                     discount="0.25"
                                 )
         self.book_2 = Book.objects.create(
-                                    ISBN= '12345678901234', 
+                                    ISBN= '1234567890123', 
                                     title= 'Book 2',
                                     author= 'Author 2',
                                     publication_year=2000,
@@ -846,7 +846,7 @@ class BooksOnSale(APITestCase):
             "number_of_pages":1,
             "books":[
                 {
-                    "ISBN":"01234567890123",
+                    "ISBN":"0123456789012",
                     "title":"Book 1",
                     "author":"Author 1",
                     "publication_year":2000,
@@ -863,7 +863,7 @@ class BooksOnSale(APITestCase):
                     "sellings":0
                 },
                 {
-                    "ISBN":"12345678901234",
+                    "ISBN":"1234567890123",
                     "title":"Book 2",
                     "author":"Author 2",
                     "publication_year":2000,
@@ -929,7 +929,7 @@ class BooksOnSale(APITestCase):
             "number_of_pages":1,
             "books":[
                 {
-                    "ISBN":"01234567890123",
+                    "ISBN":"0123456789012",
                     "title":"Book 1",
                     "author":"Author 1",
                     "publication_year":2000,
@@ -987,7 +987,7 @@ class GetBook(APITestCase):
             description="Lorem",
         )
         self.book_1 = Book.objects.create(
-                                    ISBN= '01234567890123', 
+                                    ISBN= '0123456789012', 
                                     title= 'Book 1',
                                     author= 'Author 1',
                                     publication_year=2000,
@@ -1001,13 +1001,13 @@ class GetBook(APITestCase):
 
 
     def test_get_book_with_valid_ISBN(self):
-        response = self.client.get(self.url + '01234567890123/')
+        response = self.client.get(self.url + '0123456789012/')
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         
         response_data = json.loads(response.content)
         expected_data = {
             "book":{
-                "ISBN":"01234567890123",
+                "ISBN":"0123456789012",
                 "title":"Book 1",
                 "author":"Author 1",
                 "publication_year":2000,
@@ -1027,7 +1027,7 @@ class GetBook(APITestCase):
         self.assertEqual(response_data, expected_data)
     
     def test_get_book_with_invalid_ISBN(self):
-        response = self.client.get(self.url + '00000000000000/')
+        response = self.client.get(self.url + '0000000000000/')
         self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
 
         expected_data = {'detail': 'Book not found'}
