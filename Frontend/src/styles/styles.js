@@ -8,6 +8,7 @@ export const Main = styled.main`
     flex-direction: column;
     flex: 1;
     align-items: center;
+    justify-content: center;
     padding: 160px 50px 60px 50px;
 
     @media screen and (max-width: ${props => props.theme.breakpoints.sm}) {
@@ -42,6 +43,25 @@ export const H2 = styled.h2`
 `;
 
 export const H3 = styled.h3`
+    color: ${ props => props.color === 'white' ? props.theme.colors.white : props.theme.colors.green[800] };
+    font-size: ${ props => props.theme.fontSizes[props.fontSize] };
+    font-weight: ${ props => props.fontWeight };
+    margin: ${ props => props.margin ? props.margin : 0 };
+
+    ${props => props.maxChars && `
+    text-overflow: ellipsis;
+    overflow-x: hidden;
+    max-width: ${props.maxChars}ch;
+    display: inline-block;
+    white-space: nowrap;`}
+
+    a {
+        text-decoration: none;
+        color: inherit;
+    } 
+`;
+
+export const H4 = styled.h4`
     color: ${ props => props.color === 'white' ? props.theme.colors.white : props.theme.colors.green[800] };
     font-size: ${ props => props.theme.fontSizes[props.fontSize] };
     font-weight: ${ props => props.fontWeight };
@@ -106,6 +126,7 @@ export const Button = styled.button`
     font-weight: 700;
     border: 1px solid ${ props => props.theme.colors.green[500]};
     border-radius: 5px;
+    cursor: pointer;
 
     transition:  0.2s background-color ease-in-out ;
 

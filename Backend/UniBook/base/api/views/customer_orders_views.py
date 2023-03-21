@@ -4,6 +4,8 @@ from rest_framework.decorators import api_view
 from ...models import *
 from ..serializers import *
 from ..decorators import *
+from ..utils import *
+
 
 @api_view(['POST'])
 @access_token_required
@@ -39,11 +41,40 @@ def get_customer_orders(request):
         Returns all orders from the logged in customer
     """
 
+    limit = request.GET.get('limit')
+    offset = request.GET.get('offset')
+
+    if not limit:
+        limit = 20
+    else:
+        limit = int(limit)
+    
+    if not offset:
+        offset= 0
+    else:
+        offset = int(offset)
+
     customer = Customer.objects.filter(email = request.user).first()
     orders = customer.orders.all()
-    orders_serialized = OrderSerializer(orders, many=True)
     
-    return Response({ 'orders': orders_serialized.data }, status=200)
+    no_orders_yet = not orders.exists()
+    if no_orders_yet:
+        return Response({ "detail": "The customer logged in has no orders yet" }, status=200) 
+    
+    else:
+        number_of_pages = get_number_of_pages(orders, limit)
+
+        page = (offset/limit) + 1
+        page_exists =  page > 0 and page <= number_of_pages
+        
+        if page_exists:
+            orders_page = get_page(offset, limit, orders)
+            orders_serialized = OrderSerializer(orders_page, many=True)
+
+            return Response({ 'number_of_pages' : number_of_pages,
+                            'orders': orders_serialized.data }, status=200)
+        else:
+            return Response({ "detail": "Page not found" }, status=404) 
 
 
 @api_view(['GET'])

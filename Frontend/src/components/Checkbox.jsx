@@ -1,14 +1,15 @@
-import { ContainerCheckbox,
-  Check,
-  LabelCheck,} from "../styles/Checkbox";
+import React from "react";
+
+import { ContainerCheckbox, Check, } from "../styles/Checkbox";
+import { Label } from "../styles/styles";
 
 export const Checkbox = (props) => {
   return(
     <>
       <ContainerCheckbox>
           <Check type={"checkbox"}/>
-          <LabelCheck>{props.name}</LabelCheck>
-        </ContainerCheckbox>
+          <Label fontSize="md" fontWeight="500" >{props.name}</Label>
+      </ContainerCheckbox>
     </>
   );
 }
