@@ -7,6 +7,7 @@ export const ContainerCart = styled.div`
   height: 100vh;
   width: 350px;
   background-color: #F3F3F3;
+  box-shadow: -6px 4px 4px rgba(0, 0, 0, 0.25);
 `;
 
 export const UpCart = styled.div`
