@@ -5,6 +5,7 @@ import { Carousel } from '../components/Carousel';
 
 import { api } from '../lib/axios'
 
+
 export const Home = () => {
   const [bestSellers, setBestSellers] = useState({ books: [] })
   const [mostViewed, setMostViewed] = useState({ books: [] })
