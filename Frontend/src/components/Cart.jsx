@@ -12,9 +12,13 @@ TextDownCart,
 BuyButton, } from "../styles/Cart";
 
 import { FaShoppingCart, FaTimes } from "react-icons/fa";
+import { useState } from "react";
 
-export const Cart = () => {
+export const Cart = ({cartActive, setCartMode}) => {
   return(
+    cartActive == false ? 
+      <></> 
+    :
     <ContainerCart>
       <div>
         <UpCart>
@@ -23,7 +27,7 @@ export const Cart = () => {
           <FaShoppingCart color="white" fontSize="2.4em"/>
           <TitleCart>Cart</TitleCart>
           </div>
-          <FaTimes color="black" fontSize="2.4em"/>
+          <FaTimes color="black" fontSize="2.4em" onClick={() => setCartMode(false)}/>
         </UpCart>
         
         <Product>

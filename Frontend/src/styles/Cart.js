@@ -8,6 +8,10 @@ export const ContainerCart = styled.div`
   width: 350px;
   background-color: #F3F3F3;
   box-shadow: -6px 4px 4px rgba(0, 0, 0, 0.25);
+  position: absolute;
+  top: 0;
+  right: 0px;
+  z-index: 999;
 `;
 
 export const UpCart = styled.div`
