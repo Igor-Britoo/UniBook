@@ -9,7 +9,10 @@ ContainerForm,
 ContainerButtonsForm,
 LabelForm,
 RowForm,
-Input } from "../styles/Account";
+Input,
+SpecialRowForm,
+EditButton,
+PositionButton, } from "../styles/Account";
 
 export const Account = () => {
   return(
@@ -28,50 +31,72 @@ export const Account = () => {
             <PersonalButton>Personal Data</PersonalButton>
             <OrdersButton>Orders</OrdersButton>
           </ContainerButtons>
+          
+          <div className="position-form">
+            <ContainerForm>
+              <RowForm>
+                <div className="column">
+                <LabelForm>First Name: </LabelForm>
+                <Input></Input>
+                </div>
 
-          <ContainerForm>
-            <RowForm>
-              <div
-               className="column">
+                <div className="column">
+                <LabelForm>Last Name: </LabelForm>
+                <Input></Input>
+                </div>
+              </RowForm>
 
-              <LabelForm>First Name: </LabelForm>
-              <Input></Input>
-              </div>
-              <div className="column">
+              <RowForm>
+                <div className="column">
+                <LabelForm>Email: </LabelForm>
+                <Input></Input>
+                </div>
 
-              <LabelForm>Last Name: </LabelForm>
-              <Input></Input>
-              </div>
-            </RowForm>
+                <div className="column">
+                <LabelForm>Birth date: </LabelForm>
+                <Input></Input>
+                </div>
+              </RowForm>
 
-            <RowForm>
-              <div
-               className="column">
+              <SpecialRowForm>
+                <div className="column">
+                <LabelForm>Address: </LabelForm>
+                <Input className="address"></Input>
+                </div>
 
-              <LabelForm>Email: </LabelForm>
-              <Input></Input>
-              </div>
-              <div className="column">
+                <div className="column">
+                <LabelForm >Number: </LabelForm>
+                <Input className="number"></Input>
+                </div>
 
-              <LabelForm>Birth date: </LabelForm>
-              <Input></Input>
-              </div>
-            </RowForm>
 
-            <RowForm>
-              <div
-               className="column">
+                <div className="column">
+                <LabelForm>CEP: </LabelForm>
+                <Input className="cep"></Input>
+                </div>
+              </SpecialRowForm>
 
-              <LabelForm>State: </LabelForm>
-              <Input></Input>
-              </div>
-              <div className="column">
+              <SpecialRowForm>
+                <div
+                className="column">
 
-              <LabelForm>City: </LabelForm>
-              <Input></Input>
-              </div>
-            </RowForm>
-          </ContainerForm>
+                <LabelForm>State: </LabelForm>
+                <Input className="state"></Input>
+                </div>
+                <div className="column">
+
+                <LabelForm>City: </LabelForm>
+                <Input className="city"></Input>
+                </div>
+              </SpecialRowForm>
+
+              <PositionButton>
+                <EditButton>Edit</EditButton>
+              </PositionButton>
+              
+            </ContainerForm>
+          </div>
+
         </ContainerButtonsForm>
       </ContainerAccount>
     </Main>
