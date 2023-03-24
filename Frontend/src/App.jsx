@@ -14,6 +14,8 @@ import { SignUp } from './pages/SignUp';
 import { Home } from './pages/Home';
 import { Book } from './pages/Book';
 import { ListBook } from './pages/ListBook';
+import { Account } from './pages/Account';
+import { Orders } from './pages/Orders';
 
 function App() {
   return (
@@ -28,6 +30,8 @@ function App() {
           <Route path="/" element= {<><Navbar/><Home/><Footer/></>} />
           <Route path="/books/:ISBN/" element= {<><Navbar/><Book/><Footer/></>} />
           <Route path='/list' element= {<><Navbar/><ListBook/><Footer/></>} />
+          <Route path='/account' element= {<><Navbar/><Account/><Footer/></>} />
+          <Route path='/orders' element= {<><Navbar/><Orders/><Footer/></>} />
           
         </Routes>
       </BrowserRouter>

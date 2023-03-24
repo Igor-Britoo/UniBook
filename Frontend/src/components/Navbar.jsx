@@ -6,11 +6,16 @@ import { MdClose as CloseMenu } from "react-icons/md"
 
 import { NavbarContainer, UpNav, DownNav, NavOption, NavButton, NavButtonsContainer, SearchContainer, SearchInput, MobileMenu } from "../styles/Navbar";
 import { H1, H2, Span } from "../styles/styles";
+import { Cart } from "./Cart";
 
 export const Navbar = () => {
-  const [active, setMode] = useState(false)
-  const toggleMode = () =>{
-    setMode(!active)
+  const [menuActive, setMenuMode] = useState(false)
+  const toggleMenu = () =>{
+    setMenuMode(!menuActive)
+  }
+  const [cartActive, setCartMode] = useState(false)
+  const openCart = () =>{
+    setCartMode(!cartActive)
   }
   return(
     <>
@@ -18,10 +23,10 @@ export const Navbar = () => {
         
         <UpNav>
           <MobileMenu>
-            {active ? 
-            <CloseMenu color="white" fontSize="3em" onClick={toggleMode}/>
+            {menuActive ? 
+            <CloseMenu color="white" fontSize="3em" onClick={toggleMenu}/>
             :
-            <OpenMenu color="white" fontSize="3.1em" onClick={toggleMode}/> 
+            <OpenMenu color="white" fontSize="3.1em" onClick={toggleMenu}/> 
             }
           </MobileMenu>
 
@@ -42,14 +47,15 @@ export const Navbar = () => {
             </NavButton>
 
             <NavButton>
-              <FaShoppingCart color="white" fontSize="2.4em"/>
+              <FaShoppingCart color="white" fontSize="2.4em" onClick={openCart}/>
+              <Cart cartActive={cartActive} setCartMode={setCartMode}/>
               <Span fontSize="xs" fontWeight="700">0</Span>
             </NavButton>
           </NavButtonsContainer>
 
         </UpNav>
 
-        <DownNav mobileMenuOpen={active}>
+        <DownNav mobileMenuOpen={menuActive}>
           <NavOption>
             <H2 fontSize='xxl' fontWeight="500"><Link>Special Offers</Link></H2>
           </NavOption>
