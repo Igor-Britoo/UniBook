@@ -1,3 +1,7 @@
+import React, { useEffect, useState } from 'react';
+
+import { api } from '../lib/axios'
+
 import { Main } from "../styles/styles";
 import { Back,
 TextBack,
@@ -7,16 +11,32 @@ OrdersButton, } from "../styles/Account";
 import { ContainerOrders,
 ContainerButtons,
 ContainerCard,
-Card,
-Text,
-RowOrderStatus,
-RowBook,
-Author,
-Price,
-Buyer,
 SeeMoreButton, } from "../styles/Orders";
 
+import { CardOrder } from '../components/CardOrder';
+
 export const Orders = () => {
+  const [orders, setOrders] = useState({ orders: [] })
+
+  const fetchData = async() => {
+    let accessToken = localStorage.getItem('access')		// Recupera o token de acesso no localStorage
+    if (accessToken) {
+      api.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`	// Adiciona o token de acesso ao cabeçalho da requisição
+      
+      await api.get('customer-logged/orders/?limit=20&offset=0')			// Faz a requisição ao endpoint de pedidos do usuario logado
+      .then( response => { 
+        console.log(response.data)
+        setOrders(response.data)							// Seta os pedidos
+      })
+      .catch(error => {
+          console.log(error)
+      })
+    }
+  }
+
+  useEffect(() => {
+    fetchData();
+  }, [])
   return(
     <Main>
       <ContainerOrders>
@@ -35,41 +55,7 @@ export const Orders = () => {
           </ContainerButtons>
           
           <div className="position-form">
-            <Card>
-                <RowOrderStatus>
-                    <Text>Order: 19/03/2023</Text>
-                    <Text>Status: In progress</Text>
-                </RowOrderStatus>
-                <Text>Arrive: 19/04/2023</Text>
-                
-                <RowBook>
-                    <img src="images/book.png" alt="book" className="img"></img>
-                    <div>
-                        <Text>What I Learned from the Trees</Text>
-                        <Author>L.E. Bowman</Author>
-                        <Price>$ 20.00</Price>
-                        <Buyer>Buyer: Fulano de Tal</Buyer>
-                    </div>
-                </RowBook>
-            </Card>
-
-            <Card>
-                <RowOrderStatus>
-                    <Text>Order: 19/03/2023</Text>
-                    <Text>Status: In progress</Text>
-                </RowOrderStatus>
-                <Text>Arrive: 19/04/2023</Text>
-                
-                <RowBook>
-                    <img src="images/book.png" alt="book" className="img"></img>
-                    <div>
-                        <Text>What I Learned from the Trees</Text>
-                        <Author>L.E. Bowman</Author>
-                        <Price>$ 20.00</Price>
-                        <Buyer>Buyer: Fulano de Tal</Buyer>
-                    </div>
-                </RowBook>
-            </Card>
+          <CardOrder orders={orders.orders}/>
 
             <SeeMoreButton>See More</SeeMoreButton>
           </div>
