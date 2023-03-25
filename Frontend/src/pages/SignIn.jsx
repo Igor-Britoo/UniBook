@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 
 import { H1, H2, Button, Paragraph, ErrorMessage } from '../styles/styles';
 import { Main, ContainerForm, Form } from '../styles/Sign'
@@ -7,6 +7,10 @@ import { Main, ContainerForm, Form } from '../styles/Sign'
 import { api } from '../lib/axios';
 
 export const SignIn = () =>{
+    const navigate = useNavigate()
+    const location = useLocation()
+    const from = location.state?.from?.pathname || '/'
+        
     const defaultUser = {
         email: '',
         password: ''
@@ -41,6 +45,8 @@ export const SignIn = () =>{
             
             alert('Login successful!')
             setUser(defaultUser)
+            navigate(from, { replace: true })
+            window.location.reload(true)
         })
         .catch(error => {
             console.log(error)

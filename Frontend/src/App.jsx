@@ -6,9 +6,6 @@ import GlobalStyle from './styles/global';
 
 import { AuthProvider } from './contexts/AuthContext';
 
-import { Footer } from './components/Footer';
-import { Navbar } from "./components/Navbar";
-
 import { SignIn } from './pages/SignIn';
 import { SignUp } from './pages/SignUp';
 import { Home } from './pages/Home';
@@ -16,6 +13,9 @@ import { Book } from './pages/Book';
 import { ListBook } from './pages/ListBook';
 import { Account } from './pages/Account';
 import { Orders } from './pages/Orders';
+
+import { NestedRoutesLayout } from './components/NestedRoutesLayout';
+import { ProtectedRoutes } from './components/ProtectedRoutes';
 
 function App() {
   return (
@@ -27,12 +27,20 @@ function App() {
         <Routes>
           <Route path="/signin/" element= {<SignIn/>} />
           <Route path="/signup/" element= {<SignUp/>} />
-          <Route path="/" element= {<><Navbar/><Home/><Footer/></>} />
-          <Route path="/books/:ISBN/" element= {<><Navbar/><Book/><Footer/></>} />
-          <Route path='/list' element= {<><Navbar/><ListBook/><Footer/></>} />
-          <Route path='/account' element= {<><Navbar/><Account/><Footer/></>} />
-          <Route path='/orders' element= {<><Navbar/><Orders/><Footer/></>} />
-          
+
+          <Route path="/" element= {<NestedRoutesLayout />}>
+
+            <Route path="" element={<Home/>} />
+            <Route path="books/:ISBN/" element= {<Book/>} />
+            <Route path='list' element= {<ListBook/>} />
+
+            <Route path="" element={<ProtectedRoutes />} >
+              <Route path='account' element= {<Account/>} />
+              <Route path='orders' element= {<Orders/>} />
+            </Route>
+
+          </Route>
+
         </Routes>
       </BrowserRouter>
     </ThemeProvider>
