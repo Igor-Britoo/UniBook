@@ -86,7 +86,7 @@ export const SignIn = () =>{
 
     return(
         <Main>
-            <H1 fontSize='xxxxxl' >UniBook</H1>
+            <H1 fontSize='xxxxxl' ><Link to="/"> UniBook </Link></H1>
 
             <ContainerForm>
                 <H2 fontSize='xxxxl' fontWeight="500">Sign in</H2>
