@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const BackButton = styled.div`
+export const BackButtonContainer = styled.div`
     display: flex;
     align-items: center;
 `;

@@ -11,9 +11,10 @@ import { SignUp } from './pages/SignUp';
 import { Home } from './pages/Home';
 import { Book } from './pages/Book';
 import { ListBook } from './pages/ListBook';
-import { Account } from './pages/Account';
-import { Orders } from './pages/Orders';
+import { Profile } from './pages/Profile';
+//import { Orders } from './pages/Orders';
 
+import { ProfilePagesLayout } from './components/ProfilePagesLayout';
 import { NestedRoutesLayout } from './components/NestedRoutesLayout';
 import { ProtectedRoutes } from './components/ProtectedRoutes';
 
@@ -35,8 +36,10 @@ function App() {
             <Route path='list' element= {<ListBook/>} />
 
             <Route path="" element={<ProtectedRoutes />} >
-              <Route path='account' element= {<Account/>} />
-              <Route path='orders' element= {<Orders/>} />
+              <Route path='/' element= {<ProfilePagesLayout />} >
+                <Route path="profile/" element={<Profile />} />
+                {/*<Route path='orders/' element= {<Home />} />*/}
+              </Route>
             </Route>
 
           </Route>

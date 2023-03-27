@@ -30,14 +30,14 @@ export const DropdownMenu = ({dropdownMenuActive}) => {
                 <H4 fontSize="xl" fontWeight={400}> Your Account</H4>
                 <LinksContainer>
                     <Link to="/orders/">Orders</Link>
-                    <Link to="/account/">Account</Link>
+                    <Link to="/profile/">Account</Link>
                     <div></div>
                     <Link onClick={logout}>Logout</Link>
                 </LinksContainer>
             </DropdownContainer>
             :
             <DropdownContainer>
-                <Button fontSize="md" fontWeight="700" height="28px" onClick={navigateToSignIn}> Sign In</Button>
+                <Button fontSize="md" height="28px" onClick={navigateToSignIn}> Sign In</Button>
                 <Paragraph color="gray" fontSize="sm" fontWeight="400" textAlign="center">
                     New customer ? 
                     <Link to="/signup/"> Start here.</Link>
