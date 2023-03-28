@@ -84,6 +84,12 @@ export const SignIn = () =>{
         
     }
 
+    const submitOnEnter = (event) => {
+        if (event.keyCode === 13) {
+            submit()
+        }
+    }
+
     return(
         <Main>
             <H1 fontSize='xxxxxl' ><Link to="/"> UniBook </Link></H1>
@@ -91,7 +97,7 @@ export const SignIn = () =>{
             <ContainerForm>
                 <H2 fontSize='xxxxl' fontWeight="500">Sign in</H2>
 
-                <Form>
+                <Form onKeyDown={submitOnEnter}>
                     { errors.email ? <ErrorMessage>Invalid email address</ErrorMessage> : null }
                     <input type='email' name='email' placeholder='Email' value={user.email} onChange={handleInput}></input>
 

@@ -57,44 +57,10 @@ export const Profile = () => {
 
     const handleEditAndSaveButton = () => {
         if (editMode) {
-            let canSubmit = true;
             setErrors(defaultErrors)
-            console.log(user)
-            console.log(userLoggedData)
+
             if (userLoggedData !== user){
-        
-                if ( userLoggedData.email === "" || !isValidEmail(userLoggedData.email)){
-                    setErrors(prevState =>({
-                        ...prevState,
-                        email : true
-                    }))
-                    canSubmit = false
-                }
-
-                if ( userLoggedData.name === ""){
-                    setErrors(prevState =>({
-                        ...prevState,
-                        name : true,
-                    }))
-                    canSubmit = false
-                }
-                
-                const hasStreetName = userLoggedData.address.street_name !== defaultAddress.streetName
-                const hasHouseNumber = userLoggedData.address.house_number !== defaultAddress.houseNumber
-                const hasState = userLoggedData.address.state !== defaultAddress.state
-                const hasCity = userLoggedData.address.city !== defaultAddress.city
-                
-                if (hasStreetName  || hasHouseNumber || hasState || hasCity){
-                    if (!hasStreetName  || !hasHouseNumber || !hasState || !hasCity){
-                        canSubmit = false
-                        alert('To update the address, you need to fill in all its fields')
-                    }
-
-                }
-                
-                if (canSubmit) {
-                    updateUserLogged()
-                }
+               submit()
             }
             else setEditMode(false)
         }else{
@@ -122,9 +88,52 @@ export const Profile = () => {
         })
     }
 
+    const submit = () => {
+        let canSubmit = true;
+
+        if ( userLoggedData.email === "" || !isValidEmail(userLoggedData.email)){
+            setErrors(prevState =>({
+                ...prevState,
+                email : true
+            }))
+            canSubmit = false
+        }
+
+        if ( userLoggedData.name === ""){
+            setErrors(prevState =>({
+                ...prevState,
+                name : true,
+            }))
+            canSubmit = false
+        }
+        
+        const hasStreetName = userLoggedData.address.street_name !== defaultAddress.streetName
+        const hasHouseNumber = userLoggedData.address.house_number !== defaultAddress.houseNumber
+        const hasState = userLoggedData.address.state !== defaultAddress.state
+        const hasCity = userLoggedData.address.city !== defaultAddress.city
+        
+        if (hasStreetName  || hasHouseNumber || hasState || hasCity){
+            if (!hasStreetName  || !hasHouseNumber || !hasState || !hasCity){
+                canSubmit = false
+                alert('To update the address, you need to fill in all its fields')
+            }
+
+        }
+        
+        if (canSubmit) {
+            updateUserLogged()
+        }
+    }
+
+    const submitOnEnter = (event) => {
+        if (event.keyCode === 13) {
+            submit()
+        }
+    }
+
     return (
         <FormContainer>
-            <form>
+            <form onKeyDown={submitOnEnter}>
                 <InputContainer>
                     <Label fontSize="xxl" fontWeight={600} >Name:</Label>
                     { errors.name ? <ErrorMessage>The name is required</ErrorMessage> : null }
