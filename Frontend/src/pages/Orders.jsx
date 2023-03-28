@@ -5,7 +5,7 @@ import { Container, OrdersContainer } from '../styles/Orders';
 import { CardOrder } from '../components/CardOrder';
 
 import { api } from '../lib/axios'
-import { Button } from '../styles/styles';
+import { Button, H3 } from '../styles/styles';
 
 export const Orders = () => {
   const [orders, setOrders] = useState({ orders: [] })
@@ -13,17 +13,32 @@ export const Orders = () => {
 
   const fetchData = async(page=1) => {
     let accessToken = localStorage.getItem('access')
+    
     if (accessToken) {
       api.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`
-      
-      await api.get(`customer-logged/orders/?limit=20&offset=${page-1}`)			
-      .then( response => { 
-        //console.log(response.data)
-        setOrders(response.data)							
+      await api.get(`customer-logged/orders/?limit=5&offset=${page-1}`)			
+      .then( response => {
+        //console.log(response.data) 
+        const hasNoOrders = response.data.detail
+        if (!hasNoOrders){
+          const ordersConcat = orders.orders.concat(response.data.orders)
+          setOrders({
+            ...response.data,
+            orders: ordersConcat,
+          })							
+        }
       })
       .catch(error => {
         //console.log(error)
       })
+    }
+  }
+
+  const handleSeeMore = () => {
+    console.log(orders)
+    if (orders.number_of_pages > currentPage){
+      fetchData(currentPage+1)
+      setCurrentPage(currentPage+1)
     }
   }
 
@@ -38,8 +53,16 @@ export const Orders = () => {
           <CardOrder order={order} key={index} />
         )}
       </OrdersContainer>
-
-      <Button fontSize="xxl" height="40px" >See more</Button>
+      { orders.orders.length === 0 || orders.number_of_pages === currentPage?
+        <></>
+        :
+        <Button fontSize="xxl" height="40px" onClick={handleSeeMore}>See more</Button>
+      }
+      { orders.orders.length === 0 ?
+        <H3 fontSize="xxxl" fontWeight={600}>You have no orders yet</H3>
+        :
+        <></>
+      }
     </Container>
-  )
+    )
 }
