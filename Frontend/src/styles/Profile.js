@@ -4,12 +4,11 @@ export const FormContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 100px;
-  width: 60%;
+  width: 80%;
   max-width: 1024px;
   min-height: fit-content;
   background-color: ${props => props.theme.colors.white};
   padding: 50px 40px;
-  margin-bottom: 20px;
   border-radius: 10px;
   box-shadow: 0px 2px 8px -2px rgba(0, 0, 0, 0.25);
   
