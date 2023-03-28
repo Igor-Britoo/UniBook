@@ -1,13 +1,13 @@
 import { H2, Main } from "../styles/styles";
 
-import { Link, Outlet } from 'react-router-dom'
+import { Link, Outlet, useLocation } from 'react-router-dom'
 import { useState } from "react";
 
 import { ProfileNav, PageContainer, Container } from "../styles/ProfilePagesLayout";
 import { BackButton } from "./BackButton";
 
 export const ProfilePagesLayout = () => {
-  const [isOrdersPage, setIsOrdersPage] = useState(false)
+  const location = useLocation()
 
   return(
     <Main>
@@ -15,17 +15,17 @@ export const ProfilePagesLayout = () => {
         <BackButton />
 
         <Container>
-          <ProfileNav isOrdersPage={isOrdersPage}>
+          <ProfileNav >
             <li>
-              { !isOrdersPage ? <div></div> : <></> }
+              { location.pathname === '/profile/' ? <div></div> : <></> }
               <H2 fontSize="xxxl" fontWeight={600}>
-                <Link to="/profile/" onClick={() => setIsOrdersPage(false)}>Profile</Link>
+                <Link to="/profile/" >Profile</Link>
               </H2>
             </li>
             <li>
-            { isOrdersPage ? <div></div> : <></> }
+            { location.pathname === '/orders/' ? <div></div> : <></> }
               <H2 fontSize="xxxl" fontWeight={600}>
-                <Link to="/orders/" onClick={() => setIsOrdersPage(true)}>Orders</Link>
+                <Link to="/orders/" >Orders</Link>
               </H2>
             </li>
           </ProfileNav>

@@ -29,8 +29,8 @@ export const DropdownMenu = ({dropdownMenuActive}) => {
             <DropdownContainer>
                 <H4 fontSize="xl" fontWeight={400}> Your Account</H4>
                 <LinksContainer>
-                    <Link to="/orders/">Orders</Link>
-                    <Link to="/profile/">Account</Link>
+                    <Link to="/orders/" >Orders</Link>
+                    <Link to="/profile/" >Profile</Link>
                     <div></div>
                     <Link onClick={logout}>Logout</Link>
                 </LinksContainer>
