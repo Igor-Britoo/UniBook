@@ -75,7 +75,13 @@ def filter_books(request, books):
             books = books.filter(genres = genre)
 
     # Getting languages count
-    languages_count = books.values('language').annotate(count=Count('language')).values('language', 'count').filter(count__gt=0)
+    #languages_count = books.values('language').annotate(count=Count('language')).values('language', 'count').filter(count__gt=0)
+
+    languages_count = []
+    for language in Book.Language.values:
+        count = books.filter(language = language).count()
+        if count > 0:
+            languages_count.append({ 'language': language, 'count': count })
 
     # Filtering by languages
     there_is_languages = len(languages) > 0

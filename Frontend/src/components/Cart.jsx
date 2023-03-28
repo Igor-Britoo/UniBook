@@ -31,7 +31,7 @@ export const Cart = ({cartActive, setCartMode}) => {
         </UpCart>
         
         <Product>
-          <img src="images/book.png" alt="book"></img>
+          <img src="http://localhost:8000/images/default_book_cover.jpg" alt="book"></img>
           <ContainerInfoProduct>
             <TitleProduct>
               What I Learned From The Trees
@@ -53,7 +53,7 @@ export const Cart = ({cartActive, setCartMode}) => {
         </Product>
 
         <Product>
-          <img src="images/book.png" alt="book"></img>
+          <img src="http://localhost:8000/images/default_book_cover.jpg" alt="book"></img>
           <ContainerInfoProduct>
             <TitleProduct>
               What I Learned From The Trees

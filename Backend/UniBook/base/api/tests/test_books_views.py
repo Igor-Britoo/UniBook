@@ -175,11 +175,11 @@ class ListBooksWithFilters(APITestCase):
                 ],
                 "languages":[
                     {
-                        "language":"en-US",
+                        "language":"pt-BR",
                         "count":1
                     },
                     {
-                        "language":"pt-BR",
+                        "language":"en-US",
                         "count":1
                     }
                 ],
@@ -534,11 +534,7 @@ class MostViewedBooks(APITestCase):
                 "languages":[
                     {
                         "language":"en-US",
-                        "count":1
-                    },
-                    {
-                        "language":"en-US",
-                        "count":1
+                        "count":2
                     }
                 ],
                 "price":{
@@ -550,7 +546,8 @@ class MostViewedBooks(APITestCase):
                     "max":2000
                 }
             }
-        }    
+        }
+  
         self.assertEqual(response_data, expected_data)
     
     def test_most_viewed_books_without_filters_invalid_page(self):
@@ -714,11 +711,7 @@ class BestSellers(APITestCase):
                 "languages":[
                     {
                         "language":"en-US",
-                        "count":1
-                    },
-                    {
-                        "language":"en-US",
-                        "count":1
+                        "count":2
                     }
                 ],
                 "price":{
@@ -730,7 +723,8 @@ class BestSellers(APITestCase):
                     "max":2000
                 }
             }
-        }   
+        }
+   
         self.assertEqual(response_data, expected_data)
     
     def test_best_sellers_without_filters_invalid_page(self):
@@ -894,11 +888,7 @@ class BooksOnSale(APITestCase):
                 "languages":[
                     {
                         "language":"en-US",
-                        "count":1
-                    },
-                    {
-                        "language":"en-US",
-                        "count":1
+                        "count":2
                     }
                 ],
                 "price":{
