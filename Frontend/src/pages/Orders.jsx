@@ -35,7 +35,6 @@ export const Orders = () => {
   }
 
   const handleSeeMore = () => {
-    console.log(orders)
     if (orders.number_of_pages > currentPage){
       fetchData(currentPage+1)
       setCurrentPage(currentPage+1)
