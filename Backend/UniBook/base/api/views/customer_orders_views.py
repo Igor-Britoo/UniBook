@@ -91,14 +91,23 @@ def get_customer_order_info(request, code):
     if order.exists():
         order = order.first()
         order_serialized = OrderSerializer(order)
-        order_items_serialized = OrderItemSerializer(order.order_items.all(), many=True)
+
+        order_items_serialized = []
+        for order_item in order.order_items.all() :
+            book_serialized = BookSerializer(order_item.book)
+            order_item_serialized = OrderItemSerializer(order_item)
+            order_item_serialized_with_book = {**order_item_serialized.data,
+                                                'book': book_serialized.data}
+            
+            order_items_serialized.append(order_item_serialized_with_book)
+
         shipping_address_serialized = AddressSerializer(order.shipping_address)
         
         return Response({
             'order': {
                 **order_serialized.data,
                 'shipping_address': shipping_address_serialized.data,
-                'order_items': order_items_serialized.data,
+                'order_items': order_items_serialized,
                 'customer': customer.email,
             }
         }, status=200)

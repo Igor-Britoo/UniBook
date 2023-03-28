@@ -124,7 +124,6 @@ class UpdateCustomerLogged(APITestCase):
         customer_new_data = {
             "email":"customer0@gmail.com",
             "name":"customer0",
-            "password":"123456",
             "address":{
                 "street_name":"street_name",
                 "house_number":"108",
@@ -144,7 +143,6 @@ class UpdateCustomerLogged(APITestCase):
         customer_new_data = {
             "email":"customer0@example.com",
             "name":"customer0",
-            "password":"123456",
             "address":{
                 "street_name":"street_name",
                 "house_number":"108",
@@ -164,7 +162,6 @@ class UpdateCustomerLogged(APITestCase):
         customer_new_data = {
             "email":"customer@example.com",
             "name":"customer0",
-            "password":"123456",
             "address":{
                 "street_name":"street_name",
                 "house_number":"108",
@@ -184,7 +181,6 @@ class UpdateCustomerLogged(APITestCase):
         customer_new_data = {
             "email":"customer0@gmail.com",
             "name":"customer0",
-            "password":"123456",
             "address":{
                 "street_name":"street_name",
                 "house_number":"108",
@@ -214,7 +210,6 @@ class UpdateCustomerLogged(APITestCase):
         customer_new_data = {
             "email":"customer0@gmail.com",
             "name":"customer0",
-            "password":"123456",
             "address":{
                 "street_name":"street_name",
                 "house_number":"108",

@@ -66,15 +66,16 @@ def update_customer_logged(request):
         else:
             customer.email = request.data['email']
     
-    if request.data['password']:
-        customer.set_password(request.data['password'])
-        
     if request.data['address']:
-        new_address = Address.objects.get_or_create( street_name = request.data['address']['street_name'],
-                                                house_number = request.data['address']['house_number'],
-                                                city = request.data['address']['city'],
-                                                state = request.data['address']['state'])
-        customer.address = new_address[0]
+        address = request.data['address']
+        if address['street_name'] and address['house_number'] and address['city'] and address['state']:
+            new_address = Address.objects.get_or_create( street_name = address['street_name'],
+                                                    house_number = address['house_number'],
+                                                    city = address['city'],
+                                                    state = address['state'])
+            customer.address = new_address[0]
+        else:
+            customer.address = None
     
     customer.save()
     

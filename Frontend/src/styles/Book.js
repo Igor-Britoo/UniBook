@@ -13,11 +13,6 @@ export const Container = styled.div`
     }
 
 `;
-export const BackHome = styled.div`
-    display: flex;
-    align-items: center;
-    gap: 8px;
-`;
 
 export const ContainerBook = styled.div`
     display: flex;
