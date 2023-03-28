@@ -1,4 +1,5 @@
 import React,{ useState, useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
 
 import { Button, H2, H3, H4, Main, } from "../styles/styles";
 import { Sections, BooksSection, Books, FiltersSection, FilterSection, Options, Content } from "../styles/ListBook";
@@ -10,14 +11,27 @@ import { api } from '../lib/axios'
 export const ListBook = () => {
   const [books, setBooks] = useState({ books: [] })
   const [currentPage, setCurrentPage] = useState(1)
+  const [searchParams, setSearchParams] = useSearchParams()
 
   const fetchData = async(page=1) => {
-    let data = await api.get(`books/?limit=25&offset=${page-1}`).then(response => response.data).catch(error => {})
-    //console.log(data)
+    let data
+    const search = searchParams.get('q')
+
+    if (search) {
+      data = await api.get(`books/search?q=${search}&limit=20&offset=${page-1}`)
+      .then(response => response.data).catch(error => {})
+      
+    }else{
+      data = await api.get(`books/?limit=20&offset=${page-1}`)
+      .then(response => response.data).catch(error => {})
+    }
+    
     setBooks({
       ...data,
       books: books.books.concat(data.books),
-    })	
+    })
+    
+    //console.log(data)
   }
 
   const handleLoadMore = () => {
@@ -96,7 +110,7 @@ export const ListBook = () => {
                 )}
               </Books>
               
-              { books.number_of_pages === currentPage?
+              { books.number_of_pages === currentPage || books.books.length === 0 ?
                 <></>
                 :
                 <Button fontSize='sm' height="24px" className="btn-load-more" onClick={handleLoadMore}>Load More Products</Button>

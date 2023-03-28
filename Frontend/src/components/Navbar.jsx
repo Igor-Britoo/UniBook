@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { FaUser, FaShoppingCart, FaSearch } from "react-icons/fa";
 import { BiMenu as OpenMenu } from "react-icons/bi"
 import { MdClose as CloseMenu } from "react-icons/md"
@@ -10,9 +10,13 @@ import { Cart } from "./Cart";
 import { DropdownMenu } from "./DropdownMenu";
 
 export const Navbar = () => {
+  const navigate = useNavigate()
+
   const [mobileMenuActive, setMobileMenuMode] = useState(false)
   const [dropdownMenuActive, setDropdownMenuMode] = useState(false)
   const [cartActive, setCartMode] = useState(false)
+  const [search, setSearch] = useState("")
+
   const toggleMobileMenu = () =>{
     setMobileMenuMode(!mobileMenuActive)
   }
@@ -22,6 +26,24 @@ export const Navbar = () => {
   const openCart = () =>{
     setCartMode(!cartActive)
   }
+
+  const handleSearch = (event) => {
+    setSearch(event.target.value)
+  }
+
+  const submitSearchOnEnter = (event) => {
+    if (event.keyCode === 13) {
+      submitSearch()
+    }
+  }
+
+  const submitSearch = () => {
+    if (search){
+      navigate(`/books?q=${search}`)
+      window.location.reload(true)
+    }
+  }
+
   return(
     <>
       <NavbarContainer>
@@ -40,8 +62,8 @@ export const Navbar = () => {
           </Link>
 
           <SearchContainer>
-            <SearchInput type="text" placeholder="Search by Title, Author or ISBN" />
-            <button>
+            <SearchInput type="text" placeholder="Search by Title, Author or ISBN" value={search} onChange={handleSearch} onKeyDown={submitSearchOnEnter}/>
+            <button onClick={submitSearch}>
               <FaSearch color="#1C3333" fontSize="1.5em"/>
             </button>
           </SearchContainer>
@@ -66,27 +88,27 @@ export const Navbar = () => {
 
         <DownNav mobileMenuOpen={mobileMenuActive}>
           <NavOption>
-            <H2 fontSize='xxl' fontWeight="500"><Link>Special Offers</Link></H2>
+            <H2 fontSize='xxl' fontWeight="500"><Link to="/list/" >Special Offers</Link></H2>
           </NavOption>
 
           <NavOption>
-            <H2 fontSize='xxl' fontWeight="500"><Link>New Books</Link></H2>
+            <H2 fontSize='xxl' fontWeight="500"><Link to="/list/" >New Books</Link></H2>
           </NavOption>
 
           <NavOption>
-            <H2 fontSize='xxl' fontWeight="500"><Link>Best Sellers</Link></H2>
+            <H2 fontSize='xxl' fontWeight="500"><Link to="/list/" >Best Sellers</Link></H2>
           </NavOption>
 
           <NavOption>
-            <H2 fontSize='xxl' fontWeight="500"><Link>Fiction</Link></H2>
+            <H2 fontSize='xxl' fontWeight="500"><Link to="/list/" >Fiction</Link></H2>
           </NavOption>
 
           <NavOption>
-            <H2 fontSize='xxl' fontWeight="500"><Link>Nonfiction</Link></H2>
+            <H2 fontSize='xxl' fontWeight="500"><Link to="/list/" >Nonfiction</Link></H2>
           </NavOption>
 
           <NavOption>
-            <H2 fontSize='xxl' fontWeight="500"><Link>Kids</Link></H2>
+            <H2 fontSize='xxl' fontWeight="500"><Link to="/list/" >Kids</Link></H2>
           </NavOption>
         </DownNav>
 

@@ -32,8 +32,8 @@ function App() {
           <Route path="/" element= {<NestedRoutesLayout />}>
 
             <Route path="" element={<Home/>} />
+            <Route path='books/' element= {<ListBook/>} />
             <Route path="books/:ISBN/" element= {<Book/>} />
-            <Route path='list' element= {<ListBook/>} />
 
             <Route path="" element={<ProtectedRoutes />} >
               <Route path='/' element= {<ProfilePagesLayout />} >
