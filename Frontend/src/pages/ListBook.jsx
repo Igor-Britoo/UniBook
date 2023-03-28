@@ -9,11 +9,22 @@ import { api } from '../lib/axios'
   
 export const ListBook = () => {
   const [books, setBooks] = useState({ books: [] })
+  const [currentPage, setCurrentPage] = useState(1)
 
-  const fetchData = async() => {
-    let data = await api.get('books/?limit=20&offset=0').then(response => response.data)
-    console.log(data)
-    setBooks(data)
+  const fetchData = async(page=1) => {
+    let data = await api.get(`books/?limit=25&offset=${page-1}`).then(response => response.data).catch(error => {})
+    //console.log(data)
+    setBooks({
+      ...data,
+      books: books.books.concat(data.books),
+    })	
+  }
+
+  const handleLoadMore = () => {
+    if (books.number_of_pages > currentPage){
+      fetchData(currentPage+1)
+      setCurrentPage(currentPage+1)
+    }
   }
 
   useEffect(() => {
@@ -82,10 +93,14 @@ export const ListBook = () => {
               <Books>
                 { books.books.map((book, index) => 
                   <Card ISBN={book.ISBN} coverUrl={book.cover_url} title={book.title} author={book.author} price={book.price} key={index} />
-                  )}
+                )}
               </Books>
-
-              <Button fontSize='sm' height="24px" className="btn-load-more">Load More Products</Button>
+              
+              { books.number_of_pages === currentPage?
+                <></>
+                :
+                <Button fontSize='sm' height="24px" className="btn-load-more" onClick={handleLoadMore}>Load More Products</Button>
+              }
           </BooksSection>
 
         </Sections>
