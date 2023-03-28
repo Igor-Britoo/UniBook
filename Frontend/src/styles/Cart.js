@@ -39,6 +39,11 @@ export const Product = styled.div`
   display: flex;
   padding: 40px 16px;
   border-bottom: 1px solid black;
+
+  img{
+    max-width: 100px;
+    max-height: 150px;
+  }
 `;
 
 export const ContainerInfoProduct = styled.div`
