@@ -41,9 +41,15 @@ export const Books = styled.div`
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 24px;
+    min-width: 800px;
+
+    ${props => props.numberOfBooks ===0 && `
+    display: flex;
+    `}
 
     @media screen and (max-width: ${props => props.theme.breakpoints.xl}) {
         grid-template-columns: repeat(3, 1fr);
+        min-width: 600px;
     }
 
 `;

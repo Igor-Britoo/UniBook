@@ -37,12 +37,17 @@ export const Navbar = () => {
     }
   }
 
+  const navigateToPath = (path) => {
+    navigate(path)
+    window.location.reload(true)
+  }
+
   const submitSearch = () => {
     if (search){
-      navigate(`/books?q=${search}`)
-      window.location.reload(true)
+      navigateToPath(`/books/search?q=${search}`)
     }
   }
+
 
   return(
     <>
@@ -88,27 +93,27 @@ export const Navbar = () => {
 
         <DownNav mobileMenuOpen={mobileMenuActive}>
           <NavOption>
-            <H2 fontSize='xxl' fontWeight="500"><Link to="/list/" >Special Offers</Link></H2>
+            <H2 fontSize='xxl' fontWeight="500"><Link onClick={() => navigateToPath("/books-best-sellers/")} >Best Sellers</Link></H2>
           </NavOption>
 
           <NavOption>
-            <H2 fontSize='xxl' fontWeight="500"><Link to="/list/" >New Books</Link></H2>
+            <H2 fontSize='xxl' fontWeight="500"><Link onClick={() => navigateToPath("/books-most-viewed/")} >Most Viewed</Link></H2>
           </NavOption>
 
           <NavOption>
-            <H2 fontSize='xxl' fontWeight="500"><Link to="/list/" >Best Sellers</Link></H2>
+            <H2 fontSize='xxl' fontWeight="500"><Link onClick={() => navigateToPath("/books-on-sale/")} >On Sale</Link></H2>
           </NavOption>
 
           <NavOption>
-            <H2 fontSize='xxl' fontWeight="500"><Link to="/list/" >Fiction</Link></H2>
+            <H2 fontSize='xxl' fontWeight="500"><Link onClick={() => navigateToPath("/books/filter?genre=Fantasy")} >Fantasy</Link></H2>
           </NavOption>
 
           <NavOption>
-            <H2 fontSize='xxl' fontWeight="500"><Link to="/list/" >Nonfiction</Link></H2>
+            <H2 fontSize='xxl' fontWeight="500"><Link onClick={() => navigateToPath("/books/filter?genre=Horror")} >Horror</Link></H2>
           </NavOption>
 
           <NavOption>
-            <H2 fontSize='xxl' fontWeight="500"><Link to="/list/" >Kids</Link></H2>
+            <H2 fontSize='xxl' fontWeight="500"><Link onClick={() => navigateToPath("/books/filter?genre=History")} >History</Link></H2>
           </NavOption>
         </DownNav>
 
