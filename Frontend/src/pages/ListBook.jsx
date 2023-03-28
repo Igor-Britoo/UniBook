@@ -12,6 +12,7 @@ export const ListBook = () => {
   const location = useLocation()
 
   const [books, setBooks] = useState({ books: [] })
+  const [isBooksLoaded, setIsBooksLoaded] = useState(false)
   const [currentPage, setCurrentPage] = useState(1)
   const [searchParams, setSearchParams] = useSearchParams()
 
@@ -19,7 +20,7 @@ export const ListBook = () => {
     let url = ''
 
     switch(location.pathname){
-      case '/books' : url = `books/?limit=20&offset=${page-1}`
+      case '/books/' : url = `books/?limit=20&offset=${page-1}`
                     break;
 
       case '/books-best-sellers/' : url = `books/best-sellers?limit=20&offset=${page-1}`
@@ -78,8 +79,10 @@ export const ListBook = () => {
       ...data,
       books: books.books.concat(data.books),
     })
-    
-    //console.log(data)
+
+    setIsBooksLoaded(true)
+
+    console.log(data)
     //console.log(url)
   }
 
@@ -91,7 +94,7 @@ export const ListBook = () => {
   }
 
   useEffect(() => {
-    fetchData();
+    fetchData()
   }, [])
 
   return(
@@ -105,15 +108,14 @@ export const ListBook = () => {
             <H3 fontSize='xxxl' fontWeight="500">Filter by</H3>
 
               <FilterSection>
-                <H4 fontSize='xxl' fontWeight="500" >Category</H4>
+                <H4 fontSize='xxl' fontWeight="500" >Genre</H4>
 
                 <Options>
-                  <Checkbox name="Arts & Music"/>
-                  <Checkbox name="Biographies"/>
-                  <Checkbox name="Fiction"/>
-                  <Checkbox name="Nonfiction"/>
-                  <Checkbox name="Computers & Tech"/>
-                  <Checkbox name="Kids"/>
+                  
+                  {isBooksLoaded && books.filters.genres.map((genre, index) => 
+                    <Checkbox name={`${genre.genre} (${genre.count})`} key={index}/>
+                  )}
+                  
                 </Options>
               </FilterSection>
 
@@ -121,9 +123,11 @@ export const ListBook = () => {
                 <H4 fontSize='xxl' fontWeight="500" >Language</H4>
 
                 <Options>
-                  <Checkbox name="English"/>
-                  <Checkbox name="Portuguese"/>
-                  <Checkbox name="Spanish"/>
+                
+                  {isBooksLoaded && books.filters.languages.map((language, index) => 
+                    <Checkbox name={`${language.language} (${language.count})`} key={index}/>
+                  )}
+                
                 </Options>
               </FilterSection>
 
