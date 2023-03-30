@@ -14,7 +14,7 @@ export const ListBook = () => {
   const [books, setBooks] = useState({ books: [] })
   const [isBooksLoaded, setIsBooksLoaded] = useState(false)
   const [currentPage, setCurrentPage] = useState(1)
-  const [searchParams, setSearchParams] = useSearchParams()
+  const [searchParams] = useSearchParams()
 
   const fetchData = async(page=1) => {
     let url = ''
@@ -36,6 +36,8 @@ export const ListBook = () => {
                     break;
 
       case '/books/filter' : url = `books/filter?limit=20&offset=${page-1}`
+                    break;
+      default : url = ''
                     break;    
     }
 
@@ -50,39 +52,36 @@ export const ListBook = () => {
     }
 
     if (priceInterval){
-      // Falta regex para saber se esta formatado corretamente
       url += `&price-interval=${priceInterval}`
     }
 
     if (publicationYearInterval){
-      // Falta regex para saber se esta formatado corretamente
       url += `&publication-year-interval=${publicationYearInterval}`
     }
 
     if (languages.length > 0){
-      // Falta a parte da url encode
       languages.forEach((language) => {
         url += `&language=${language}`
       })
     }
 
     if (genres.length > 0){
-      // Falta a parte da url encode
       genres.forEach((genre) => {
         url += `&genre=${encodeURIComponent(genre)}`
       })
     }
 
     const data = await api.get(url).then(response => response.data).catch(error => {})
-
-    setBooks({
-      ...data,
-      books: books.books.concat(data.books),
-    })
+    if (data){
+      setBooks({
+        ...data,
+        books: books.books.concat(data.books),
+      }) 
+    }
 
     setIsBooksLoaded(true)
 
-    //console.log(data)
+    console.log(data)
     //console.log(url)
   }
 
@@ -95,15 +94,28 @@ export const ListBook = () => {
 
   useEffect(() => {
     fetchData()
-  }, [])
+  },[])
 
   return(
     <Main>
       <Content>
-        <H2 fontSize='xxxxl' fontWeight="500">Books</H2>
+        {
+          books.books.length > 0 && 
+          <H2 fontSize='xxxxl' fontWeight="500">Books</H2>
+        }
         
         <Sections>
-
+        {
+          books.books.length === 0 && location.pathname === '/books/search' && 
+          <Span fontSize='xxxl' fontWeight="500">No results found for "{searchParams.get('q')}".</Span>
+        }
+        {
+          books.books.length === 0 && location.pathname !== '/books/search' && 
+          <Span fontSize='xxxl' fontWeight="500">No results found.</Span>
+        }
+        {
+          books.books.length > 0 &&
+          <>
           <FiltersSection>
             <H3 fontSize='xxxl' fontWeight="500">Filter by</H3>
 
@@ -163,10 +175,6 @@ export const ListBook = () => {
                 { books.books.map((book, index) => 
                   <Card ISBN={book.ISBN} coverUrl={book.cover_url} title={book.title} author={book.author} price={book.price} key={index} />
                 )}
-                {
-                  books.books.length === 0 && location.pathname === '/books/search' && 
-                  <Span fontSize='xxxl' fontWeight="500">No results found for "{searchParams.get('q')}".</Span>
-                }
               </Books>
               
               { books.number_of_pages === currentPage || books.books.length === 0 ?
@@ -175,7 +183,8 @@ export const ListBook = () => {
                 <Button fontSize='sm' height="24px" className="btn-load-more" onClick={handleLoadMore}>Load More Products</Button>
               }
           </BooksSection>
-
+          </>
+        }
         </Sections>
       </Content>
     </Main>

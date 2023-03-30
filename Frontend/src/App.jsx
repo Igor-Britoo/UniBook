@@ -13,6 +13,7 @@ import { Book } from './pages/Book';
 import { ListBook } from './pages/ListBook';
 import { Profile } from './pages/Profile';
 import { Orders } from './pages/Orders';
+import { PageNotFound } from './pages/PageNotFound'
 
 import { ProfilePagesLayout } from './components/ProfilePagesLayout';
 import { NestedRoutesLayout } from './components/NestedRoutesLayout';
@@ -47,6 +48,7 @@ function App() {
               </Route>
             </Route>
 
+            <Route path="*" element={<PageNotFound />}/>
           </Route>
 
         </Routes>
