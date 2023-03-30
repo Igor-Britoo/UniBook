@@ -8,8 +8,8 @@ export const ContainerCheckbox = styled.div`
 `;
 
 export const Check = styled.input.attrs({ type: 'checkbox' })`
-  width: 16px;
-  height: 16px;
+  min-width: 16px;
+  min-height: 16px;
   border-radius: 2px;
   border: 1px solid #1C3333;
 `;

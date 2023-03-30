@@ -69,7 +69,7 @@ export const ListBook = () => {
     if (genres.length > 0){
       // Falta a parte da url encode
       genres.forEach((genre) => {
-        url += `&genre=${genre}`
+        url += `&genre=${encodeURIComponent(genre)}`
       })
     }
 
@@ -82,7 +82,7 @@ export const ListBook = () => {
 
     setIsBooksLoaded(true)
 
-    console.log(data)
+    //console.log(data)
     //console.log(url)
   }
 
@@ -113,7 +113,7 @@ export const ListBook = () => {
                 <Options>
                   
                   {isBooksLoaded && books.filters.genres.map((genre, index) => 
-                    <Checkbox name={`${genre.genre} (${genre.count})`} key={index}/>
+                    <Checkbox name={`${genre.genre} (${genre.count})`} key={index} value={genre.genre} category ="genre" />
                   )}
                   
                 </Options>
@@ -125,16 +125,17 @@ export const ListBook = () => {
                 <Options>
                 
                   {isBooksLoaded && books.filters.languages.map((language, index) => 
-                    <Checkbox name={`${language.language} (${language.count})`} key={index}/>
+                    <Checkbox name={`${language.language} (${language.count})`} key={index} value={language.language} category ="language"/>
                   )}
                 
                 </Options>
-              </FilterSection>
+              </FilterSection> 
 
               <FilterSection>
                 <H4 fontSize='xxl' fontWeight="500" >Publication Year</H4>
 
                 <Options>
+                  {/* Range Slider */}
                   <Checkbox name="1960 - 1970"/>
                   <Checkbox name="1970 - 1980"/>
                   <Checkbox name="1980 - 1990"/>
@@ -148,6 +149,7 @@ export const ListBook = () => {
                 <H4 fontSize='xxl' fontWeight="500" >Price</H4>
 
                 <Options>
+                  {/* Range Slider */}
                   <Checkbox name="$0 - $50"/>
                   <Checkbox name="$50 - $100"/>
                   <Checkbox name="$100 - $150"/>
