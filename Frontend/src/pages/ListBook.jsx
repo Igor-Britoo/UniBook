@@ -1,6 +1,9 @@
 import React,{ useState, useEffect } from "react";
 import { useLocation, useSearchParams } from "react-router-dom";
 
+import RangeSlider from 'react-range-slider-input';
+import 'react-range-slider-input/dist/style.css';
+
 import { Button, H2, H3, H4, Main, Span } from "../styles/styles";
 import { Sections, BooksSection, Books, FiltersSection, FilterSection, Options, Content } from "../styles/ListBook";
 import { Checkbox } from "../components/Checkbox";
@@ -15,6 +18,8 @@ export const ListBook = () => {
   const [isBooksLoaded, setIsBooksLoaded] = useState(false)
   const [currentPage, setCurrentPage] = useState(1)
   const [searchParams] = useSearchParams()
+  const [price, setPrice] = useState({min: 0, max: 1000})
+  const [publicationYear, setPublicationYear] = useState({min: 0, max: 2023})
 
   const fetchData = async(page=1) => {
     let url = ''
@@ -147,13 +152,10 @@ export const ListBook = () => {
                 <H4 fontSize='xxl' fontWeight="500" >Publication Year</H4>
 
                 <Options>
-                  {/* Range Slider */}
-                  <Checkbox name="1960 - 1970"/>
-                  <Checkbox name="1970 - 1980"/>
-                  <Checkbox name="1980 - 1990"/>
-                  <Checkbox name="1990 - 2000"/>
-                  <Checkbox name="2000 - 2010"/>
-                  <Checkbox name="2010+"/>
+                  <RangeSlider min={0} max={2023} defaultValue={[0, 2023]} value={[publicationYear.min, publicationYear.max]} onInput={(event) => setPublicationYear({min: event[0], max: event[1]})}/>
+                  <br/>
+                  <input type="text" value={publicationYear.min} onChange={(event) => setPublicationYear({min: event.target.value, max: publicationYear.max})}/>
+                  <input type="text" value={publicationYear.max} onChange={(event) => setPublicationYear({min: publicationYear.min, max: event.target.value})}/>
                 </Options>
               </FilterSection>
 
@@ -161,11 +163,10 @@ export const ListBook = () => {
                 <H4 fontSize='xxl' fontWeight="500" >Price</H4>
 
                 <Options>
-                  {/* Range Slider */}
-                  <Checkbox name="$0 - $50"/>
-                  <Checkbox name="$50 - $100"/>
-                  <Checkbox name="$100 - $150"/>
-                  <Checkbox name="$150+"/>
+                  <RangeSlider min={0} max={1000} defaultValue={[0, 1000]} value={[price.min, price.max]} onInput={(event) => setPrice({min: event[0], max: event[1]})}/>
+                  <br/>
+                  <input type="text" value={price.min} onChange={(event) => setPrice({min: event.target.value, max: price.max})}/>
+                  <input type="text" value={price.max} onChange={(event) => setPrice({min: price.min, max: event.target.value})}/>
                 </Options>
               </FilterSection>
           </FiltersSection>
