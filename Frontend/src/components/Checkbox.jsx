@@ -49,18 +49,8 @@ export const Checkbox = (props) => {
   }
 
   const setCheckedBasedOnUrl = () => {
-    const priceInterval = searchParams.get('price-interval')
-    const publicationYearInterval = searchParams.get('publication-year-interval')
     const languages = searchParams.getAll('language')
     const genres = searchParams.getAll('genre')
-
-    if (props.category === 'price-interval' && priceInterval && priceInterval === props.value){
-      setChecked(true)
-    }
-
-    if (props.category === 'publication-year-interval' && publicationYearInterval && publicationYearInterval === props.value){
-      setChecked(true)
-    }
 
     if (props.category === 'language' && languages.length > 0 && languages.filter((language) => language === props.value ).length > 0 ) {
       setChecked(true)

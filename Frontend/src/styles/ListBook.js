@@ -78,7 +78,65 @@ export const FilterSection = styled.div`
 export const Options = styled.div`
     display: flex;
     flex-direction: column;
-    gap: 0px;
+`;
+
+export const RangeInputContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    .range-slider {
+        height: 8px;
+        background:${props => props.theme.colors.white};
+    }
+
+    .range-slider .range-slider__range {
+        background: ${props => props.theme.colors.green[500]};
+    }
+
+    .range-slider .range-slider__thumb {
+        width: 4px;
+        height: 20px;
+        border-radius: 0px;
+        background-color: ${props => props.theme.colors.green[800]};
+    }
+
+`;
+
+export const InputsContainer = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3px;
+    width: 100%;
+
+    input{
+        width: 50%;
+        border: 1px solid ${props => props.theme.colors.gray[800]};
+        padding: 4px 8px;
+        font-size: ${props => props.theme.fontSizes.sm};
+        font-weight: 500;
+        color: ${props => props.theme.colors.green[800]};
+
+        // Hide the arrows 
+        ::-webkit-outer-spin-button,
+        ::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+            }
+        -moz-appearance: textfield;
+
+        &:focus{
+            outline: none;
+            border: 1px solid ${props => props.theme.colors.green[800]};
+        }
+    }
+
+    div{
+        width: 12px;
+        height: 2px;
+        background-color: ${props => props.theme.colors.green[800]}
+    }
 `;
 
 
