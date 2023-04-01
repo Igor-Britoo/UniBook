@@ -1,33 +1,33 @@
 import styled from "styled-components";
 
-export const Content = styled.div`
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-    padding-top: 40px;
-    width: 100%;
-    max-width: 1100px;
-
-    @media screen and (max-width: ${props => props.theme.breakpoints.xl}) {
-        max-width: 900px;
-    }
-    @media screen and (max-width: ${props => props.theme.breakpoints.lg}) {
-        max-width: 600px;
-    }
-`;
 
 export const Sections = styled.div`
     display: flex;
     width: 100%;
-    justify-content: center;
+    max-width: 1072px;
     gap: 60px;
     text-align: left;
+    margin-top: 40px;
+    
+    @media screen and (max-width: ${props => props.theme.breakpoints.xl}) {
+        max-width: 888px;
+    }
+    @media screen and (max-width: ${props => props.theme.breakpoints.lg}) {
+        max-width: 684px;
+    }
+    @media screen and (max-width: ${props => props.theme.breakpoints.md}) {
+        max-width: 384px;
+    }
+    @media screen and (max-width: ${props => props.theme.breakpoints.xs}) {
+        max-width: 180px;
+    }
 `;
 
 export const BooksSection = styled.div`
     display: flex;
     flex-direction: column;
     gap: 60px;
+    margin-left: 300px;
     
     align-items: center;
 
@@ -35,13 +35,18 @@ export const BooksSection = styled.div`
         width: 200px;
         height: 30px;
     }
+
+    @media screen and (max-width: ${props => props.theme.breakpoints.md}) {
+       margin: 0; 
+    }
+
 `;
 
 export const Books = styled.div`
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 24px;
-    min-width: 800px;
+    min-width: 792px;
 
     ${props => props.numberOfBooks ===0 && `
     display: flex;
@@ -49,22 +54,43 @@ export const Books = styled.div`
 
     @media screen and (max-width: ${props => props.theme.breakpoints.xl}) {
         grid-template-columns: repeat(3, 1fr);
-        min-width: 600px;
+        min-width: 588px;
+    }
+
+    @media screen and (max-width: ${props => props.theme.breakpoints.lg}) {
+        grid-template-columns: repeat(2, 1fr);
+        min-width: 384px;
+    }
+
+    @media screen and (max-width: ${props => props.theme.breakpoints.xs}) {
+        grid-template-columns: 1fr;
+        min-width: 180px;
     }
 
 `;
 
 export const FiltersSection = styled.div`
+    position: fixed;
+    z-index: 1;
+    overflow-y: auto;
     display: flex;
     flex-direction: column;
     width: 250px;
-    height: fit-content;
+    height: 65vh;
     border-radius: 10px;
     background-color: ${props => props.theme.colors.gray[500]};
     padding: 32px 30px;
     gap: 35px;
 
-    @media screen and (max-width: ${props => props.theme.breakpoints.lg}) {
+    /* For WebKit-based browsers */
+    ::-webkit-scrollbar {
+        border-radius: 10px; /* radius of the scrollbar track */
+    }
+    ::-webkit-scrollbar-thumb {
+        border-radius: 10px; /* radius of the scrollbar track */
+    }
+
+    @media screen and (max-width: ${props => props.theme.breakpoints.md}) {
         display: none;
     }
 `;

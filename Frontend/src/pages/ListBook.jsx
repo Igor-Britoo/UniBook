@@ -5,7 +5,7 @@ import RangeSlider from 'react-range-slider-input';
 import 'react-range-slider-input/dist/style.css';
 
 import { Button, H2, H3, H4, Main, Span } from "../styles/styles";
-import { Sections, BooksSection, Books, FiltersSection, FilterSection, Options, Content, RangeInputContainer, InputsContainer } from "../styles/ListBook";
+import { Sections, BooksSection, Books, FiltersSection, FilterSection, Options, RangeInputContainer, InputsContainer } from "../styles/ListBook";
 import { Checkbox } from "../components/Checkbox";
 import { Card } from "../components/Card";
 
@@ -243,131 +243,129 @@ export const ListBook = () => {
 
   return(
     <Main>
-      <Content>
-        {
-          books.books.length > 0 && 
-          <H2 fontSize='xxxxl' fontWeight="500">Books</H2>
-        }
-        
-        <Sections>
-        {
-          books.books.length === 0 && location.pathname === '/books/search' && 
-          <Span fontSize='xxxl' fontWeight="500">No results found for "{searchParams.get('q')}".</Span>
-        }
-        {
-          books.books.length === 0 && location.pathname !== '/books/search' && 
-          <Span fontSize='xxxl' fontWeight="500">No results found.</Span>
-        }
-        {
-          books.books.length > 0 &&
-          <>
-          <FiltersSection>
-            <H3 fontSize='xxxl' fontWeight="500">Filter by</H3>
+      {/*
+        books.books.length > 0 && 
+        <H2 fontSize='xxxxl' fontWeight="500">Books</H2>
+      */}
 
-              <FilterSection>
-                <H4 fontSize='xxl' fontWeight="500" >Genre</H4>
+      <Sections>
+      {
+        books.books.length === 0 && location.pathname === '/books/search' && 
+        <Span fontSize='xxxl' fontWeight="500">No results found for "{searchParams.get('q')}".</Span>
+      }
+      {
+        books.books.length === 0 && location.pathname !== '/books/search' && 
+        <Span fontSize='xxxl' fontWeight="500">No results found.</Span>
+      }
+      {
+        books.books.length > 0 &&
+        <>
+        <FiltersSection>
+          <H3 fontSize='xxxl' fontWeight="500">Filter by</H3>
 
-                <Options>
-                  {isBooksLoaded && books.filters.genres.map((genre, index) => 
-                    <Checkbox name={`${genre.genre} (${genre.count})`} key={index} value={genre.genre} category ="genre" />
-                  )}
-                </Options>
-              </FilterSection>
+            <FilterSection>
+              <H4 fontSize='xxl' fontWeight="500" >Genre</H4>
 
-              <FilterSection>
-                <H4 fontSize='xxl' fontWeight="500" >Language</H4>
-
-                <Options>
-                  {isBooksLoaded && books.filters.languages.map((language, index) => 
-                    <Checkbox name={`${language.language} (${language.count})`} key={index} value={language.language} category ="language"/>
-                  )}
-                </Options>
-              </FilterSection> 
-
-              <FilterSection>
-                <H4 fontSize='xxl' fontWeight="500" >Publication Year</H4>
-
-                <RangeInputContainer>
-                  <RangeSlider 
-                    min={books.filters.publication_year.min} max={books.filters.publication_year.max} 
-                    value={[publicationYearInterval.min, publicationYearInterval.max]} 
-                    rangeSlideDisabled
-                    onInput={(event) => setPublicationYearInterval({min: event[0], max: event[1]})}
-                    onThumbDragEnd = {() => updateIntervalSearchParams('publication-year-interval', publicationYearInterval.min, publicationYearInterval.max)}
-                  />
-
-                  <InputsContainer>
-                    <input type="number" id="publication-year-interval-min"
-                      value={publicationYearInterval.min} 
-                      onChange={(event)=> setPublicationYearInterval({min: event.target.value, max: publicationYearInterval.max})} 
-                      onBlur={(event) => handleIntervalInput(event, 'publication-year-interval', 'min')}
-                      onKeyDown={(event) => updateOnEnter(event)}
-                    />
-
-                    <div></div>
-
-                    <input type="number" id="publication-year-interval-max"
-                      value={publicationYearInterval.max} 
-                      onChange={(event)=> setPublicationYearInterval({min: publicationYearInterval.min, max: event.target.value})} 
-                      onBlur={(event) => handleIntervalInput(event, 'publication-year-interval', 'max')}
-                      onKeyDown={(event) => updateOnEnter(event)}
-                    />
-                  </InputsContainer>
-                </RangeInputContainer>
-              </FilterSection>
-              
-              <FilterSection>
-                <H4 fontSize='xxl' fontWeight="500" >Price</H4>
-
-                <RangeInputContainer>
-                  <RangeSlider 
-                    min={books.filters.price.min} max={books.filters.price.max} 
-                    value={[priceInterval.min, priceInterval.max]} 
-                    rangeSlideDisabled
-                    onInput={(event) => setPriceInterval({min: event[0], max: event[1]})}
-                    onThumbDragEnd= {() => updateIntervalSearchParams('price-interval', priceInterval.min, priceInterval.max)}
-                  />
-
-                  <InputsContainer>
-                    <input type="number" id="price-interval-min"
-                      value={priceInterval.min} 
-                      onChange={(event)=> setPriceInterval({min: event.target.value, max: priceInterval.max})}
-                      onBlur={(event) => handleIntervalInput(event, 'price-interval', 'min')}
-                      onKeyDown={(event) => updateOnEnter(event)}
-                    />
-
-                    <div></div>
-
-                    <input type="number" id="price-interval-max"
-                      value={priceInterval.max} 
-                      onChange={(event)=> setPriceInterval({min: priceInterval.min, max: event.target.value})} 
-                      onBlur={(event) => handleIntervalInput(event, 'price-interval', 'max')}
-                      onKeyDown={(event) => updateOnEnter(event)}
-                    />
-                  </InputsContainer>
-
-                </RangeInputContainer>
-              </FilterSection>
-              
-          </FiltersSection>
-          
-          <BooksSection>
-              <Books numberOfBooks={books.books.length}>
-                { books.books.map((book, index) => 
-                  <Card ISBN={book.ISBN} coverUrl={book.cover_url} title={book.title} author={book.author} price={book.price} key={index} />
+              <Options>
+                {isBooksLoaded && books.filters.genres.map((genre, index) => 
+                  <Checkbox name={`${genre.genre} (${genre.count})`} key={index} value={genre.genre} category ="genre" />
                 )}
-              </Books>
-              
-              { books.number_of_pages === currentPage || books.books.length === 0 ?
-                <></>
-                :
-                <Button fontSize='sm' height="24px" className="btn-load-more" onClick={handleLoadMore}>Load More Products</Button>
-              }
-          </BooksSection>
-          </>
-        }
-        </Sections>
-      </Content>
+              </Options>
+            </FilterSection>
+
+            <FilterSection>
+              <H4 fontSize='xxl' fontWeight="500" >Language</H4>
+
+              <Options>
+                {isBooksLoaded && books.filters.languages.map((language, index) => 
+                  <Checkbox name={`${language.language} (${language.count})`} key={index} value={language.language} category ="language"/>
+                )}
+              </Options>
+            </FilterSection> 
+
+            <FilterSection>
+              <H4 fontSize='xxl' fontWeight="500" >Publication Year</H4>
+
+              <RangeInputContainer>
+                <RangeSlider 
+                  min={books.filters.publication_year.min} max={books.filters.publication_year.max} 
+                  value={[publicationYearInterval.min, publicationYearInterval.max]} 
+                  rangeSlideDisabled
+                  onInput={(event) => setPublicationYearInterval({min: event[0], max: event[1]})}
+                  onThumbDragEnd = {() => updateIntervalSearchParams('publication-year-interval', publicationYearInterval.min, publicationYearInterval.max)}
+                />
+
+                <InputsContainer>
+                  <input type="number" id="publication-year-interval-min"
+                    value={publicationYearInterval.min} 
+                    onChange={(event)=> setPublicationYearInterval({min: event.target.value, max: publicationYearInterval.max})} 
+                    onBlur={(event) => handleIntervalInput(event, 'publication-year-interval', 'min')}
+                    onKeyDown={(event) => updateOnEnter(event)}
+                  />
+
+                  <div></div>
+
+                  <input type="number" id="publication-year-interval-max"
+                    value={publicationYearInterval.max} 
+                    onChange={(event)=> setPublicationYearInterval({min: publicationYearInterval.min, max: event.target.value})} 
+                    onBlur={(event) => handleIntervalInput(event, 'publication-year-interval', 'max')}
+                    onKeyDown={(event) => updateOnEnter(event)}
+                  />
+                </InputsContainer>
+              </RangeInputContainer>
+            </FilterSection>
+            
+            <FilterSection>
+              <H4 fontSize='xxl' fontWeight="500" >Price</H4>
+
+              <RangeInputContainer>
+                <RangeSlider 
+                  min={books.filters.price.min} max={books.filters.price.max} 
+                  value={[priceInterval.min, priceInterval.max]} 
+                  rangeSlideDisabled
+                  onInput={(event) => setPriceInterval({min: event[0], max: event[1]})}
+                  onThumbDragEnd= {() => updateIntervalSearchParams('price-interval', priceInterval.min, priceInterval.max)}
+                />
+
+                <InputsContainer>
+                  <input type="number" id="price-interval-min"
+                    value={priceInterval.min} 
+                    onChange={(event)=> setPriceInterval({min: event.target.value, max: priceInterval.max})}
+                    onBlur={(event) => handleIntervalInput(event, 'price-interval', 'min')}
+                    onKeyDown={(event) => updateOnEnter(event)}
+                  />
+
+                  <div></div>
+
+                  <input type="number" id="price-interval-max"
+                    value={priceInterval.max} 
+                    onChange={(event)=> setPriceInterval({min: priceInterval.min, max: event.target.value})} 
+                    onBlur={(event) => handleIntervalInput(event, 'price-interval', 'max')}
+                    onKeyDown={(event) => updateOnEnter(event)}
+                  />
+                </InputsContainer>
+
+              </RangeInputContainer>
+            </FilterSection>
+            
+        </FiltersSection>
+        
+        <BooksSection>
+            <Books numberOfBooks={books.books.length}>
+              { books.books.map((book, index) => 
+                <Card ISBN={book.ISBN} coverUrl={book.cover_url} title={book.title} author={book.author} price={book.price} key={index} />
+              )}
+            </Books>
+            
+            { books.number_of_pages === currentPage || books.books.length === 0 ?
+              <></>
+              :
+              <Button fontSize='sm' height="24px" className="btn-load-more" onClick={handleLoadMore}>Load More Products</Button>
+            }
+        </BooksSection>
+        </>
+      }
+      </Sections>
     </Main>
   );
 }

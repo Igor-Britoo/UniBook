@@ -2,6 +2,8 @@ import styled from "styled-components";
 
 export const FooterContainer = styled.footer`
   width: 100%;
+  position: absolute;
+  z-index: 999;
 `;
 
 export const UpFooter = styled.div`

@@ -131,7 +131,7 @@ export const SearchContainer = styled.div`
 
 export const SearchInput = styled.input`
   height: 100%;
-  width: 95%;
+  width: 98%;
   min-width: 200px;
   border: none;
   background-color: transparent;
