@@ -144,8 +144,82 @@ export const ListBook = () => {
     }
   }
 
+  const handleIntervalInput = async (event, categorySlug, type) =>{
+    let min, max, interval, category
+    let targetValue = parseInt(event.target.value)
+
+    if (categorySlug === 'price-interval'){
+      interval = priceInterval
+      category = 'price'
+    }else{
+      interval = publicationYearInterval
+      category = 'publication_year'
+    }
+
+    if (type === 'min'){
+      if (targetValue < books.filters[category].min){
+        min = books.filters[category].min
+        max = interval.max
+      }
+      else if (targetValue > books.filters[category].max){
+        min = interval.max
+        max = books.filters[category].max
+      }
+      else if (targetValue > interval.max){
+        min = interval.max
+        max = targetValue
+      }
+      else{
+        min = targetValue
+        max = interval.max
+      }
+    }
+    else{
+      if (targetValue > books.filters[category].max){
+        min= interval.min
+        max= books.filters[category].max
+      }
+      else if (targetValue < books.filters[category].min){
+        min= books.filters[category].min
+        max= interval.min
+      }
+      else if (targetValue < interval.min) {
+        min= targetValue
+        max= interval.min
+      }
+      else{
+        min= interval.min
+        max= targetValue
+      }
+    }
+
+    if (categorySlug === 'price-interval'){
+      setPriceInterval({min, max})
+    }else{
+      setPublicationYearInterval({min, max})
+    }
+
+    if (searchParams.has(categorySlug)){
+      let intervalSlug = searchParams.get(categorySlug)
+      let values = intervalSlug.split('-')
+      values[0] = parseInt(values[0])
+      values[1] = parseInt(values[1])   
+
+      if (min !== values[0] || max !== values[1]){
+        let searchParamsAfterReplace = searchParams.toString().replace(intervalSlug, `${min}-${max}`)
+        setSearchParams(searchParamsAfterReplace)
+        window.location.reload(true)
+      }
+    }
+    else if (min !== books.filters[category].min || max !== books.filters[category].max){
+      searchParams.append(categorySlug, `${min}-${max}`)
+      setSearchParams(searchParams)
+      window.location.reload(true)
+    }
+  }
   useEffect(() => {
     fetchData()
+    // eslint-disable-next-line
   },[])
 
   return(
@@ -203,26 +277,16 @@ export const ListBook = () => {
                   />
 
                   <InputsContainer>
-                    <input type="number" 
+                    <input type="number"
                       value={publicationYearInterval.min} 
                       onChange={(event)=> setPublicationYearInterval({min: event.target.value, max: publicationYearInterval.max})} 
-                      onBlur={(event)=> {
-                        if (event.target.value < books.filters.publication_year.min){
-                          setPublicationYearInterval({min: books.filters.publication_year.min, max: publicationYearInterval.max})
-                        } 
-                      }
-                      }
+                      onBlur={(event) => handleIntervalInput(event, 'publication-year-interval', 'min')}
                     />
                     <div></div>
                     <input type="number"
                       value={publicationYearInterval.max} 
                       onChange={(event)=> setPublicationYearInterval({min: publicationYearInterval.min, max: event.target.value})} 
-                      onBlur={(event)=> {
-                        if (event.target.value > books.filters.publication_year.max){
-                          setPublicationYearInterval({min: publicationYearInterval.min , max: books.filters.publication_year.max})
-                        }
-                      }
-                      }
+                      onBlur={(event) => handleIntervalInput(event, 'publication-year-interval', 'max')}
                     />
                   </InputsContainer>
                 </RangeInputContainer>
@@ -242,28 +306,15 @@ export const ListBook = () => {
                   <InputsContainer>
                     <input type="number" 
                       value={priceInterval.min} 
-                      onChange={(event)=> setPriceInterval({min: event.target.value, max: priceInterval.max})} 
-                      onBlur={(event)=> {
-                        if (event.target.value < books.filters.price.min){
-                          setPriceInterval({min: books.filters.price.min, max: priceInterval.max})
-                        }
-                        searchParams.append('price-interval', `${books.filters.price.min}-${priceInterval.max}`)
-                        setSearchParams(searchParams)
-                      }
-                      }
+                      onChange={(event)=> setPriceInterval({min: event.target.value, max: priceInterval.max})}
+                      onBlur={(event) => handleIntervalInput(event, 'price-interval', 'min')}
+
                     />
                     <div></div>
                     <input type="number"
                       value={priceInterval.max} 
                       onChange={(event)=> setPriceInterval({min: priceInterval.min, max: event.target.value})} 
-                      onBlur={(event)=> {
-                        if (event.target.value > books.filters.price.max){
-                          setPriceInterval({min: priceInterval.min , max: books.filters.price.max})
-                        }
-                        searchParams.append('price-interval', `${priceInterval.min}-${books.filters.price.max}`)
-                        setSearchParams(searchParams)
-                      }
-                      }
+                      onBlur={(event) => handleIntervalInput(event, 'price-interval', 'max')}
                     />
                   </InputsContainer>
 
