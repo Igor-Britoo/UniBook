@@ -76,6 +76,7 @@ export const AuthProvider = ({children}) => {
     
     useEffect(() => {
         fetchData()
+        // eslint-disable-next-line
     }, [])
 
     return (

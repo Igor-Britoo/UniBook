@@ -43,6 +43,7 @@ export const Orders = () => {
 
   useEffect(() => {
     fetchData(1)
+    // eslint-disable-next-line
   }, [])
 
   return(
