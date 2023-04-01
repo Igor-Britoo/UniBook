@@ -13,14 +13,14 @@ import { api } from '../lib/axios'
   
 export const ListBook = () => {
   const location = useLocation()
-
+  
   const [books, setBooks] = useState({ books: [] })
   const [isBooksLoaded, setIsBooksLoaded] = useState(false)
   const [currentPage, setCurrentPage] = useState(1)
   const [searchParams, setSearchParams] = useSearchParams()
   const [priceInterval, setPriceInterval] = useState({ min:0, max:0 })
   const [publicationYearInterval, setPublicationYearInterval] = useState({ min:0, max:0 })
-
+  
   const fetchData = async(page=1) => {
     let url = ''
 
@@ -199,6 +199,18 @@ export const ListBook = () => {
       setPublicationYearInterval({min, max})
     }
 
+    updateIntervalSearchParams(categorySlug, min, max)
+  }
+
+  const updateIntervalSearchParams = (categorySlug, min, max) => {
+    let category
+
+    if (categorySlug === 'price-interval'){
+      category = 'price'
+    }else{
+      category = 'publication_year'
+    }
+
     if (searchParams.has(categorySlug)){
       let intervalSlug = searchParams.get(categorySlug)
       let values = intervalSlug.split('-')
@@ -206,7 +218,7 @@ export const ListBook = () => {
       values[1] = parseInt(values[1])   
 
       if (min !== values[0] || max !== values[1]){
-        let searchParamsAfterReplace = searchParams.toString().replace(intervalSlug, `${min}-${max}`)
+        let searchParamsAfterReplace = searchParams.toString().replace(`${categorySlug}=${intervalSlug}`, `${categorySlug}=${min}-${max}`)
         setSearchParams(searchParamsAfterReplace)
         window.location.reload(true)
       }
@@ -217,6 +229,13 @@ export const ListBook = () => {
       window.location.reload(true)
     }
   }
+
+  const updateOnEnter = (event) => {
+    if (event.keyCode === 13) {
+      document.getElementById(event.target.id).blur();
+    }
+  }
+
   useEffect(() => {
     fetchData()
     // eslint-disable-next-line
@@ -274,19 +293,24 @@ export const ListBook = () => {
                     value={[publicationYearInterval.min, publicationYearInterval.max]} 
                     rangeSlideDisabled
                     onInput={(event) => setPublicationYearInterval({min: event[0], max: event[1]})}
+                    onThumbDragEnd = {() => updateIntervalSearchParams('publication-year-interval', publicationYearInterval.min, publicationYearInterval.max)}
                   />
 
                   <InputsContainer>
-                    <input type="number"
+                    <input type="number" id="publication-year-interval-min"
                       value={publicationYearInterval.min} 
                       onChange={(event)=> setPublicationYearInterval({min: event.target.value, max: publicationYearInterval.max})} 
                       onBlur={(event) => handleIntervalInput(event, 'publication-year-interval', 'min')}
+                      onKeyDown={(event) => updateOnEnter(event)}
                     />
+
                     <div></div>
-                    <input type="number"
+
+                    <input type="number" id="publication-year-interval-max"
                       value={publicationYearInterval.max} 
                       onChange={(event)=> setPublicationYearInterval({min: publicationYearInterval.min, max: event.target.value})} 
                       onBlur={(event) => handleIntervalInput(event, 'publication-year-interval', 'max')}
+                      onKeyDown={(event) => updateOnEnter(event)}
                     />
                   </InputsContainer>
                 </RangeInputContainer>
@@ -301,20 +325,24 @@ export const ListBook = () => {
                     value={[priceInterval.min, priceInterval.max]} 
                     rangeSlideDisabled
                     onInput={(event) => setPriceInterval({min: event[0], max: event[1]})}
+                    onThumbDragEnd= {() => updateIntervalSearchParams('price-interval', priceInterval.min, priceInterval.max)}
                   />
 
                   <InputsContainer>
-                    <input type="number" 
+                    <input type="number" id="price-interval-min"
                       value={priceInterval.min} 
                       onChange={(event)=> setPriceInterval({min: event.target.value, max: priceInterval.max})}
                       onBlur={(event) => handleIntervalInput(event, 'price-interval', 'min')}
-
+                      onKeyDown={(event) => updateOnEnter(event)}
                     />
+
                     <div></div>
-                    <input type="number"
+
+                    <input type="number" id="price-interval-max"
                       value={priceInterval.max} 
                       onChange={(event)=> setPriceInterval({min: priceInterval.min, max: event.target.value})} 
                       onBlur={(event) => handleIntervalInput(event, 'price-interval', 'max')}
+                      onKeyDown={(event) => updateOnEnter(event)}
                     />
                   </InputsContainer>
 
