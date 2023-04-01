@@ -48,7 +48,6 @@ export const Navbar = () => {
     }
   }
 
-
   return(
     <>
       <NavbarContainer>
@@ -74,15 +73,15 @@ export const Navbar = () => {
           </SearchContainer>
 
           <NavButtonsContainer>
-            <NavButton>
-              <FaUser color="white" fontSize="2.1em" onClick={toggleDropdownMenu}/>
+            <NavButton onClick={toggleDropdownMenu}>
+              <FaUser color="white" fontSize="2.1em"/>
             </NavButton>
 
             <DropdownMenu dropdownMenuActive={dropdownMenuActive}/>
 
             <NavButton>
               <FaShoppingCart color="white" fontSize="2.4em" onClick={openCart}/>
-              <Span fontSize="xs" fontWeight="700">0</Span>
+              <Span fontSize="xs" fontWeight="700" onClick={openCart}>0</Span>
             </NavButton>
             
             <Cart cartActive={cartActive} setCartMode={setCartMode}/>

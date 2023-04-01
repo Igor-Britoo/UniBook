@@ -74,8 +74,9 @@ export const NavOption = styled.li`
 export const NavButton = styled.button`
   border: none;
   background: transparent;
+  cursor: default;
 
-  :hover {
+  svg:hover {
     cursor: pointer;
   }
 
