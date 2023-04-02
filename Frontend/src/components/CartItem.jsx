@@ -31,11 +31,17 @@ export const CartItem = ({ item }) => {
     fetchData();
   }, [])
 
+  function refreshPage() {
+    window.location.reload();
+  }
+    
+
   const handleRemoveToCart = async(event) => {
     // event.preventDefault();
     await api.delete(`customer-logged/cart/cart-items/${item.id}/delete/`)
+
+    refreshPage()
   }
-  
   return(
     <Product>
           <img src={`http://localhost:8000/${infoBook.book.cover_url}`} alt="book"></img>
