@@ -1,20 +1,43 @@
+import React, { useEffect, useState } from 'react';
+
 import { ContainerCart,
 UpCart,
 TitleCart,
-Product,
-ContainerInfoProduct,
-TitleProduct,
-AuthorProduct,
-SelectAmount,
-PriceProduct,
 DownCart,
 TextDownCart,
 BuyButton, } from "../styles/Cart";
 
 import { FaShoppingCart, FaTimes } from "react-icons/fa";
-import { useState } from "react";
+
+import { CartItem } from "./CartItem";
+
+import { api } from '../lib/axios'
 
 export const Cart = ({cartActive, setCartMode}) => {
+  const [cart, setCart] = useState({ cart: [] })
+
+
+  const fetchData = async() => {
+    let accessToken = localStorage.getItem('access')
+
+    if (accessToken) {
+      api.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`
+
+      await api.get('customer-logged/cart/')
+      .then( response => {
+        // console.log(response.data)
+        setCart(response.data)
+      })
+      .catch( error => {
+        console.log(error)
+      })
+    }
+  }
+
+  useEffect(() => {
+    fetchData();
+  }, [])
+
   return(
     cartActive == false ? 
       <></> 
@@ -29,57 +52,17 @@ export const Cart = ({cartActive, setCartMode}) => {
           </div>
           <FaTimes color="black" fontSize="2.4em" onClick={() => setCartMode(false)}/>
         </UpCart>
+          {cart.cart.cart_items.map((item, index) => 
+          <CartItem item={item} key={index}/>
+          )}
         
-        <Product>
-          <img src="http://localhost:8000/images/default_book_cover.jpg" alt="book"></img>
-          <ContainerInfoProduct>
-            <TitleProduct>
-              What I Learned From The Trees
-            </TitleProduct>
-            <AuthorProduct>
-              L.E. Bowman
-            </AuthorProduct>
-
-            <SelectAmount>
-              <option value={1}>1</option>
-              <option value={2}>2</option>
-              <option value={3}>3</option>
-              <option value={4}>4</option>
-              <option value={5}>5</option>
-            </SelectAmount>
-            <PriceProduct>$ 20.00</PriceProduct>
-          </ContainerInfoProduct>
-          <FaTimes color="black" fontSize="1.4em"/>
-        </Product>
-
-        <Product>
-          <img src="http://localhost:8000/images/default_book_cover.jpg" alt="book"></img>
-          <ContainerInfoProduct>
-            <TitleProduct>
-              What I Learned From The Trees
-            </TitleProduct>
-            <AuthorProduct>
-              L.E. Bowman
-            </AuthorProduct>
-
-            <SelectAmount>
-              <option value={1}>1</option>
-              <option value={2}>2</option>
-              <option value={3}>3</option>
-              <option value={4}>4</option>
-              <option value={5}>5</option>
-            </SelectAmount>
-            <PriceProduct>$ 20.00</PriceProduct>
-          </ContainerInfoProduct>
-          <FaTimes color="black" fontSize="1.4em"/>
-        </Product>
       </div>
 
       <DownCart>
         <div className="row-text-down-cart">
 
           <TextDownCart>Total</TextDownCart>
-          <TextDownCart>$ 40.00</TextDownCart>
+          <TextDownCart>$ { cart.cart.price.toFixed(2) }</TextDownCart>
         </div>
 
         <BuyButton>Buy</BuyButton>
