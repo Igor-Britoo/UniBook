@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { ContainerCheckbox, Check, } from "../styles/Checkbox";
 import { Label } from "../styles/styles";
 
-import { useLocation, useSearchParams } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 
 export const Checkbox = (props) => {
   const [checked, setChecked] = useState(false)
@@ -46,6 +46,7 @@ export const Checkbox = (props) => {
 
     setChecked(!checked)
     window.location.reload(true)
+    window.scrollTo(0, 0)
   }
 
   const setCheckedBasedOnUrl = () => {
@@ -63,6 +64,7 @@ export const Checkbox = (props) => {
 
   useEffect(() => {
     setCheckedBasedOnUrl()
+    // eslint-disable-next-line
   }, [])
 
   return(
