@@ -12,10 +12,10 @@ TextDownCart,
 BuyButton, } from "../styles/Cart";
 
 import { FaShoppingCart, FaTimes } from "react-icons/fa";
-import { useState } from "react";
 
 export const Cart = ({cartActive, setCartMode}) => {
   return(
+    // eslint-disable-next-line
     cartActive == false ? 
       <></> 
     :

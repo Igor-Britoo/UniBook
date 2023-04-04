@@ -4,7 +4,7 @@ import { useLocation, useSearchParams } from "react-router-dom";
 import RangeSlider from 'react-range-slider-input';
 import 'react-range-slider-input/dist/style.css';
 
-import { Button, H2, H3, H4, Main, Span } from "../styles/styles";
+import { Button, H3, H4, Main, Span } from "../styles/styles";
 import { Sections, BooksSection, Books, FiltersSection, FilterSection, Options, RangeInputContainer, InputsContainer } from "../styles/ListBook";
 import { Checkbox } from "../components/Checkbox";
 import { Card } from "../components/Card";
@@ -221,12 +221,14 @@ export const ListBook = () => {
         let searchParamsAfterReplace = searchParams.toString().replace(`${categorySlug}=${intervalSlug}`, `${categorySlug}=${min}-${max}`)
         setSearchParams(searchParamsAfterReplace)
         window.location.reload(true)
+        window.scrollTo(0, 0)
       }
     }
     else if (min !== books.filters[category].min || max !== books.filters[category].max){
       searchParams.append(categorySlug, `${min}-${max}`)
       setSearchParams(searchParams)
       window.location.reload(true)
+      window.scrollTo(0, 0)
     }
   }
 
