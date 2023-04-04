@@ -16,41 +16,19 @@ import { api } from '../lib/axios'
 export const CartItem = ({ item }) => {
   const [infoBook, setInfoBook] = useState({ book: [] })
 
-  const fetchData = async() => {
-    await api.get(`books/${item.book}/`)
-    .then( response => {
-      // console.log(response.data)
-      setInfoBook(response.data)
-    })
-    .catch( error => {
-      console.log(error)
-    })
-  }
-
   useEffect(() => {
-    fetchData();
+    //fetchData();
   }, [])
 
-  function refreshPage() {
-    window.location.reload();
-  }
-    
-
-  const handleRemoveToCart = async(event) => {
-    // event.preventDefault();
-    await api.delete(`customer-logged/cart/cart-items/${item.id}/delete/`)
-
-    refreshPage()
-  }
   return(
     <Product>
           <img src={`http://localhost:8000/${infoBook.book.cover_url}`} alt="book"></img>
           <ContainerInfoProduct>
             <TitleProduct>
-              { infoBook.book.title }
+              {/* infoBook.book.title */}
             </TitleProduct>
             <AuthorProduct>
-              { infoBook.book.author }
+              {/* infoBook.book.author */}
             </AuthorProduct>
 
             {/* <SelectAmount>
@@ -67,9 +45,9 @@ export const CartItem = ({ item }) => {
             <FaPlus color='black' fontSize='0.8em'/>
             </div>
 
-            <PriceProduct>$ { item.price.toFixed(2) }</PriceProduct>
+            <PriceProduct>$ {/* item.price.toFixed(2) */}</PriceProduct>
           </ContainerInfoProduct>
-          <Button onClick={handleRemoveToCart}>
+          <Button onClick={() => console.log('remove cart item')}>
             <FaTimes color="black" fontSize="1.4em"/>
           </Button>
         </Product>

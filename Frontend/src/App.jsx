@@ -5,6 +5,7 @@ import theme from './styles/theme';
 import GlobalStyle from './styles/global';
 
 import { AuthProvider } from './contexts/AuthContext';
+import { CartProvider } from './contexts/CartContext';
 
 import { SignIn } from './pages/SignIn';
 import { SignUp } from './pages/SignUp';
@@ -22,7 +23,9 @@ import { ProtectedRoutes } from './components/ProtectedRoutes';
 function App() {
   return (
     <AuthProvider>
+    <CartProvider>
     <ThemeProvider theme={theme}>
+      
       <GlobalStyle />
 
       <BrowserRouter>
@@ -53,7 +56,9 @@ function App() {
 
         </Routes>
       </BrowserRouter>
+
     </ThemeProvider>
+    </CartProvider>
     </AuthProvider>
   );
 }

@@ -3,40 +3,19 @@ import { Link } from 'react-router-dom';
 import { Button, H3, Span } from '../styles/styles';
 import { ContainerCard } from '../styles/Card';
 
-import { api } from '../lib/axios';
+import { useCart } from '../hooks/useCart'
 
 export const Card = ({ISBN, coverUrl ,title, author, price}) => {
+  const { createCartItem, getCart } = useCart()
+
   const defaultItem = {
     book: '',
   }
-
-  const [item, setItem] = useState(defaultItem)
   
   const handleAddToCart = (event) => {
-    
-    let accessToken = localStorage.getItem('access')
-
-    if (accessToken) {
-      api.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`
-
-      event.preventDefault();
-
-      setItem({
-        ...item,
-        book: ISBN,
-      })
-
-      console.log(item)
-
-      api.post('customer-logged/cart/cart-items/create/', item)
-      .then(response => {
-        console.log(response)
-      })
-      .catch(error => {
-        console.log(error)
-      })
-    }
-    
+    event.preventDefault()
+    createCartItem(ISBN)
+    getCart()
   }
 
   return (

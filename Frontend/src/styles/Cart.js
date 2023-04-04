@@ -27,6 +27,10 @@ export const UpCart = styled.div`
     display: flex;
     gap: 32px;
   }
+
+  .close-cart{
+    cursor: pointer;
+  }
 `;
 
 export const TitleCart = styled.p`
