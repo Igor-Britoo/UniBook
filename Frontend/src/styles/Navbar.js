@@ -74,8 +74,9 @@ export const NavOption = styled.li`
 export const NavButton = styled.button`
   border: none;
   background: transparent;
+  cursor: default;
 
-  :hover {
+  svg:hover {
     cursor: pointer;
   }
 
@@ -130,7 +131,7 @@ export const SearchContainer = styled.div`
 
 export const SearchInput = styled.input`
   height: 100%;
-  width: 95%;
+  width: 98%;
   min-width: 200px;
   border: none;
   background-color: transparent;

@@ -39,6 +39,7 @@ export const Cart = ({cartActive, setCartMode}) => {
   }, [])
 
   return(
+    // eslint-disable-next-line
     cartActive == false ? 
       <></> 
     :
