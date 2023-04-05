@@ -13,8 +13,10 @@ import { FaPlus, FaMinus, FaTimes } from "react-icons/fa";
 
 import { api } from '../lib/axios'
 
+import { useCart } from '../hooks/useCart';
+
 export const CartItem = ({ item }) => {
-  const [infoBook, setInfoBook] = useState({ book: [] })
+  const { deleteCartItem } = useCart()
 
   useEffect(() => {
     //fetchData();
@@ -22,32 +24,29 @@ export const CartItem = ({ item }) => {
 
   return(
     <Product>
-          <img src={`http://localhost:8000/${infoBook.book.cover_url}`} alt="book"></img>
+          <img src={`http://localhost:8000/${item.book.cover_url}`} alt="book"></img>
           <ContainerInfoProduct>
             <TitleProduct>
-              {/* infoBook.book.title */}
+              { item.book.title }
             </TitleProduct>
             <AuthorProduct>
-              {/* infoBook.book.author */}
+              { item.book.author }
             </AuthorProduct>
 
-            {/* <SelectAmount>
-              <option value={1}>1</option>
+            <SelectAmount>
+              <option value={1} selected>1</option>
               <option value={2}>2</option>
-              <option value={3} >3</option>
-              <option value={4} selected>4</option>
+              <option value={3}>3</option>
+              <option value={4}>4</option>
               <option value={5}>5</option>
-            </SelectAmount> */}
+            </SelectAmount>
             <div className='row'>
 
-            <FaMinus color='black' fontSize='0.8em'/>
-            <p>{ item.quantity }</p>
-            <FaPlus color='black' fontSize='0.8em'/>
             </div>
 
-            <PriceProduct>$ {/* item.price.toFixed(2) */}</PriceProduct>
+            <PriceProduct>$ { item.book.price }</PriceProduct>
           </ContainerInfoProduct>
-          <Button onClick={() => console.log('remove cart item')}>
+          <Button onClick={() => deleteCartItem(item.id)}>
             <FaTimes color="black" fontSize="1.4em"/>
           </Button>
         </Product>

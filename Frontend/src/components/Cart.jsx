@@ -36,6 +36,9 @@ export const Cart = ({cartActive, setCartMode}) => {
             <FaTimes color="black" fontSize="2.4em" onClick={() => setCartMode(false)} className='close-cart'/>
 
           </UpCart>
+          {cart.cart_items.map((item, index) => 
+          <CartItem item={item} key={index}/>
+          )}
 
         </div>
 
@@ -45,7 +48,7 @@ export const Cart = ({cartActive, setCartMode}) => {
             <div className="row-text-down-cart">
 
               <TextDownCart>Total</TextDownCart>
-              {/*<TextDownCart>$ { cart.cart.price.toFixed(2) }</TextDownCart>*/}
+              <TextDownCart>$ { cart.price.toFixed(2) }</TextDownCart>
             </div>
 
             <BuyButton>Buy</BuyButton>
