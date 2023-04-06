@@ -48,7 +48,7 @@ export const Cart = ({cartActive, setCartMode}) => {
             <div className="row-text-down-cart">
 
               <TextDownCart>Total</TextDownCart>
-              <TextDownCart>$ { cart.price.toFixed(2) }</TextDownCart>
+              <TextDownCart>${ cart.price.toFixed(2) }</TextDownCart>
             </div>
 
             <BuyButton>Buy</BuyButton>
