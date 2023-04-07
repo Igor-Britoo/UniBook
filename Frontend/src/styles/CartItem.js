@@ -1,30 +1,27 @@
 import styled from "styled-components";
 
 export const Product = styled.div`
+  width: 100%;
   display: flex;
-  padding: 40px 16px;
+  padding: 28px 16px;
   border-bottom: 1px solid black;
+  gap: 14px;
 
   img{
     max-width: 100px;
     max-height: 150px;
   }
+
+  button{
+    cursor: pointer;
+  }
 `;
 
 export const ContainerInfoProduct = styled.div`
-  margin-left: 12px;
-  margin-right: 14px;
-
-  .row {
-    display: flex;
-    gap: 8px;
-    align-items: center;
-    margin-top: 16px;
-
-    p {
-      padding: 5xp;
-    }
-  }
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
 `;
 
 export const TitleProduct = styled.p`
@@ -36,12 +33,11 @@ export const TitleProduct = styled.p`
 export const AuthorProduct = styled.p`
   font-size: 12px;
   font-weight: 400;
-  margin-top: 16px;
   color: #1C3333;
 `;
 
 export const SelectAmount = styled.select`
-  margin-top: 16px;
+  width: 45px;
 `;
 
 export const PriceProduct = styled.p`
@@ -50,13 +46,12 @@ export const PriceProduct = styled.p`
   font-weight: 600;
   color: #1C3333;
   margin-top: 33px;
-  margin-left: 124px;
+  align-self: flex-end;
 `;
 
 export const Button = styled.button`
   display: flex;
   align-items: center;
-  width: 1.4em;
-  height: 1.4em;
+  height: 1.8em;
   border: none;
 `;

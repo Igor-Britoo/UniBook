@@ -2,12 +2,9 @@ import React, { createContext, useState, useEffect } from "react";
 
 import { api } from "../lib/axios";
 
-import { useAuth } from "../hooks/useAuth"
-
 export const CartContext = createContext()
 
 export const CartProvider = ({children}) => {
-    const { user, isUserLoaded } = useAuth()
     const [isCartLoaded, setIsCartLoaded] = useState(false)
     const [cart, setCart] = useState({})
 
@@ -19,12 +16,13 @@ export const CartProvider = ({children}) => {
     
           await api.get('customer-logged/cart/')
           .then( response => {
-            console.log(response.data.cart)
+            //console.log(response.data.cart)
             setCart(response.data.cart)
           })
           .catch( error => {
             //console.log(error)
           })
+          setIsCartLoaded(true)
         }
     }
 
@@ -38,11 +36,13 @@ export const CartProvider = ({children}) => {
             book: bookISBN,
           })
           .then(response => {
-            console.log(response.data, response.status)
+            //console.log(response.data, response.status)
           })
           .catch(error => {
             //console.log(error)
           })
+        }else{
+          alert('You need to be logged to perform this action.')
         } 
     }
 
@@ -68,7 +68,7 @@ export const CartProvider = ({children}) => {
         if (accessToken) {
             await api.delete(`customer-logged/cart/cart-items/${cartItemID}/delete/`)
             .then(response => {
-                console.log(response.data, response.status)
+                //console.log(response.data, response.status)
               })
               .catch(error => {
                 //console.log(error)
@@ -78,11 +78,6 @@ export const CartProvider = ({children}) => {
     
     useEffect(() => {
         getCart()
-        /* TESTE
-            createCartItem("2145820837329")
-            updateCartItem(5, 2) 
-            deleteCartItem(5)
-        */
 
         // eslint-disable-next-line
     }, [])

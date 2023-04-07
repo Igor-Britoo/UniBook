@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+
+import { useCart } from '../hooks/useCart';
+
 import { api } from '../lib/axios';
 
 import { Container, ContainerBook, CardInfo, ContainerButtons, Detail, ContainerDetails } from '../styles/Book';
@@ -8,7 +11,9 @@ import { Main, H2, Label, Button, Paragraph, Span } from '../styles/styles';
 import { BackButton } from '../components/BackButton';
 
 export const Book = () => {
+  const { createCartItem, getCart } = useCart()
   const { ISBN } = useParams()
+
   const [bookExists, setBookExists] = useState(false)
   const [book, setBook] = useState({})
   
@@ -21,6 +26,12 @@ export const Book = () => {
     .catch( error => {
       console.log(error)
     })
+  }
+
+  const handleAddToCart = (event) => {
+    getCart()
+    createCartItem(ISBN)
+    getCart()
   }
 
   useEffect(() =>{
@@ -43,7 +54,7 @@ export const Book = () => {
           </H2>
 
           <ContainerBook>
-            <img className='book-cover' src={`http://localhost:8000${book.cover_url}`} alt='book'></img>
+            <img className='book-cover' src={`http://localhost:8000${book.cover_url}`} alt='Book cover'></img>
             
             <CardInfo>
               <div className='title-author'>
@@ -54,7 +65,7 @@ export const Book = () => {
               <Span fontSize="xxxl" fontWeight="600">$ {book.price}</Span>
 
               <ContainerButtons>
-                <Button>Add to Cart</Button>
+                <Button onClick={handleAddToCart}>Add to Cart</Button>
                 <Button color='white'>Buy</Button>
               </ContainerButtons>
 

@@ -8,9 +8,11 @@ import { NavbarContainer, NavbarContainerMobile , UpNav, DownNav, NavOption, Nav
 import { H1, H2, Span } from "../styles/styles";
 import { Cart } from "./Cart";
 import { DropdownMenu } from "./DropdownMenu";
+import { useCart } from "../hooks/useCart";
 
 export const Navbar = () => {
   const navigate = useNavigate()
+  const { cart, isCartLoaded } = useCart()
 
   const [mobileMenuActive, setMobileMenuMode] = useState(false)
   const [dropdownMenuActive, setDropdownMenuMode] = useState(false)
@@ -77,7 +79,7 @@ export const Navbar = () => {
 
                 <NavButton>
                   <FaShoppingCart color="white" fontSize="2.4em" onClick={openCart}/>
-                  <Span fontSize="xs" fontWeight="700" onClick={openCart}>0</Span>
+                  <Span fontSize="xs" fontWeight="700" onClick={openCart}>{isCartLoaded ? cart.cart_items.length : 0}</Span>
                 </NavButton>
                 
                 <Cart cartActive={cartActive} setCartMode={setCartMode}/>
@@ -102,7 +104,7 @@ export const Navbar = () => {
 
             <NavButton>
               <FaShoppingCart color="white" fontSize="2.4em" onClick={openCart}/>
-              <Span fontSize="xs" fontWeight="700" onClick={openCart}>0</Span>
+              <Span fontSize="xs" fontWeight="700" onClick={openCart}>{isCartLoaded ? cart.cart_items.length : 0}</Span>
             </NavButton>
             
             <Cart cartActive={cartActive} setCartMode={setCartMode}/>
