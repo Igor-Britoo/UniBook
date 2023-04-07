@@ -6,39 +6,59 @@ from ..serializers import *
 from ..decorators import *
 from ..utils import *
 
-
 @api_view(['POST'])
 @access_token_required
 def create_customer_order(request):
     """
-        Create a new order for the customer logged-in with his cart items
+        Create a new order for the customer logged-in
     """
-
     customer = Customer.objects.filter(email = request.user).first()
-    cart_items = customer.shopping_cart.cart_items.all()
+    address = request.data['address']
+    
+    if address and address['street_name'] and address['house_number'] != "" and address['city'] and address['state']:
+        shipping_address = Address.objects.get_or_create( street_name = address['street_name'],
+                                                        house_number = address['house_number'],
+                                                        city = address['city'],
+                                                        state = address['state'])[0]
 
-    if cart_items.exists():
-        for cart_item in cart_items:
-            book = cart_item.book
-            book.sellings = cart_item.quantity
-            book.save()
-            
-        order = Order.objects.create_order(customer= customer)
-        OrderItem.objects.create_order_items(order= order,
-                                                cart_items= cart_items)
+        order = Order.objects.create_order(customer= customer, shipping_address= shipping_address)
+        
+    else:
+        return Response({ "detail": "Cannot create an order without a shipping address" }, status=400)
+
+    if request.data['create_from_cart_items']:
+        cart_items = customer.shopping_cart.cart_items.all()
+
+        if cart_items.exists():
+            OrderItem.objects.create_order_items(order= order,
+                                                    items= cart_items)
+            Order.objects.update_order_price(code = order.code)
+            cart_items.delete()
+
+            return Response({ "detail": "Order successfully created" }, status=201)            
+        
+        else:
+            return Response({ "detail": "Cannot create an order without items" }, status=400)
+        
+    elif len(request.data['items']) > 0:
+        for item in request.data['items']:
+            book = Book.objects.filter(ISBN = item['ISBN']).first()
+            OrderItem.objects.create_order_item(book = book,
+                                                quantity= item['quantity'],
+                                                order= order)
+
         Order.objects.update_order_price(code = order.code)
-        cart_items.delete()
 
         return Response({ "detail": "Order successfully created" }, status=201)            
-    
+
     else:
-        return Response({ "detail": "Cannot create an order without cart items" }, status=400)
+        return Response({ "detail": "Cannot create an order without items" }, status=400)
     
 @api_view(['GET'])
 @access_token_required
 def get_customer_orders(request):
     """
-        Returns all orders from the logged in customer
+        Returns all orders from the logged in customer 
     """
 
     limit = request.GET.get('limit')
