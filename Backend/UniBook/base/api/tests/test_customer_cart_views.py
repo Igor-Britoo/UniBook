@@ -54,9 +54,24 @@ class GetCustomerCart(APITestCase):
                 "cart_items":[
                     {
                         "id":1,
-                        "book":"0123456789012",
-                        "quantity":1,
-                        "price":50.0
+                        "book":{
+                        "ISBN":"0123456789012",
+                        "title":"Book 1",
+                        "author":"Author 1",
+                        "publication_year":1990,
+                        "language":"en-US",
+                        "publisher":"Publisher 1",
+                        "genres":[
+                            "genre 1"
+                        ],
+                        "number_of_pages":647,
+                        "price":"50.00",
+                        "discount":"0.00",
+                        "cover_url":"/images/default_book_cover.jpg",
+                        "views":0,
+                        "sellings":0
+                        },
+                        "quantity":1
                     }
                 ]
             }

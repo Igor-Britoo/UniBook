@@ -17,11 +17,24 @@ export const UpNav = styled.div`
   background-color: ${props => props.theme.colors.green[500]};
   height: 80px;
 
+  
+
   @media screen and (max-width: ${props => props.theme.breakpoints.lg}) {
     height: 140px;
     padding: 20px 0px;
     flex-direction: column;
     gap: 20px;
+
+    .row {
+      display: flex;
+      justify-content: space-between;
+      padding: 0px 40px; 
+      width: 100%;
+
+      @media screen and (max-width: 725px) {
+        padding: 0px 18px;
+      }
+    }
   }
 `;
 
@@ -97,9 +110,26 @@ export const NavButtonsContainer = styled.div`
   gap: 50px;
 
   @media screen and (max-width: ${props => props.theme.breakpoints.lg}) {
-    position: absolute;
-    top: 24px;
-    right: 5%;
+    display: none;
+    /* position: absolute; */
+    /* top: 24px; */
+    /* right: 5%; */
+    gap: 32px;
+  }
+  @media screen and (max-width: ${props => props.theme.breakpoints.sm}) {
+    gap: 8px;
+  }
+`;
+
+export const NavButtonsContainerMobile = styled.div`
+  display: none;
+  gap: 50px;
+  
+  @media screen and (max-width: ${props => props.theme.breakpoints.lg}) {
+    display: flex;
+    /* position: absolute; */
+    /* top: 24px; */
+    /* right: 5%; */
     gap: 32px;
   }
   @media screen and (max-width: ${props => props.theme.breakpoints.sm}) {
@@ -148,10 +178,11 @@ export const MobileMenu = styled.div`
 
   @media screen and (max-width: ${props => props.theme.breakpoints.lg}) {
     display: flex;
-    position: absolute;
-    top: 16px;
-    left: 5% ;
+    /* position: absolute; */
+    /* top: 16px; */
+    /* left: 5% ; */
     cursor: pointer;
-    z-index: 9999;
+    /* z-index: 9999; */
+    z-index: 888;
   } 
 `

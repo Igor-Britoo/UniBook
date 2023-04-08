@@ -157,7 +157,7 @@ class Cart(models.Model):
     def price(self):
         result = 0
         for item in self.cart_items.all():
-            result += item.price * item.quantity
+            result += item.book.price * item.quantity
         
         return result
     
@@ -183,10 +183,6 @@ class OrderItem(Item):
 
 class CartItem(Item):
     cart = models.ForeignKey(Cart, on_delete=models.CASCADE, related_name='cart_items')
-
-    @property
-    def price(self):
-        return self.book.price
 
     def __str__(self):
         return self.book.title + ", " + str(self.quantity)

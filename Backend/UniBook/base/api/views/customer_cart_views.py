@@ -11,18 +11,26 @@ def get_customer_cart(request):
     """
         Returns the cart of the logged in customer
     """
-        
+    
     customer = Customer.objects.filter(email = request.user).first()
     cart = customer.shopping_cart
     cart_items = cart.cart_items.all()
 
     cart_serialized = CartSerializer(cart)
-    cart_items_serialized = CartItemSerializer(cart_items, many = True)
+
+    cart_items_serialized = []
+    for cart_item in cart_items:
+        book_serialized = BookSerializer(cart_item.book)
+        cart_item_serialized = CartItemSerializer(cart_item)
+        cart_item_serialized_with_book = {**cart_item_serialized.data,
+                                            'book': book_serialized.data}
+        
+        cart_items_serialized.append(cart_item_serialized_with_book)
 
     return Response({
         'cart': {
             **cart_serialized.data,
-            'cart_items': cart_items_serialized.data,
+            'cart_items': cart_items_serialized,
             'owner': customer.email,
         }
     }, status=200)

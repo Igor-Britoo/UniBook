@@ -3,15 +3,22 @@ import { Link } from 'react-router-dom';
 import { Button, H3, Span } from '../styles/styles';
 import { ContainerCard } from '../styles/Card';
 
+import { useCart } from '../hooks/useCart'
+
 export const Card = ({ISBN, coverUrl ,title, author, price}) => {
+  const { createCartItem, getCart } = useCart()
+  
   const handleAddToCart = (event) => {
-    event.preventDefault();
+    event.preventDefault()
+    getCart()
+    createCartItem(ISBN)
+    getCart()
   }
 
   return (
     <Link to={`/books/${ISBN}/`}>
       <ContainerCard>
-        <img className='book-cover' src={`http://localhost:8000${coverUrl}`}></img>
+        <img className='book-cover' src={`http://localhost:8000${coverUrl}`} alt="Book cover"></img>
         
         <div className='title-author'>
           <H3 fontSize="sm" fontWeight="600" maxChars={20}>{ title }</H3>

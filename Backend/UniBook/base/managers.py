@@ -46,10 +46,10 @@ class CustomerManager(BaseUserManager):
         return user
 
 class OrderManager(models.Manager):
-    def create_order(self, customer):
+    def create_order(self, customer, shipping_address):
         order = self.model(
             customer = customer,
-            shipping_address = customer.address,
+            shipping_address = shipping_address,
         )
         order.save(using=self._db)
         return order
@@ -79,11 +79,14 @@ class OrderItemManager(models.Manager):
         book_inventory.quantity -= quantity
         book_inventory.save(using=self._db)
 
+        book.sellings += quantity
+        book.save(using=self._db)
+
         return order_item
     
-    def create_order_items(self, cart_items, order):
+    def create_order_items(self, items, order):
         order_items = []
-        for item in cart_items:
+        for item in items:
             order_items.append( self.create_order_item(
                 book = item.book,
                 quantity = item.quantity,

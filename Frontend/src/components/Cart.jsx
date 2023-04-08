@@ -1,90 +1,61 @@
+import React from 'react';
+import { FaShoppingCart } from "react-icons/fa";
+import { MdClose } from 'react-icons/md'
+
 import { ContainerCart,
-UpCart,
+CartHeader,
 TitleCart,
-Product,
-ContainerInfoProduct,
-TitleProduct,
-AuthorProduct,
-SelectAmount,
-PriceProduct,
 DownCart,
 TextDownCart,
-BuyButton, } from "../styles/Cart";
+BuyButton, 
+CartItemsContainer} from "../styles/Cart";
+import { H3 } from "../styles/styles"
 
-import { FaShoppingCart, FaTimes } from "react-icons/fa";
+import { CartItem } from "./CartItem";
+
+import {useAuth} from '../hooks/useAuth'
+import { useCart } from '../hooks/useCart';
 
 export const Cart = ({cartActive, setCartMode}) => {
-  return(
-    // eslint-disable-next-line
-    cartActive == false ? 
-      <></> 
-    :
-    <ContainerCart>
-      <div>
-        <UpCart>
+  const { cart, isCartLoaded } = useCart()
+  const {user, isUserLoaded} = useAuth()
+  const userLoggedIn = Boolean(user.name) === true
+
+  if (cartActive) {
+    return (
+      <ContainerCart>          
+        <CartHeader>
           <div className="row-icon-text">
-
-          <FaShoppingCart color="white" fontSize="2.4em"/>
-          <TitleCart>Cart</TitleCart>
+            <FaShoppingCart color="white" fontSize="2.2em"/>
+            <TitleCart>Cart</TitleCart>
           </div>
-          <FaTimes color="black" fontSize="2.4em" onClick={() => setCartMode(false)}/>
-        </UpCart>
-        
-        <Product>
-          <img src="http://localhost:8000/images/default_book_cover.jpg" alt="book"></img>
-          <ContainerInfoProduct>
-            <TitleProduct>
-              What I Learned From The Trees
-            </TitleProduct>
-            <AuthorProduct>
-              L.E. Bowman
-            </AuthorProduct>
+            <MdClose color="black" fontSize="2.8em" onClick={() => setCartMode(false)} className='close-cart'/>
+        </CartHeader>
 
-            <SelectAmount>
-              <option value={1}>1</option>
-              <option value={2}>2</option>
-              <option value={3}>3</option>
-              <option value={4}>4</option>
-              <option value={5}>5</option>
-            </SelectAmount>
-            <PriceProduct>$ 20.00</PriceProduct>
-          </ContainerInfoProduct>
-          <FaTimes color="black" fontSize="1.4em"/>
-        </Product>
+        {
+          isUserLoaded && !userLoggedIn &&
+          <H3 fontSize="xl" fontWeight={400}>You need to be logged to see your cart items</H3>
+        }
 
-        <Product>
-          <img src="http://localhost:8000/images/default_book_cover.jpg" alt="book"></img>
-          <ContainerInfoProduct>
-            <TitleProduct>
-              What I Learned From The Trees
-            </TitleProduct>
-            <AuthorProduct>
-              L.E. Bowman
-            </AuthorProduct>
+        {
+          isCartLoaded &&
+          <CartItemsContainer>
+          {cart.cart_items.map((item, index) => 
+            <CartItem item={item} key={index}/>
+          )}
+          </CartItemsContainer>
+        }
+          <DownCart>
+            <div className="row-text-down-cart">
+              <TextDownCart>Total</TextDownCart>
+              <TextDownCart>${ cart.price ? (cart.price).toFixed(2) : (0).toFixed(2) }</TextDownCart>
+            </div>
 
-            <SelectAmount>
-              <option value={1}>1</option>
-              <option value={2}>2</option>
-              <option value={3}>3</option>
-              <option value={4}>4</option>
-              <option value={5}>5</option>
-            </SelectAmount>
-            <PriceProduct>$ 20.00</PriceProduct>
-          </ContainerInfoProduct>
-          <FaTimes color="black" fontSize="1.4em"/>
-        </Product>
-      </div>
+            <BuyButton>Buy</BuyButton>
+          </DownCart>
 
-      <DownCart>
-        <div className="row-text-down-cart">
 
-          <TextDownCart>Total</TextDownCart>
-          <TextDownCart>$ 40.00</TextDownCart>
-        </div>
-
-        <BuyButton>Buy</BuyButton>
-      </DownCart>
-      
-    </ContainerCart>
-  );
+      </ContainerCart>
+    )
+  } 
 }
