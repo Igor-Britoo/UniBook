@@ -21,6 +21,10 @@ export const Sections = styled.div`
     @media screen and (max-width: ${props => props.theme.breakpoints.xs}) {
         max-width: 180px;
     }
+
+    @media screen and (max-width: ${props => props.theme.breakpoints.md}) {
+        flex-direction: column;
+    }
 `;
 
 export const BooksSection = styled.div`
@@ -91,7 +95,10 @@ export const FiltersSection = styled.div`
     }
 
     @media screen and (max-width: ${props => props.theme.breakpoints.md}) {
-        display: none;
+        /* display: none; */
+        position: static;
+        align-self: center;
+        width: 300px;
     }
 `;
 
@@ -165,5 +172,14 @@ export const InputsContainer = styled.div`
     }
 `;
 
-
+export const ButtonFilter = styled.button`
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    border: none;
+    background-color: transparent;
+    font-size: 24px;
+`;
 
