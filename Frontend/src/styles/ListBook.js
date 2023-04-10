@@ -173,13 +173,17 @@ export const InputsContainer = styled.div`
 `;
 
 export const ButtonFilter = styled.button`
-    display: flex;
-    width: 100%;
-    justify-content: center;
-    align-items: center;
-    gap: 15px;
-    border: none;
-    background-color: transparent;
-    font-size: 24px;
+    display: none;
+
+    @media screen and (max-width: ${props => props.theme.breakpoints.md}) {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        gap: 15px;
+        border: none;
+        background-color: transparent;
+        font-size: 24px;
+    }
 `;
 
