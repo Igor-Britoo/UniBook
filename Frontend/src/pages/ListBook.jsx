@@ -1,11 +1,12 @@
 import React,{ useState, useEffect } from "react";
 import { useLocation, useSearchParams } from "react-router-dom";
+import { MdClose } from 'react-icons/md'
 
 import RangeSlider from 'react-range-slider-input';
 import 'react-range-slider-input/dist/style.css';
 
 import { Button, H3, H4, Main, Span } from "../styles/styles";
-import { Sections, BooksSection, Books, FiltersSection, FilterSection, Options, RangeInputContainer, InputsContainer, ButtonFilter } from "../styles/ListBook";
+import { Sections, BooksSection, Books, FiltersSection, FilterSection, Options, RangeInputContainer, InputsContainer, ButtonOpenFilters, ButtonCloseFilters } from "../styles/ListBook";
 import { Checkbox } from "../components/Checkbox";
 import { Card } from "../components/Card";
 
@@ -266,19 +267,24 @@ export const ListBook = () => {
         books.books.length === 0 && location.pathname !== '/books/search' && 
         <Span fontSize='xxxl' fontWeight="500">No results found.</Span>
       }
-      <ButtonFilter onClick={openFilter}>
 
-        <FaFilter/>
-        <p>Filter</p>
-      </ButtonFilter>
+        <ButtonOpenFilters onClick={openFilter}>
+          <FaFilter color="#1C3333" fontSize="2.1em"/>
+          <H4 fontSize='xxxxl' fontWeight="500" >Filter</H4>
+        </ButtonOpenFilters>
       
       {
         books.books.length > 0 &&
-        <>
-        {filterActive && (
-        
-        <FiltersSection>
+        <>        
+        <FiltersSection active={filterActive}>
           <H3 fontSize='xxxl' fontWeight="500">Filter by</H3>
+
+          {
+          filterActive && 
+          <ButtonCloseFilters>
+            <MdClose color="#1C3333" fontSize="2.8em" onClick={() => setFilterMode(false)}/>
+          </ButtonCloseFilters>
+          }
 
             <FilterSection>
               <H4 fontSize='xxl' fontWeight="500" >Genre</H4>
@@ -366,8 +372,6 @@ export const ListBook = () => {
             </FilterSection>
             
         </FiltersSection>
-        )}
-
         
         <BooksSection>
             <Books numberOfBooks={books.books.length}>
