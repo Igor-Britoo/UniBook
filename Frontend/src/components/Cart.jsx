@@ -2,6 +2,10 @@ import React from 'react';
 import { FaShoppingCart } from "react-icons/fa";
 import { MdClose } from 'react-icons/md'
 
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../hooks/useAuth'
+import { useCart } from '../hooks/useCart';
+
 import { ContainerCart,
 CartHeader,
 TitleCart,
@@ -13,13 +17,19 @@ import { H3 } from "../styles/styles"
 
 import { CartItem } from "./CartItem";
 
-import {useAuth} from '../hooks/useAuth'
-import { useCart } from '../hooks/useCart';
-
 export const Cart = ({cartActive, setCartMode}) => {
+  const navigate = useNavigate()
   const { cart, isCartLoaded } = useCart()
-  const {user, isUserLoaded} = useAuth()
+  const { user, isUserLoaded } = useAuth()
   const userLoggedIn = Boolean(user.name) === true
+
+  const handleBuy = () =>{
+    if ( cart.cart_items.length > 0 ){
+      navigate("/checkout/")
+    }else{
+      alert('You need items in your cart to purchase')
+    }
+  }
 
   if (cartActive) {
     return (
@@ -51,7 +61,7 @@ export const Cart = ({cartActive, setCartMode}) => {
               <TextDownCart>${ cart.price ? (cart.price).toFixed(2) : (0).toFixed(2) }</TextDownCart>
             </div>
 
-            <BuyButton>Buy</BuyButton>
+            <BuyButton onClick={handleBuy}>Buy</BuyButton>
           </DownCart>
 
 
