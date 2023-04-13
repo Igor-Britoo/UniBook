@@ -19,6 +19,7 @@ import { PageNotFound } from './pages/PageNotFound'
 import { ProfilePagesLayout } from './components/ProfilePagesLayout';
 import { NestedRoutesLayout } from './components/NestedRoutesLayout';
 import { ProtectedRoutes } from './components/ProtectedRoutes';
+import { Checkout } from './pages/Checkout';
 
 function App() {
   return (
@@ -50,8 +51,11 @@ function App() {
                 <Route path='orders/' element= {<Orders />} />
               </Route>
             </Route>
-
             <Route path="*" element={<PageNotFound />}/>
+          </Route>
+
+          <Route path="" element={<ProtectedRoutes />} >
+            <Route path='checkout/' element= {<Checkout />} />
           </Route>
 
         </Routes>

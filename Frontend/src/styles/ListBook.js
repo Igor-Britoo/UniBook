@@ -21,6 +21,10 @@ export const Sections = styled.div`
     @media screen and (max-width: ${props => props.theme.breakpoints.xs}) {
         max-width: 180px;
     }
+
+    @media screen and (max-width: ${props => props.theme.breakpoints.md}) {
+        flex-direction: column;
+    }
 `;
 
 export const BooksSection = styled.div`
@@ -91,7 +95,17 @@ export const FiltersSection = styled.div`
     }
 
     @media screen and (max-width: ${props => props.theme.breakpoints.md}) {
-        display: none;
+        display: ${props => props.active ? 'flex' : 'none'};
+        width: 100%;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: #F3F3F3;
+        box-shadow: -6px 4px 4px rgba(0, 0, 0, 0.25);
+        z-index: 9999;
+        border-radius: 0;
+
     }
 `;
 
@@ -165,5 +179,33 @@ export const InputsContainer = styled.div`
     }
 `;
 
+export const ButtonOpenFilters = styled.button`
+    display: none;
 
+    @media screen and (max-width: ${props => props.theme.breakpoints.md}) {
+        width: fit-content;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 14px;
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+    }
+`;
+
+export const ButtonCloseFilters = styled.button`
+    display: none;
+
+    @media screen and (max-width: ${props => props.theme.breakpoints.md}) {
+        width: fit-content;
+        display: block;
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+    }
+`;
 

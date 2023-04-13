@@ -49,7 +49,7 @@ export const TitleCart = styled.p`
 export const CartItemsContainer = styled.div`
   display: flex;
   flex-direction: column;
-  height: 58vh;
+  height: calc(100vh - 266px);
   overflow-y: auto;
   margin-right: 4px;
   

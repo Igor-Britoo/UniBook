@@ -1,15 +1,18 @@
 import React,{ useState, useEffect } from "react";
 import { useLocation, useSearchParams } from "react-router-dom";
+import { MdClose } from 'react-icons/md'
 
 import RangeSlider from 'react-range-slider-input';
 import 'react-range-slider-input/dist/style.css';
 
 import { Button, H3, H4, Main, Span } from "../styles/styles";
-import { Sections, BooksSection, Books, FiltersSection, FilterSection, Options, RangeInputContainer, InputsContainer } from "../styles/ListBook";
+import { Sections, BooksSection, Books, FiltersSection, FilterSection, Options, RangeInputContainer, InputsContainer, ButtonOpenFilters, ButtonCloseFilters } from "../styles/ListBook";
 import { Checkbox } from "../components/Checkbox";
 import { Card } from "../components/Card";
 
-import { api } from '../lib/axios'
+import { api } from '../lib/axios';
+
+import { FaFilter } from 'react-icons/fa';
   
 export const ListBook = () => {
   const location = useLocation()
@@ -20,6 +23,11 @@ export const ListBook = () => {
   const [searchParams, setSearchParams] = useSearchParams()
   const [priceInterval, setPriceInterval] = useState({ min:0, max:0 })
   const [publicationYearInterval, setPublicationYearInterval] = useState({ min:0, max:0 })
+  const [filterActive, setFilterMode] = useState(false);
+
+  const openFilter = event => {
+    setFilterMode(current => !current);
+  }
   
   const fetchData = async(page=1) => {
     let url = ''
@@ -259,11 +267,24 @@ export const ListBook = () => {
         books.books.length === 0 && location.pathname !== '/books/search' && 
         <Span fontSize='xxxl' fontWeight="500">No results found.</Span>
       }
+
+        <ButtonOpenFilters onClick={openFilter}>
+          <FaFilter color="#1C3333" fontSize="2.1em"/>
+          <H4 fontSize='xxxxl' fontWeight="500" >Filter</H4>
+        </ButtonOpenFilters>
+      
       {
         books.books.length > 0 &&
-        <>
-        <FiltersSection>
+        <>        
+        <FiltersSection active={filterActive}>
           <H3 fontSize='xxxl' fontWeight="500">Filter by</H3>
+
+          {
+          filterActive && 
+          <ButtonCloseFilters>
+            <MdClose color="#1C3333" fontSize="2.8em" onClick={() => setFilterMode(false)}/>
+          </ButtonCloseFilters>
+          }
 
             <FilterSection>
               <H4 fontSize='xxl' fontWeight="500" >Genre</H4>

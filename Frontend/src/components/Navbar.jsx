@@ -4,7 +4,7 @@ import { FaUser, FaShoppingCart, FaSearch } from "react-icons/fa";
 import { BiMenu as OpenMenu } from "react-icons/bi"
 import { MdClose as CloseMenu } from "react-icons/md"
 
-import { NavbarContainer, NavbarContainerMobile , UpNav, DownNav, NavOption, NavButton, NavButtonsContainer, SearchContainer, SearchInput, MobileMenu, NavButtonsContainerMobile } from "../styles/Navbar";
+import { NavbarContainer , UpNav, DownNav, NavOption, NavButton, NavButtonsContainer, SearchContainer, SearchInput, MobileMenu, NavButtonsContainerMobile } from "../styles/Navbar";
 import { H1, H2, Span } from "../styles/styles";
 import { Cart } from "./Cart";
 import { DropdownMenu } from "./DropdownMenu";
@@ -56,37 +56,34 @@ export const Navbar = () => {
         
         <UpNav>
 
-            <div className="row">
-    
-              <MobileMenu>
-                {mobileMenuActive ? 
-                <CloseMenu color="white" fontSize="3em" onClick={toggleMobileMenu}/>
-                :
-                <OpenMenu color="white" fontSize="3.1em" onClick={toggleMobileMenu}/> 
-              }
-              </MobileMenu>
+          <MobileMenu active={mobileMenuActive}>
+            {mobileMenuActive ? 
+            <CloseMenu color="white" fontSize="3em" onClick={toggleMobileMenu}/>
+            :
+            <OpenMenu color="white" fontSize="3.1em" onClick={toggleMobileMenu}/> 
+          }
+          </MobileMenu>
 
-              <Link to="/">
-                <H1 color="white" fontSize='xxxxl'>UniBook</H1>
-              </Link>
-              
-              <NavButtonsContainerMobile>
-                <NavButton onClick={toggleDropdownMenu}>
-                  <FaUser color="white" fontSize="2.1em"/>
-                </NavButton>
+          <Link to="/">
+            <H1 color="white" fontSize='xxxxl'>UniBook</H1>
+          </Link>
+          
+          <NavButtonsContainerMobile>
+            <NavButton onClick={toggleDropdownMenu}>
+              <FaUser color="white" fontSize="2.1em"/>
+            </NavButton>
 
-                <DropdownMenu dropdownMenuActive={dropdownMenuActive}/>
+            <DropdownMenu dropdownMenuActive={dropdownMenuActive}/>
 
-                <NavButton>
-                  <FaShoppingCart color="white" fontSize="2.4em" onClick={openCart}/>
-                  <Span fontSize="xs" fontWeight="700" onClick={openCart}>{isCartLoaded ? cart.cart_items.length : 0}</Span>
-                </NavButton>
-                
-                <Cart cartActive={cartActive} setCartMode={setCartMode}/>
+            <NavButton>
+              <FaShoppingCart color="white" fontSize="2.4em" onClick={openCart}/>
+              <Span fontSize="xs" fontWeight="700" onClick={openCart}>{isCartLoaded ? cart.cart_items.length : 0}</Span>
+            </NavButton>
+            
+          </NavButtonsContainerMobile>
 
-              </NavButtonsContainerMobile>
+          <Cart cartActive={cartActive} setCartMode={setCartMode}/>
 
-          </div>
           
           <SearchContainer>
             <SearchInput type="text" placeholder="Search by Title, Author or ISBN" value={search} onChange={handleSearch} onKeyDown={submitSearchOnEnter}/>
