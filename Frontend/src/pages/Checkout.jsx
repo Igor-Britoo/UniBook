@@ -7,7 +7,7 @@ import { useCart } from '../hooks/useCart'
 import { api } from '../lib/axios'
 
 import { Button, ErrorMessage, H1, H2, H3, H4, Label, Main, Paragraph } from '../styles/styles'
-import { Header, UpHeader, DownHeader, Sections, OrderGeneralInfo, OrderSummary, FieldsContainer, FieldContainer, Info, ShippingAddress, TwoInputsContainer, ItemsContainer, CardItem, CardItemInfo, InfoContainer, PaymentMethod } from '../styles/Checkout'
+import { Header, UpHeader, DownHeader, Sections, OrderGeneralInfo, OrderSummary, FieldsContainer, FieldContainer, Info, ShippingAddress, TwoInputsContainer, ItemsContainer, CardItem, CardItemInfo, InfoContainer } from '../styles/Checkout'
 import { InputContainer, InputNumber } from '../styles/Profile'
 
 export const Checkout = () => {
@@ -18,13 +18,13 @@ export const Checkout = () => {
     city: false,
   }
   const navigate = useNavigate()
-  const { user, isUserLoaded } = useAuth()
+  const { user } = useAuth()
   const { cart, isCartLoaded, getCart } = useCart()
   const [shippingAddress, setShippingAddress] = useState(user.address)
   const [errors, setErrors] = useState(defaultErrors)
 
   const createOrder = async() => {
-    await api.post('/customer-logged/orders/create/' , {
+    await api.post('/customer-logged/orders/' , {
       address: shippingAddress,
       create_from_cart_items: true,
     })
@@ -206,7 +206,7 @@ export const Checkout = () => {
                   cart.cart_items.map((item, index) => 
 
                   <CardItem key={index}>
-                    <img className='book-cover' src={`http://localhost:8000${ item.book.cover_url}`}></img>
+                    <img className='book-cover' alt="book cover" src={`http://localhost:8000${ item.book.cover_url}`}></img>
 
                     <CardItemInfo>
                         <H3 fontSize="xl" fontWeight={600} >{ item.book.title }</H3>

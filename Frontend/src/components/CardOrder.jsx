@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 import { Card, CardHeader, CardInfo, CardItem, CardItemInfo, InfoContainer, ShippingAddress } from "../styles/CardOrder";
 import { H3, H4 } from "../styles/styles";
@@ -79,7 +79,7 @@ export const CardOrder = ({order}) => {
                     <>
                         {orderInfo.order_items.map((orderItem, index) => 
                             <CardItem key={index}>
-                                <img className='book-cover' src={`http://localhost:8000${ orderItem.book.cover_url }`}></img>
+                                <img className='book-cover' alt="book cover" src={`http://localhost:8000${ orderItem.book.cover_url }`}></img>
 
                                 <CardItemInfo>
                                     <H3 fontSize="xl" fontWeight={600} >{ orderItem.book.title }</H3>
