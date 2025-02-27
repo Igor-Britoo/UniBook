@@ -102,7 +102,7 @@ class GetCustomerLogged(APITestCase):
 
 class UpdateCustomerLogged(APITestCase):
     def setUp(self):
-        self.url= "/api/customer-logged/update/"
+        self.url= "/api/customer-logged/"
         
         self.customer = Customer.objects.create_customer(email = "customer@example.com",
                                                     name = "customer name",
