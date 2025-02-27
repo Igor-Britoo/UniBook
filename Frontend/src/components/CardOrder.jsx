@@ -79,7 +79,7 @@ export const CardOrder = ({order}) => {
                     <>
                         {orderInfo.order_items.map((orderItem, index) => 
                             <CardItem key={index}>
-                                <img className='book-cover' alt="book cover" src={`http://localhost:8000${ orderItem.book.cover_url }`}></img>
+                                <img className='book-cover' alt="book cover" src={`http://24.199.78.112:8000${ orderItem.book.cover_url }`}></img>
 
                                 <CardItemInfo>
                                     <H3 fontSize="xl" fontWeight={600} >{ orderItem.book.title }</H3>

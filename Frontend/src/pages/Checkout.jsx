@@ -206,7 +206,7 @@ export const Checkout = () => {
                   cart.cart_items.map((item, index) => 
 
                   <CardItem key={index}>
-                    <img className='book-cover' alt="book cover" src={`http://localhost:8000${ item.book.cover_url}`}></img>
+                    <img className='book-cover' alt="book cover" src={`http://24.199.78.112:8000${ item.book.cover_url}`}></img>
 
                     <CardItemInfo>
                         <H3 fontSize="xl" fontWeight={600} >{ item.book.title }</H3>

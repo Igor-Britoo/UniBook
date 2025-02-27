@@ -54,7 +54,7 @@ export const Book = () => {
           </H2>
 
           <ContainerBook>
-            <img className='book-cover' src={`http://localhost:8000${book.cover_url}`} alt='Book cover'></img>
+            <img className='book-cover' src={`http://24.199.78.112:8000${book.cover_url}`} alt='Book cover'></img>
             
             <CardInfo>
               <div className='title-author'>
