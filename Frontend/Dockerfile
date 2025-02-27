@@ -22,6 +22,9 @@ FROM nginx:alpine
 # Copie os arquivos construídos para o diretório padrão do Nginx
 COPY --from=build /Frontend/build /usr/share/nginx/html
 
+# Copie a configuração personalizada do Nginx
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+
 # Exponha a porta que o Nginx irá rodar
 EXPOSE 80
 
