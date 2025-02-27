@@ -5,8 +5,21 @@ from ...models import *
 from ..serializers import *
 from ..decorators import *
 
-@api_view(['GET'])
+@api_view(['GET', 'POST'])
+def handle_cart(request):
+    if request.method == 'GET':
+        return get_customer_cart(request)
+    elif request.method == 'POST':
+        return create_customer_cart_item(request)
+
+@api_view(['PATCH', 'DELETE'])
 @access_token_required
+def modify_or_remove_cart_item(request, item_id):
+    if request.method == 'PATCH':
+        return update_customer_cart_item(request, item_id)
+    elif request.method == 'DELETE':
+        return delete_customer_cart_item(request, item_id)
+
 def get_customer_cart(request):
     """
         Returns the cart of the logged in customer
@@ -35,8 +48,6 @@ def get_customer_cart(request):
         }
     }, status=200)
 
-@api_view(['POST'])
-@access_token_required
 def create_customer_cart_item(request):
     """
         If there is already a cart item in the logged-in customer's cart for the book
@@ -68,8 +79,6 @@ def create_customer_cart_item(request):
     else:
         return Response({ "detail": "Book not found" }, status=404)
 
-@api_view(['PATCH'])
-@access_token_required
 def update_customer_cart_item(request, item_id):
     """
         If there is an item with the specified id, at logged-in customer cart,
@@ -89,8 +98,6 @@ def update_customer_cart_item(request, item_id):
     else:
         return Response({ "detail": "Cart item not found" }, status=404)
 
-@api_view(['DELETE'])
-@access_token_required
 def delete_customer_cart_item(request, item_id):
     """
         If there is an item with the specified id, at logged-in customer cart,

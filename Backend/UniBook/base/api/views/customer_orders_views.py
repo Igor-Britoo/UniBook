@@ -6,8 +6,14 @@ from ..serializers import *
 from ..decorators import *
 from ..utils import *
 
-@api_view(['POST'])
+@api_view(['POST', 'GET'])
 @access_token_required
+def handle_orders(request):
+    if request.method == 'POST':
+        return create_customer_order(request)
+    elif request.method == 'GET':
+        return get_customer_orders(request)
+
 def create_customer_order(request):
     """
         Create a new order for the customer logged-in
@@ -54,8 +60,6 @@ def create_customer_order(request):
     else:
         return Response({ "detail": "Cannot create an order without items" }, status=400)
     
-@api_view(['GET'])
-@access_token_required
 def get_customer_orders(request):
     """
         Returns all orders from the logged in customer 
@@ -95,7 +99,6 @@ def get_customer_orders(request):
                             'orders': orders_serialized.data }, status=200)
         else:
             return Response({ "detail": "Page not found" }, status=404) 
-
 
 @api_view(['GET'])
 @access_token_required
