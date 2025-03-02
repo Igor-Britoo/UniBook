@@ -132,5 +132,10 @@ export const Button = styled.button`
     :hover {
         background-color: ${ props => props.color === 'white' ? props.theme.colors.gray[300] : props.theme.colors.green[600] }
     }
+
+    :disabled {
+        background-color: ${ props => props.theme.colors.green[600] };
+        cursor: not-allowed;
+    }
 `;
 

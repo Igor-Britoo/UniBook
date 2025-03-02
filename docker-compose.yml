@@ -18,6 +18,7 @@ services:
       - "80:80"
     depends_on:
       - backend
+      - email-sender
     volumes:
       - ./Frontend:/app
     networks:
@@ -32,6 +33,17 @@ services:
       - backend
     volumes:
       - ./Backend/UniBook/base/api/documentation:/app
+
+  email-sender:
+    build: ./EmailSender
+    image: email-sender
+    ports:
+      - "8001:8001"
+    environment:
+      EMAIL_USER: ${EMAIL_USER}
+      EMAIL_PASS: ${EMAIL_PASS}
+    networks:
+      - proxy
 
 networks:
   proxy:

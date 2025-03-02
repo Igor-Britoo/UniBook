@@ -2,9 +2,10 @@ require('dotenv').config();
 
 const nodemailer = require('nodemailer');
 const express = require('express');
+const cors = require('cors');
 const app = express();
 const port = 8001;
-
+app.use(cors());
 app.use(express.json());
 
 // Create a transporter for sending emails using environment variables
@@ -17,18 +18,18 @@ const transporter = nodemailer.createTransport({
 });
 
 // Create a route to send an email
-app.post('/send-email', (req, res) => {
+app.post('/api/send-email', (req, res) => {
   const { to, subject, text } = req.body;
 
   if (!to || !subject || !text) {
-    return res.status(400).send('Missing required fields: to, subject, and text are required.');
+    return res.status(400).send('Missing required fields: to, subject, and textf are required.');
   }
 
   const mailOptions = {
     from: process.env.EMAIL_USER,
     to: to,
     subject: subject,
-    text: text
+    html: text
   };
 
   transporter.sendMail(mailOptions, (error, info) => {
