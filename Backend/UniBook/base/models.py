@@ -100,22 +100,17 @@ class Book(models.Model):
     genres = models.ManyToManyField(Genre) 
     number_of_pages = models.IntegerField()
     price = models.DecimalField(max_digits=10, decimal_places=2)
-    cover = models.ImageField(null=True, blank=True)
-    discount = models.DecimalField(max_digits=3, decimal_places=2, default = 0)
-    views = models.BigIntegerField(default = 0)
-    sellings = models.BigIntegerField(default = 0)
+    cover = models.URLField(null=True, blank=True)
+    discount = models.DecimalField(max_digits=3, decimal_places=2, default=0)
+    views = models.BigIntegerField(default=0)
+    sellings = models.BigIntegerField(default=0)
 
     @property
     def cover_url(self):
-        try:
-            url = self.cover.url
-        except:
-            url = '/images/default_book_cover.jpg'
-
-        return url
+        return self.cover if self.cover else 'http://24.199.78.112:8000/images/default_book_cover.jpg'
 
     def __str__(self):
-	    return self.title + ", " + self.author + ", " + str(self.publication_year) + ", " + self.ISBN
+        return self.title + ", " + self.author + ", " + str(self.publication_year) + ", " + self.ISBN
 
 
 class BookInventory(models.Model):

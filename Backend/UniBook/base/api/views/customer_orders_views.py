@@ -86,6 +86,7 @@ def get_customer_orders(request):
         return Response({ "detail": "The customer logged in has no orders yet" }, status=200) 
     
     else:
+        orders = orders.order_by('-date')
         number_of_pages = get_number_of_pages(orders, limit)
 
         page = (offset/limit) + 1

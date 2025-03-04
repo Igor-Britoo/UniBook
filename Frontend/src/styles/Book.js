@@ -20,8 +20,8 @@ export const ContainerBook = styled.div`
     gap: 40px;
 
     .book-cover {
-        max-width: 327px;
-        max-height: 497px;
+        width: 327px;
+        height: 497px;
     }
 
     @media screen and (max-width: ${props => props.theme.breakpoints.lg}) {
