@@ -18,7 +18,7 @@ export const Card = ({ISBN, coverUrl ,title, author, price}) => {
   return (
     <Link to={`/books/${ISBN}/`}>
       <ContainerCard>
-        <img className='book-cover' src={`http://localhost:8000${coverUrl}`} alt="Book cover"></img>
+        <img className='book-cover' src={`${coverUrl}`} alt="Book cover"></img>
         
         <div className='title-author'>
           <H3 fontSize="sm" fontWeight="600" maxChars={20}>{ title }</H3>

@@ -18,7 +18,8 @@ export const ContainerCard = styled.div`
     }
     
     .book-cover{
-        max-width: 120px;
+        width: 120px;
+        height: 180px;
     }
 
     button{

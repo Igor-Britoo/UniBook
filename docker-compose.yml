@@ -1,0 +1,50 @@
+version: '3.8'
+
+services:
+  backend:
+    build: ./Backend
+    image: unibook-backend
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./Backend:/app
+    networks:
+      - proxy
+
+  frontend:
+    build: ./Frontend
+    image: unibook-frontend
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+      - email-sender
+    volumes:
+      - ./Frontend:/app
+    networks:
+      - proxy
+
+  docs:
+    build: ./Backend/UniBook/base/api/documentation
+    image: unibook-docs
+    ports:
+      - "5000:5000"
+    depends_on:
+      - backend
+    volumes:
+      - ./Backend/UniBook/base/api/documentation:/app
+
+  email-sender:
+    build: ./EmailSender
+    image: email-sender
+    ports:
+      - "8001:8001"
+    environment:
+      EMAIL_USER: ${EMAIL_USER}
+      EMAIL_PASS: ${EMAIL_PASS}
+    networks:
+      - proxy
+
+networks:
+  proxy:
+    driver: bridge

@@ -43,10 +43,10 @@ export const Footer = () => {
         <Section>
           <H2 color="white" fontSize="xxl" fontWeight="600">Payment Methods</H2 >
           <CardFlags>
-            <img src='/images/Visa.png'></img>
-            <img src='/images/Hiper.png'></img>
-            <img src='/images/Master.png'></img>
-            <img src='/images/Paypal.png'></img>
+            <img src='/images/Visa.png' alt="Visa flag"></img>
+            <img src='/images/Hiper.png' alt="Hiper flag"></img>
+            <img src='/images/Master.png' alt="Master flag"></img>
+            <img src='/images/Paypal.png' alt="Paypal flag"></img>
           </CardFlags>
         </Section>
       </DownFooter>

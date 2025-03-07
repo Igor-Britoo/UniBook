@@ -182,8 +182,8 @@ export const CardItem = styled.div`
   gap: 30px;
 
   img{
-    max-width: 150px;
-    max-height: 225px;
+    width: 150px;
+    height: 225px;
   }
 
   @media screen and (max-width: ${props => props.theme.breakpoints.sm}) {

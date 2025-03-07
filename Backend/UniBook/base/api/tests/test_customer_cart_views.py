@@ -107,7 +107,7 @@ class GetCustomerCart(APITestCase):
 
 class CreateCustomerCartItem(APITestCase):
     def setUp(self):
-        self.url= "/api/customer-logged/cart/cart-items/create/"
+        self.url= "/api/customer-logged/cart/"
         
         self.customer = Customer.objects.create_customer(email = "customer@example.com",
                                                     name = "customer name",
@@ -210,7 +210,7 @@ class CreateCustomerCartItem(APITestCase):
 
 class UpdateCustomerCartItem(APITestCase):
     def setUp(self):
-        self.url= "/api/customer-logged/cart/cart-items"
+        self.url= "/api/customer-logged/cart/"
         
         self.customer = Customer.objects.create_customer(email = "customer@example.com",
                                                     name = "customer name",
@@ -247,7 +247,7 @@ class UpdateCustomerCartItem(APITestCase):
 
     def test_update_customer_cart_item_that_exists_at_customer_cart_items_with_valid_token(self):
         self.client.credentials(HTTP_AUTHORIZATION='Bearer ' + self.token)
-        response = self.client.patch(self.url + '/1/update/', {'quantity': 3})
+        response = self.client.patch(self.url + '1/', {'quantity': 3})
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 
         response_data = json.loads(response.content)
@@ -256,7 +256,7 @@ class UpdateCustomerCartItem(APITestCase):
 
     def test_update_customer_cart_item_that_exists_at_customer_cart_items_with_invalid_token(self):
         self.client.credentials(HTTP_AUTHORIZATION='Bearer ' + self.token + 'x')
-        response = self.client.patch(self.url + '/1/update/', {'quantity': 3})
+        response = self.client.patch(self.url + '1/', {'quantity': 3})
         self.assertEqual(response.status_code, status.HTTP_401_UNAUTHORIZED)
 
         response_data = json.loads(response.content)
@@ -274,7 +274,7 @@ class UpdateCustomerCartItem(APITestCase):
         self.assertEqual(response_data, expected_data)
     
     def test_update_customer_cart_item_that_exists_at_customer_cart_items_without_token(self):
-        response = self.client.patch(self.url + '/1/update/', {'quantity': 3})
+        response = self.client.patch(self.url + '1/', {'quantity': 3})
         self.assertEqual(response.status_code, status.HTTP_401_UNAUTHORIZED)
 
         response_data = json.loads(response.content)
@@ -283,7 +283,7 @@ class UpdateCustomerCartItem(APITestCase):
 
     def test_update_customer_cart_item_that_not_exists_at_customer_cart_items_with_valid_token(self):
         self.client.credentials(HTTP_AUTHORIZATION='Bearer ' + self.token)
-        response = self.client.patch(self.url + '/2/update/', {'quantity': 3})
+        response = self.client.patch(self.url + '2/', {'quantity': 3})
         self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
 
         response_data = json.loads(response.content)
@@ -292,7 +292,7 @@ class UpdateCustomerCartItem(APITestCase):
 
 class DeleteCustomerCartItem(APITestCase):
     def setUp(self):
-        self.url= "/api/customer-logged/cart/cart-items"
+        self.url= "/api/customer-logged/cart/"
         
         self.customer = Customer.objects.create_customer(email = "customer@example.com",
                                                     name = "customer name",
@@ -329,7 +329,7 @@ class DeleteCustomerCartItem(APITestCase):
 
     def test_delete_customer_cart_item_that_exists_at_customer_cart_items_with_valid_token(self):
         self.client.credentials(HTTP_AUTHORIZATION='Bearer ' + self.token)
-        response = self.client.delete(self.url + '/1/delete/')
+        response = self.client.delete(self.url + '1/')
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 
         response_data = json.loads(response.content)
@@ -338,7 +338,7 @@ class DeleteCustomerCartItem(APITestCase):
 
     def test_delete_customer_cart_item_that_exists_at_customer_cart_items_with_invalid_token(self):
         self.client.credentials(HTTP_AUTHORIZATION='Bearer ' + self.token + 'x')
-        response = self.client.delete(self.url + '/1/delete/')
+        response = self.client.delete(self.url + '1/')
         self.assertEqual(response.status_code, status.HTTP_401_UNAUTHORIZED)
 
         response_data = json.loads(response.content)
@@ -356,7 +356,7 @@ class DeleteCustomerCartItem(APITestCase):
         self.assertEqual(response_data, expected_data)
     
     def test_delete_customer_cart_item_that_exists_at_customer_cart_items_without_token(self):
-        response = self.client.delete(self.url + '/1/delete/')
+        response = self.client.delete(self.url + '1/')
         self.assertEqual(response.status_code, status.HTTP_401_UNAUTHORIZED)
 
         response_data = json.loads(response.content)
@@ -365,10 +365,9 @@ class DeleteCustomerCartItem(APITestCase):
 
     def test_delete_customer_cart_item_that_not_exists_at_customer_cart_items_with_valid_token(self):
         self.client.credentials(HTTP_AUTHORIZATION='Bearer ' + self.token)
-        response = self.client.delete(self.url + '/2/delete/')
+        response = self.client.delete(self.url + '2/')
         self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
 
         response_data = json.loads(response.content)
         expected_data = {"detail":"Cart item not found"}
         self.assertEqual(response_data, expected_data)
-

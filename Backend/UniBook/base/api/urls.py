@@ -15,20 +15,16 @@ urlpatterns = [
     path('signup/', customer_views.create_customer, name='create_customer'),
 
     path('customer-logged/', include([
-        path('', customer_views.get_customer_logged, name='get_customer_logged'),
-        path('update/', customer_views.update_customer_logged, name='update_customer_logged'),
+        path('', customer_views.manage_logged_customer, name='manage_logged_customer'),
 
         path('orders/', include([
-            path('', customer_orders_views.get_customer_orders, name='get_customer_orders'),
-            path('create/', customer_orders_views.create_customer_order, name='create_customer_order'),
+            path('', customer_orders_views.handle_orders, name='handle_orders'),
             path('<uuid:code>/', customer_orders_views.get_customer_order_info, name='get_customer_order_info'),
         ])),
 
         path('cart/', include([
-            path('', customer_cart_views.get_customer_cart, name='get_customer_cart'),
-            path('cart-items/create/', customer_cart_views.create_customer_cart_item, name='create_customer_cart_item'),
-            path('cart-items/<int:item_id>/update/', customer_cart_views.update_customer_cart_item, name='update_customer_cart_item'),
-            path('cart-items/<int:item_id>/delete/', customer_cart_views.delete_customer_cart_item, name='delete_customer_cart_item'),
+            path('', customer_cart_views.handle_cart, name='handle_cart'),
+            path('<int:item_id>/', customer_cart_views.modify_or_remove_cart_item, name='modify_or_remove_cart_item'),
         ]))
     ])),
 

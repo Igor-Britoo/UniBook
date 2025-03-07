@@ -1,7 +1,6 @@
 import { H2, Main } from "../styles/styles";
 
 import { Link, Outlet, useLocation } from 'react-router-dom'
-import { useState } from "react";
 
 import { ProfileNav, PageContainer, Container } from "../styles/ProfilePagesLayout";
 import { BackButton } from "./BackButton";

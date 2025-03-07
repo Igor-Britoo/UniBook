@@ -5,6 +5,14 @@ from ...models import *
 from ..serializers import *
 from ..decorators import *
 
+@api_view(['GET', 'PUT'])
+@access_token_required
+def manage_logged_customer(request):
+    if request.method == 'GET':
+        return get_customer_logged(request)
+    elif request.method == 'PUT':
+        return update_customer_logged(request)
+
 @api_view(['POST'])
 def create_customer(request):
     """
@@ -29,8 +37,6 @@ def create_customer(request):
 
         return Response({ "detail": "User created with success" }, status=201)
 
-@api_view(['GET'])
-@access_token_required
 def get_customer_logged(request):
     """
         Returns the customer logged in
@@ -47,8 +53,6 @@ def get_customer_logged(request):
         }
     }, status=200)
 
-@api_view(['PUT'])
-@access_token_required
 def update_customer_logged(request):
     """
         Updates the data of the logged in customer

@@ -45,8 +45,8 @@ export const CardItem = styled.div`
   border-top: 1px solid ${ props => props.theme.colors.green[800]};
 
   img{
-    max-width: 115px;
-    max-height: 175px;
+    width: 115px;
+    height: 175px;
   }
 
   @media screen and (max-width: ${props => props.theme.breakpoints.sm}) {

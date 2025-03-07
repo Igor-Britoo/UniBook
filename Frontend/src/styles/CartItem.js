@@ -8,8 +8,8 @@ export const Product = styled.div`
   gap: 14px;
 
   img{
-    max-width: 100px;
-    max-height: 150px;
+    width: 100px;
+    height: 150px;
   }
 
   button{

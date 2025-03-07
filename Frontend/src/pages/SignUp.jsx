@@ -5,6 +5,7 @@ import { H1, H2, Button, Paragraph, ErrorMessage } from '../styles/styles';
 import { Main, ContainerForm, Form } from '../styles/Sign'
 
 import { api } from '../lib/axios';
+import axios from 'axios';
 
 export const SignUp = () => {
     const defaultUser = {
@@ -21,6 +22,7 @@ export const SignUp = () => {
     }
     const [user, setUser] = useState(defaultUser)
     const [errors, setErrors] = useState(defaultErrors)
+    const [isSubmitting, setIsSubmitting] = useState(false)
 
     const handleInput = (event) =>{
         const data = event.target
@@ -37,8 +39,25 @@ export const SignUp = () => {
         api.post('/signup/', user)
         .then(response => {
             console.log(response)
-            alert('Congratulations! Your account has been successfully created.')
-            setUser(defaultUser)
+
+            axios.post('http://24.199.78.112:8001/api/send-email', {
+                "to": user.email,
+                "subject": "Bem-vindo ao UniBook!",
+                "text": `
+                    <div style="font-family: Arial, sans-serif; line-height: 1.6;">
+                        <h2 style="color: #333;">Olá ${user.name},</h2>
+                        <p>Obrigado por criar uma conta no UniBook. Estamos muito felizes em tê-lo conosco!</p>
+                        <p>Atenciosamente,<br>A equipe UniBook</p>
+                    </div>
+                `
+            }).then(response => {
+                console.log(response)
+                alert('Congratulations! Your account has been successfully created.')
+                setUser(defaultUser)
+            }
+            ).catch(error => {
+                console.log(error)
+            })
         })
         .catch(error => {
             console.log(error)
@@ -51,6 +70,7 @@ export const SignUp = () => {
     const submit = () => {
         let canSubmit = true;
         setErrors(defaultErrors)
+        setIsSubmitting(true)                  
 
         if ( user.email === "" || !isValidEmail(user.email)){
             setErrors(prevState =>({
@@ -85,8 +105,9 @@ export const SignUp = () => {
             }
         }
 
-        if(canSubmit) {                        
+        if(canSubmit) {      
             signUp()
+            setTimeout(() => {setIsSubmitting(false)}, 500)
         }else{
             console.log('cannot submit')
         }
@@ -122,7 +143,7 @@ export const SignUp = () => {
                     
                 </Form>
                 
-                <Button onClick={submit}>Create</Button>
+                <Button onClick={submit} disabled={isSubmitting}>Create</Button>
                 
                 <Paragraph color="gray" fontSize="md" fontWeight="400" textAlign="center">
                     Already have an account?    

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 
 import { Button, ErrorMessage, Label } from '../styles/styles'
 import { FormContainer, InputContainer, TwoInputsContainer, InputNumber } from '../styles/Profile'
@@ -19,7 +19,7 @@ export const Profile = () => {
     }
 
     const [editMode, setEditMode] = useState(false)
-    const { user, isUserLoaded } = useAuth()
+    const { user } = useAuth()
     const [userLoggedData, setUserLoggedData] = useState(user)
     const [errors, setErrors] = useState(defaultErrors)
 
@@ -74,7 +74,7 @@ export const Profile = () => {
         let accessToken = localStorage.getItem('access')
 
         api.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`
-        await api.put('/customer-logged/update/', userLoggedData)
+        await api.put('/customer-logged/', userLoggedData)
         .then(response => {
             //console.log(response)
             alert('Your account data has been successfully updated.')

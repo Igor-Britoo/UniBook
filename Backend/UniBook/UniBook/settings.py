@@ -26,13 +26,15 @@ SECRET_KEY = 'django-insecure-51v+fo&5q*8fab7!hiuk-+4aq9w)c$3yx)eshjb*6%(jv_#fat
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
     "http://127.0.0.1:3000",
-    "http://localhost:8000",
-    "http://127.0.0.1:8000",
+    "http://localhost",
+    "http://127.0.0.1",
+    "http://24.199.78.112",
+    "http://24.199.78.112:3000"
 ]
 
 # Application definition
@@ -109,9 +111,7 @@ ROOT_URLCONF = 'UniBook.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [
-            PROJECT_BASE_DIR / 'Frontend/build'
-        ],
+        'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -174,7 +174,6 @@ USE_TZ = True
 STATIC_URL = 'static/'
 
 STATICFILES_DIRS = [
-    PROJECT_BASE_DIR / 'Frontend/build/static',
     PROJECT_BASE_DIR / 'Backend/static',
 ]
 

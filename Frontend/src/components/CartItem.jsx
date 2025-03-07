@@ -39,7 +39,7 @@ export const CartItem = ({ item }) => {
 
   return(
     <Product>
-      <img src={`http://localhost:8000/${item.book.cover_url}`} alt="Book cover"></img>
+      <img src={`${item.book.cover_url}`} alt="Book cover"></img>
       <ContainerInfoProduct>
         <TitleProduct>{ item.book.title }</TitleProduct>
         <AuthorProduct>{ item.book.author }</AuthorProduct>

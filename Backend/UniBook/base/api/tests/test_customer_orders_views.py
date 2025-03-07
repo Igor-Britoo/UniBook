@@ -5,7 +5,7 @@ from rest_framework import status
 from ...models import *
 class CreateCustomerOrder(APITestCase):
     def setUp(self):
-        self.url= "/api/customer-logged/orders/create/"
+        self.url= "/api/customer-logged/orders/"
 
         self.shipping_address = Address.objects.create( street_name = "test street",
                                                     house_number = 0,
